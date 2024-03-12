@@ -1,15 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+
 
 public class DrivingCar : MonoBehaviour
 {
 
-    Transform currentDrivingPoint;
+    [SerializeField]
+    private float speed;
 
+    public Transform currentDrivingPoint;
+
+    private void Start()
+    {
+        speed = 15f;
+    }
     private void Update()
     {
-        gameObject.transform.LookAt(currentDrivingPoint);
+        if(currentDrivingPoint != null)
+        {
+            gameObject.transform.LookAt(currentDrivingPoint);
+            Vector3 moveVec = (currentDrivingPoint.position- transform.position ).normalized;
+            transform.Translate(moveVec * speed * Time.deltaTime,Space.World);
+        }
+        
         
     }
     public void NextDrivingPoint(Transform _nextDrivingPoint)

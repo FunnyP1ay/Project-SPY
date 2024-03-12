@@ -13,9 +13,12 @@ public class DrivePoint : MonoBehaviour
     {
         if(collider.TryGetComponent(out DrivingCar drivingCar))
         {
-            randNum = Random.Range(0, nextPoints.Count);
+            if(drivingCar.currentDrivingPoint == transform)
+            {
+                randNum = Random.Range(0, nextPoints.Count);
 
-            drivingCar.NextDrivingPoint(nextPoints[randNum].transform);
+                drivingCar.NextDrivingPoint(nextPoints[randNum].transform);
+            }
         }
     }
 }
