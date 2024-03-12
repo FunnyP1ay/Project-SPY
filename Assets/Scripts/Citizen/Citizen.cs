@@ -27,4 +27,8 @@ public class Citizen : MonoBehaviour
     {
 
     }
+    private void TrafficTarget()
+    {
+
+    }
 }

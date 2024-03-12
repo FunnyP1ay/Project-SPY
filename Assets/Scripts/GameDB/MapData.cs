@@ -25,4 +25,5 @@ public class MapData : MonoBehaviour
     public List<BuildingBlock> empty_Building_Block_List;
     public List<BuildingBlock> built_Building_Block_List;
 
+    public List<TrafficSignal> trafficSignals_List;
 }
