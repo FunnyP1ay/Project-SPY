@@ -58,6 +58,12 @@ public class Citizen : MonoBehaviour
 
     }
 
+#if DEBUG
 
+#elif TEST
+#endif
+#if (TEST && UNITY_EDITOR)
+#else
+#endif
 
 }
