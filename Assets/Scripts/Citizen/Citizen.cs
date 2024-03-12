@@ -29,7 +29,7 @@ public class Citizen : MonoBehaviour
     public enum State
     {
         die,
-        move,
+        freeMove,
         needNextMove
     }
     public State state;
@@ -40,7 +40,7 @@ public class Citizen : MonoBehaviour
         while(state != State.die)
         {
             
-            if (state == State.move)
+            if (state == State.freeMove)
             {
                 CheckTargetPos();
             }
@@ -64,7 +64,7 @@ public class Citizen : MonoBehaviour
             navTarget =  _road.navTargetPos_List[randNum].transform;
             nav.SetDestination(navTarget.position);
             nav.updatePosition = true;
-            state = State.move;
+            state = State.freeMove;
         }
 
     }
