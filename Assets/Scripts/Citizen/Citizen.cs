@@ -9,16 +9,21 @@ public class Citizen : MonoBehaviour
     [SerializeField]
     Transform           navTarget;
     NavMeshAgent        nav;
-   
+    private int         randNum;
+    float               checkDistance;
+
     // Start is called before the first frame update
     private void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        nav.speed = 1.0f;
-        nav.updatePosition = true;
 
-        nav.SetDestination(navTarget.position);
-        StartCoroutine(SetTargetCoroutine());
+        nav.speed = 3.0f;
+        state = State.needNextMove;
+        StartCoroutine(MoveCoroutine());
+       
+    }
+    private void OnEnable()
+    {
     }
 
     public enum State
@@ -30,23 +35,47 @@ public class Citizen : MonoBehaviour
     public State state;
 
 
-    private IEnumerator SetTargetCoroutine()
+    IEnumerator MoveCoroutine()
     {
         while(state != State.die)
         {
+            
+            if (state == State.move)
+            {
+                CheckTargetPos();
+            }
             if(state == State.needNextMove)
             {
                 SetNavTarget();
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSecondsRealtime(3f);
         }
-
         yield break;
     }
+
     private void SetNavTarget()
     {
-        Collider[] collider = Physics.OverlapSphere(Vector3.zero, 20f);
-        //collider.
+        int roadLayerMask = LayerMask.GetMask("Road");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 15f, roadLayerMask);
+        randNum = Random.Range(0, colliders.Length);
+        if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
+        {
+            randNum = Random.Range(0,_road.navTargetPos_List.Count);
+            navTarget =  _road.navTargetPos_List[randNum].transform;
+            nav.SetDestination(navTarget.position);
+            nav.updatePosition = true;
+            state = State.move;
+        }
+
+    }
+    private void CheckTargetPos()
+    {
+        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+        if (checkDistance < 2f)
+        {
+            nav.updatePosition = false;
+            state = State.needNextMove;
+        }
 
     }
     private void CrossTheCrosswalk()
@@ -57,13 +86,5 @@ public class Citizen : MonoBehaviour
     {
 
     }
-
-#if DEBUG
-
-#elif TEST
-#endif
-#if (TEST && UNITY_EDITOR)
-#else
-#endif
 
 }

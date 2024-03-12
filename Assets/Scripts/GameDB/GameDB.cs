@@ -12,11 +12,11 @@ public class GameDB : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(this);
         }
+        DontDestroyOnLoad(gameObject);
     }
 }

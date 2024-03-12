@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 1008744299552806400}
   - component: {fileID: 553463670050752719}
   - component: {fileID: 8470288583021740160}
+  - component: {fileID: 3671832493416696631}
   m_Layer: 6
   m_Name: Road Intersection_Cross_0
   m_TagString: Untagged
@@ -167,6 +168,27 @@ MonoBehaviour:
   - {fileID: 258539219079410879}
   - {fileID: 8502297811130507822}
   - {fileID: 1618715789495337676}
+--- !u!65 &3671832493416696631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7500627268723090834}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 0.20000087, z: 20}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &8502297811130507822
 GameObject:
   m_ObjectHideFlags: 0

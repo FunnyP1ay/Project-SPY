@@ -5,6 +5,6 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
 
-    [SerializeField]
-    List<GameObject> navTargetPos_List = new List<GameObject>();
+
+    public List<GameObject> navTargetPos_List = new List<GameObject>();
 }

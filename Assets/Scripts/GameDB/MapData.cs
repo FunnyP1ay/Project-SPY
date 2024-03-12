@@ -11,19 +11,21 @@ public class MapData : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+          
         }
         else
         {
             Destroy(this);
         }
+        DontDestroyOnLoad(gameObject);
     }
     [Header("BuildingData")]
     
     public List<Building> buildingPrefabs;
     
+    // ---------------Building List-----------------
     public List<BuildingBlock> empty_Building_Block_List;
     public List<BuildingBlock> built_Building_Block_List;
-
+    // ---------------TrafficSignal List
     public List<TrafficSignal> trafficSignals_List;
 }
