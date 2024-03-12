@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DrivingCar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    Transform currentDrivingPoint;
+
+    private void Update()
     {
+        gameObject.transform.LookAt(currentDrivingPoint);
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void NextDrivingPoint(Transform _nextDrivingPoint)
     {
-        
+       currentDrivingPoint = _nextDrivingPoint;
     }
 }
