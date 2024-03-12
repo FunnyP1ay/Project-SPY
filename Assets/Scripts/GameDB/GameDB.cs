@@ -19,14 +19,4 @@ public class GameDB : MonoBehaviour
             Destroy(this);
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

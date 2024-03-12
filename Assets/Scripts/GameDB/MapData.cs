@@ -19,8 +19,10 @@ public class MapData : MonoBehaviour
         }
     }
     [Header("BuildingData")]
-    [SerializeField]
+    
     public List<Building> buildingPrefabs;
-
+    
+    public List<BuildingBlock> empty_Building_Block_List;
+    public List<BuildingBlock> built_Building_Block_List;
 
 }
