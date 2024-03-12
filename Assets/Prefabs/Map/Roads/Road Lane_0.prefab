@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7899281518757487785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4772705131677015105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 5819047629484164406}
   - component: {fileID: 7975375911707931703}
   - component: {fileID: 4267946425844834601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road Lane_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1e2946e4a726046ba526ab628ae22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navTargetPos_List:
+  - {fileID: 4383109353152679458}
+  - {fileID: 1146219421569237028}
+  - {fileID: 1270402249381955721}
+  - {fileID: 4482581734784326050}
 --- !u!1 &4383109353152679458
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8735795673167084477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608187408966356494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

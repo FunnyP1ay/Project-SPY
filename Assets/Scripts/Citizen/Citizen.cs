@@ -9,6 +9,7 @@ public class Citizen : MonoBehaviour
     [SerializeField]
     Transform           navTarget;
     NavMeshAgent        nav;
+   
     // Start is called before the first frame update
     private void Start()
     {
@@ -17,10 +18,35 @@ public class Citizen : MonoBehaviour
         nav.updatePosition = true;
 
         nav.SetDestination(navTarget.position);
+        StartCoroutine(SetTargetCoroutine());
     }
 
+    public enum State
+    {
+        die,
+        move,
+        needNextMove
+    }
+    public State state;
+
+
+    private IEnumerator SetTargetCoroutine()
+    {
+        while(state != State.die)
+        {
+            if(state == State.needNextMove)
+            {
+                SetNavTarget();
+            }
+            yield return new WaitForSeconds(3f);
+        }
+
+        yield break;
+    }
     private void SetNavTarget()
     {
+        Collider[] collider = Physics.OverlapSphere(Vector3.zero, 20f);
+        //collider.
 
     }
     private void CrossTheCrosswalk()
@@ -31,4 +57,7 @@ public class Citizen : MonoBehaviour
     {
 
     }
+
+
+
 }

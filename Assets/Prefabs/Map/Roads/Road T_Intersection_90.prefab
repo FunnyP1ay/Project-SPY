@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 172112428130569269}
   - component: {fileID: 1260929364571083231}
   - component: {fileID: -8163805210705996511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road T_Intersection_90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1e2946e4a726046ba526ab628ae22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navTargetPos_List:
+  - {fileID: 1719907235922749166}
+  - {fileID: 2102885219909293354}
+  - {fileID: 1047213149283127139}
 --- !u!1 &1047213149283127139
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 453743922051758081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3430376379122129313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562307121967292784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

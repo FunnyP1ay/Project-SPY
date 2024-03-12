@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9072309137211551277}
   - component: {fileID: 5402976274127909816}
   - component: {fileID: 8677108060260399598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road Corner_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1e2946e4a726046ba526ab628ae22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navTargetPos_List:
+  - {fileID: 9033721806298720927}
+  - {fileID: 7513408540187338153}
 --- !u!1 &7513408540187338153
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4733600284864677627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7447412842687084664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavTargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
