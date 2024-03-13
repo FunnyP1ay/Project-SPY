@@ -14,8 +14,10 @@ public class DrivingCar : MonoBehaviour
     private float raycastRange = 3f;
     [SerializeField]
     private LayerMask targetLayer;
-
+    
     public Transform currentDrivingPoint;
+    private bool waitMode = false;
+    private bool waitCoroutine = true;
 
     private void Start()
     {
@@ -29,16 +31,31 @@ public class DrivingCar : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(transform.position,transform.forward, out hit, raycastRange, targetLayer)) 
             {
+          
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Citizen") ||
                     hit.collider.gameObject.layer == LayerMask.NameToLayer("DrivingCar"))
                 {
-                    DrivingStop();
+
+                    if(waitMode == true)
+                    {
+                        DrivingStop();
+                    }
+                    else
+                    {
+                        Driving();
+                    }
+                    if (waitCoroutine == false)
+                    {
+                        waitCoroutine = true;
+                        StartCoroutine(WaitNextDrivingCoroutine());
+                    }
+                }
+                else
+                {
+                    Driving();
                 }
             }
-            else
-            {
-                Driving();
-            }
+          
         }
    
 
@@ -58,6 +75,14 @@ public class DrivingCar : MonoBehaviour
     }
     private void DrivingStop()
     {
-        speed = 0f;
+            speed = 0f;
+    }
+    private IEnumerator WaitNextDrivingCoroutine()
+    {
+        waitMode = true;
+        yield return new WaitForSecondsRealtime(3f);
+        waitCoroutine = false;
+        waitMode = false;
+        yield break;
     }
 }
