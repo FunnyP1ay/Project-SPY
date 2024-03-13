@@ -9,19 +9,19 @@ public class DrivingCar : MonoBehaviour
 {
 
     [SerializeField]
-    private float speed;
+    private float           setSpeed;
+    private float           currentSpeed;
     [SerializeField]
-    private float raycastRange = 3f;
+    private float           raycastRange = 5f;
     [SerializeField]
-    private LayerMask targetLayer;
+    private LayerMask       targetLayer;
     
-    public Transform currentDrivingPoint;
-   // private bool waitMode = false;
-   // private bool waitCoroutine = true;
-
+    public Transform        currentDrivingPoint;
+    public bool             doingCourutine = false;
     private void Start()
     {
-        speed = 15f;
+        setSpeed = 50f;
+        currentSpeed = setSpeed;
         raycastRange = 5f;
     }
     private void Update()
@@ -32,17 +32,18 @@ public class DrivingCar : MonoBehaviour
             if(Physics.Raycast(transform.position,transform.forward, out hit, raycastRange, targetLayer)) 
             {
           
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Citizen") 
-                  /*  hit.collider.gameObject.layer == LayerMask.NameToLayer("DrivingCar")*/)
+                if ( hit.collider.gameObject.layer == LayerMask.NameToLayer("Citizen") ||
+                hit.collider.gameObject.layer == LayerMask.NameToLayer("DrivingCar"))
                 {
-                    DrivingStop();
-         
+                    if(doingCourutine == false)
+                    {
+                        doingCourutine=true;
+                        StartCoroutine(WaitCoroutine());
+                    }
                 }
             }
-            else
-            {
-                Driving();
-            }
+
+            Driving();
         }
     }
     public void NextDrivingPoint(Transform _nextDrivingPoint)
@@ -52,21 +53,34 @@ public class DrivingCar : MonoBehaviour
 
     private void Driving() 
     {
-        speed = 50f;
         gameObject.transform.LookAt(currentDrivingPoint);
         Vector3 moveVec = (currentDrivingPoint.position - transform.position).normalized;
-        transform.Translate(moveVec * speed * Time.deltaTime, Space.World);
+        transform.Translate(moveVec * currentSpeed * Time.deltaTime, Space.World);
     }
     private void DrivingStop()
     {
-            speed = 0f;
+        
+        currentSpeed = 0f;
+        print("잠시 멈췄습니다 ! ");
     }
-    /*private IEnumerator WaitNextDrivingCoroutine()
+    private void DrivingSlowStart()
     {
-        waitMode = true;
-        yield return new WaitForSecondsRealtime(3f);
-        waitCoroutine = false;
-        waitMode = false;
+        currentSpeed = setSpeed / 2;
+        print("천천히 운행합니다 ! ");
+    }
+    private void DrivingReStart()
+    {
+        currentSpeed = setSpeed;
+        print("다시 운행합니다 ! ");
+    }
+    private IEnumerator WaitCoroutine()
+    {
+        DrivingStop();
+        yield return new WaitForSecondsRealtime(0.5f);
+        DrivingSlowStart();
+        yield return new WaitForSecondsRealtime(1.5f);
+        DrivingReStart();
+        doingCourutine = false;
         yield break;
-    }*/
+    }
 }
