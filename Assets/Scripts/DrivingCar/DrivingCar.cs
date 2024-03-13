@@ -16,8 +16,8 @@ public class DrivingCar : MonoBehaviour
     private LayerMask targetLayer;
     
     public Transform currentDrivingPoint;
-    private bool waitMode = false;
-    private bool waitCoroutine = true;
+   // private bool waitMode = false;
+   // private bool waitCoroutine = true;
 
     private void Start()
     {
@@ -32,34 +32,18 @@ public class DrivingCar : MonoBehaviour
             if(Physics.Raycast(transform.position,transform.forward, out hit, raycastRange, targetLayer)) 
             {
           
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Citizen") ||
-                    hit.collider.gameObject.layer == LayerMask.NameToLayer("DrivingCar"))
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Citizen") 
+                  /*  hit.collider.gameObject.layer == LayerMask.NameToLayer("DrivingCar")*/)
                 {
-
-                    if(waitMode == true)
-                    {
-                        DrivingStop();
-                    }
-                    else
-                    {
-                        Driving();
-                    }
-                    if (waitCoroutine == false)
-                    {
-                        waitCoroutine = true;
-                        StartCoroutine(WaitNextDrivingCoroutine());
-                    }
-                }
-                else
-                {
-                    Driving();
+                    DrivingStop();
+         
                 }
             }
-          
+            else
+            {
+                Driving();
+            }
         }
-   
-
-
     }
     public void NextDrivingPoint(Transform _nextDrivingPoint)
     {
@@ -77,12 +61,12 @@ public class DrivingCar : MonoBehaviour
     {
             speed = 0f;
     }
-    private IEnumerator WaitNextDrivingCoroutine()
+    /*private IEnumerator WaitNextDrivingCoroutine()
     {
         waitMode = true;
         yield return new WaitForSecondsRealtime(3f);
         waitCoroutine = false;
         waitMode = false;
         yield break;
-    }
+    }*/
 }
