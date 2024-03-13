@@ -19,4 +19,5 @@ public class GameDB : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
 }

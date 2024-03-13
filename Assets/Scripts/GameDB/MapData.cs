@@ -19,11 +19,14 @@ public class MapData : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    // ---------------Building Prefabs-------------------
     [Header("BuildingData")]
+
+    public List<Building> housePrefabs;
+    public List<Building> shopPrefabs;
+    public List<Building> factoryPrefabs;
     
-    public List<Building> buildingPrefabs;
-    
-    // ---------------Building List-----------------
+    // ---------------Building Block List-----------------
     public List<BuildingBlock> empty_Building_Block_List;
     public List<BuildingBlock> built_Building_Block_List;
     // ---------------TrafficSignal List

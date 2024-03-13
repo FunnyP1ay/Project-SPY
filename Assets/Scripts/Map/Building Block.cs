@@ -10,17 +10,11 @@ public class BuildingBlock : MonoBehaviour
     int randNum;
     public void BuildingSpawn(Transform _blockPos)
     {
-        if(MapData.Instance.empty_Building_Block_List.Count > 0)
-        {
-            randNum = Random.Range(0, MapData.Instance.buildingPrefabs.Count);
-            var newBuilding = LeanPool.Spawn(MapData.Instance.buildingPrefabs[randNum]);
+
+            randNum = Random.Range(0, MapData.Instance.housePrefabs.Count);
+            var newBuilding = LeanPool.Spawn(MapData.Instance.housePrefabs[randNum]);
             newBuilding.transform.position = _blockPos.position;
             newBuilding.transform.SetParent(gameObject.transform);
-        }
-        else
-        {
-            
-        }
-
+        
     }
 }

@@ -20,9 +20,7 @@ public class DrivingCar : MonoBehaviour
     public bool             doingCourutine = false;
     private void Start()
     {
-        setSpeed = 50f;
         currentSpeed = setSpeed;
-        raycastRange = 5f;
     }
     private void Update()
     {
