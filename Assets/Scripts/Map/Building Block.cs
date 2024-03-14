@@ -16,12 +16,7 @@ public class BuildingBlock : MonoBehaviour
     {
         setVector = 99999f;
         colliders = Physics.OverlapSphere(transform.position,20f, layerMask);
-        if (colliders.Length == 0)
-        {
-            print($"{name}의 타깃이 없습니다 !");
-        }
-        else
-        {
+
             foreach (Collider collider in colliders)
             {
                 if (collider.TryGetComponent(out Road road))
@@ -33,11 +28,8 @@ public class BuildingBlock : MonoBehaviour
                         target = road.transform;
                         print("타겟을 잡았습니다.");
                     }
-
-
                 }
             }
-        }
     }
     public void BuildingSpawn(Transform _blockPos)
     {

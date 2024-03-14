@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameDB : MonoBehaviour
 {
-    
+
     private static GameDB instance;
     public static GameDB Instance { get { if (instance == null) return null; return instance; }  }
     private void Awake()
@@ -19,5 +19,8 @@ public class GameDB : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    public List<char> nameChar      = new List<char>();
+    public List<char> nameChar_2    = new List<char>();
 
 }

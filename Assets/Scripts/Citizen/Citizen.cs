@@ -10,7 +10,10 @@ public class Citizen : MonoBehaviour
     Transform           navTarget;
     NavMeshAgent        nav;
     private int         randNum;
-    float               checkDistance;
+    private int         randNum2;
+    private int         randNum3;
+    private float       checkDistance;
+    public string       citizenName;
 
     // Start is called before the first frame update
     private void Start()
@@ -20,7 +23,9 @@ public class Citizen : MonoBehaviour
         nav.speed = 3.0f;
         state = State.needNextMove;
         StartCoroutine(MoveCoroutine());
-       
+        SetName();
+
+
     }
     private void OnEnable()
     {
@@ -77,6 +82,16 @@ public class Citizen : MonoBehaviour
             state = State.needNextMove;
         }
 
+    }
+
+    public void SetName()
+    {
+        randNum = Random.Range(0, GameDB.Instance.nameChar.Count);
+        randNum2 = Random.Range(0, GameDB.Instance.nameChar_2.Count);
+        randNum3 = Random.Range(0, GameDB.Instance.nameChar_2.Count);
+        citizenName = GameDB.Instance.nameChar[randNum].ToString() + 
+                        GameDB.Instance.nameChar_2[randNum2].ToString() +
+                            GameDB.Instance.nameChar_2[randNum3].ToString();
     }
     private void CrossTheCrosswalk()
     {

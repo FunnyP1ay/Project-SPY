@@ -9,4 +9,5 @@ public class Building : MonoBehaviour
     List<Citizen>   building_In_Citizen = new List<Citizen>();
 
 
+
 }
