@@ -9,17 +9,22 @@ public class Citizen : MonoBehaviour
     [SerializeField]
     Transform           navTarget;
     NavMeshAgent        nav;
+    CitizenINFO         citizenINFO;
     private int         randNum;
     private int         randNum2;
     private int         randNum3;
     private float       checkDistance;
     public string       citizenName;
 
+    private void Awake()
+    {
+        nav = GetComponent<NavMeshAgent>();
+        citizenINFO = GetComponent<CitizenINFO>();
+    }
     // Start is called before the first frame update
     private void Start()
     {
-        nav = GetComponent<NavMeshAgent>();
-
+      
         nav.speed = 3.0f;
         state = State.needNextMove;
         StartCoroutine(MoveCoroutine());
@@ -92,6 +97,9 @@ public class Citizen : MonoBehaviour
         citizenName = GameDB.Instance.nameChar[randNum].ToString() + 
                         GameDB.Instance.nameChar_2[randNum2].ToString() +
                             GameDB.Instance.nameChar_2[randNum3].ToString();
+
+        citizenINFO.nameText.text = citizenName;
+        citizenINFO.nameText.fontSize = 1;
     }
     private void CrossTheCrosswalk()
     {
