@@ -18,6 +18,7 @@ public class DrivingCar : MonoBehaviour
     
     public Transform        currentDrivingPoint;
     public bool             doingCourutine = false;
+    RaycastHit              hit;
     private void Start()
     {
         currentSpeed = setSpeed;
@@ -26,7 +27,6 @@ public class DrivingCar : MonoBehaviour
     {
         if(currentDrivingPoint != null)
         {
-            RaycastHit hit;
             if(Physics.Raycast(transform.position,transform.forward, out hit, raycastRange, targetLayer)) 
             {
           
