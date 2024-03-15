@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 50f;
+    public float rotationSpeed = 30f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -15,20 +18,26 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        // 이동
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
-        transform.Translate(movement);
+    Vector2 inputVector;
+    Vector3 moveVector;
 
-        // 점프
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
+    void Update()
+    {
+
+
+        transform.Rotate(new Vector3( 0f, 0f + moveVector.x, 0f) * Time.deltaTime) ;
+
+
+        // 이동 처리
+        transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
+    }
+
+    public void OnMove(InputAction.CallbackContext value)
+    {
+        inputVector = value.ReadValue<Vector2>();
+
+        // 입력 벡터를 이동 벡터로 변환
+        moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
     }
 
     private void OnCollisionEnter(Collision collision)

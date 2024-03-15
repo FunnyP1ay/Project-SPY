@@ -17,7 +17,8 @@ public class CitizenINFO : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
-            nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
+
+           nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         }
     }
 }
