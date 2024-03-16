@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 50f;
-    public float rotationSpeed = 30f;
+    public float rotationSpeed = 100f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -24,8 +24,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
-
-        transform.Rotate(new Vector3( 0f, 0f + moveVector.x, 0f) * Time.deltaTime) ;
+        float rotateAmount = moveVector.x * rotationSpeed;
+        transform.Rotate(new Vector3( 0f, 0f + rotateAmount, 0f) ) ;
 
 
         // 이동 처리
@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
         // 입력 벡터를 이동 벡터로 변환
         moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
     }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         // 땅에 닿았을 때
@@ -47,5 +47,5 @@ public class PlayerMove : MonoBehaviour
         {
             isGrounded = true;
         }
-    }
+    }*/
 }
