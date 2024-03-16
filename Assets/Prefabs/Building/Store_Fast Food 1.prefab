@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -4840584851540771819}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Store_Fast Food 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6646493394045013746}
   m_Layer: 0
-  m_Name: NavPoint
+  m_Name: NavTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

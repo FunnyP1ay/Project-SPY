@@ -5,18 +5,32 @@ using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
 {
-    public int StartBuildingCount;
+    public  int     startBuildingCount;
+    public  int     startStoreCount;
+    public  int     startHouseCount;
+
+    private int     randNum;
     private void Start()
     {
-        for(int i = 0; i < StartBuildingCount; i++)
+        FirstSpawn();
+    }
+    private void FirstSpawn()
+    {
+        for (int i = 0; i < startBuildingCount; i++)
         {
-            BuildingSpawn();
+            BuildingSpawn(0); // Building
+        }
+        for (int i = 0; i < startStoreCount; i++)
+        {
+            BuildingSpawn(1); // Store
+        }
+        for (int i = 0; i < startHouseCount; i++)
+        {
+            BuildingSpawn(2); // House
         }
     }
 
-    int randNum;
-
-    public void BuildingSpawn()
+    public void BuildingSpawn(int _value)
     {
         if (MapData.Instance.empty_Building_Block_List.Count > 0)
         {
@@ -24,7 +38,7 @@ public class BuildingSpawner : MonoBehaviour
             var SpawnBuilding = MapData.Instance.empty_Building_Block_List[randNum];
             MapData.Instance.empty_Building_Block_List.RemoveAt(randNum);
             MapData.Instance.built_Building_Block_List.Add(SpawnBuilding);
-            SpawnBuilding.BuildingSpawn(SpawnBuilding.transform);
+            SpawnBuilding.BuildingSpawn(SpawnBuilding.transform, _value);
         }
         
     }

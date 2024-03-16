@@ -48,6 +48,7 @@ public class Citizen : MonoBehaviour
     {
         building,
         store,
+        house,
         road,
     }
     public MoveTarget moveTarget; 
@@ -56,14 +57,13 @@ public class Citizen : MonoBehaviour
     {
         while (state != State.die)
         {
-
-            if (state == State.Move)
-            {
-                CheckTargetPos();
-            }
             if (state == State.needNextMove)
             {
                 SetNextMoveTarget();
+            }
+            if (state == State.Move)
+            {
+                CheckTargetPos();
             }
             yield return new WaitForSecondsRealtime(3f);
         }
@@ -77,6 +77,14 @@ public class Citizen : MonoBehaviour
             CheckRoadTargetPos();
         }
         else if(moveTarget == MoveTarget.building)
+        {
+            CheckBuildingTargetPos();
+        }
+        else if(moveTarget == MoveTarget.store)
+        {
+            CheckBuildingTargetPos();
+        }
+        else if(moveTarget == MoveTarget.house)
         {
             CheckBuildingTargetPos();
         }
@@ -108,25 +116,50 @@ public class Citizen : MonoBehaviour
     {
         // next move target value setting
         randNum = Random.Range(0, 10);
-        if(randNum > 3)
+        if(randNum == 0)
         {
-            SetNavTarget_Building();
+            SetNavTarget_Building(0); // Building
         }
-        else
+        if(randNum == 1)
         {
-            SetNavTarget_Road();
+            SetNavTarget_Building(1); // Store
+        }
+        if(randNum == 2)
+        {
+            SetNavTarget_Building(2); // House
+        }
+        if(randNum > 2)                
+        {
+            SetNavTarget_Road();      // Road
         }
     }
-    private void SetNavTarget_Building()
+    private void SetNavTarget_Building(int _value)
     {
         int roadLayerMask = LayerMask.GetMask("Building");
         Collider[] colliders = Physics.OverlapSphere(transform.position, 15f, roadLayerMask);
+        
         if(colliders.Length == 0)
         {
             SetNavTarget_Road();
+            print("건물이 없습니다 !");
         }
         else
         {
+            switch (_value) // TODO 각 건물 별 행동 패턴 구현
+            {
+                case 0:
+                    moveTarget = MoveTarget.building;
+                    print("타겟을 빌딩으로 잡았습니다 ! ");
+                    break;
+                case 1:
+                    moveTarget = MoveTarget.store;
+                    print("타겟을 상점으로 잡았습니다 ! ");
+                    break;
+                case 2:
+                    moveTarget = MoveTarget.house;
+                    print("타겟을 주택으로 잡았습니다 ! ");
+                    break;
+            }
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
@@ -135,7 +168,6 @@ public class Citizen : MonoBehaviour
                 nav.SetDestination(navTarget.position);
                 nav.updatePosition = true;
                 state = State.Move;
-                moveTarget = MoveTarget.building;
             }
         }
     }

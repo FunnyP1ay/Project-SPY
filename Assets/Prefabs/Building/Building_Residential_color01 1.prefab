@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -6434858917728751054}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Building_Residential_color01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

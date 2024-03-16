@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4733600284864677627}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7447412842687084664}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

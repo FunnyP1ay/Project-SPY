@@ -7,13 +7,15 @@ using UnityEngine;
 
 public class BuildingBlock : MonoBehaviour
 {
-    int randNum;
-    float setVector;
-    Transform target;
-    Collider[] colliders;
-    public LayerMask layerMask;
+    int                 randNum;
+    float               setVector;
+    Transform           target;
+    Collider[]          colliders;
+    public LayerMask    layerMask;
+    private Building    currentPrefab;
     private void Awake()
     {
+        currentPrefab = GetComponent<Building>();
         setVector = 99999f;
         colliders = Physics.OverlapSphere(transform.position,20f, layerMask);
 
@@ -26,19 +28,36 @@ public class BuildingBlock : MonoBehaviour
                     {
                         setVector = calDistance;
                         target = road.transform;
-                        print("타겟을 잡았습니다.");
                     }
                 }
             }
     }
-    public void BuildingSpawn(Transform _blockPos)
+    public void BuildingSpawn(Transform _blockPos, int _value)
     {
+       
+        switch (_value)
+        {
+            case 0:
+                randNum = Random.Range(0, MapData.Instance.buildingPrefabs.Count);
+                var newBuilding = LeanPool.Spawn(MapData.Instance.buildingPrefabs[randNum]).GetComponent<Building>();
+                currentPrefab = newBuilding;
+                break;
+            case 1:
+                randNum = Random.Range(0, MapData.Instance.storePrefabs.Count);
+                var newStore = LeanPool.Spawn(MapData.Instance.storePrefabs[randNum]).GetComponent<Building>();
+                currentPrefab = newStore;
+                break;
+            case 2:
+                randNum = Random.Range(0, MapData.Instance.housePrefabs.Count);
+                var newHouse = LeanPool.Spawn(MapData.Instance.housePrefabs[randNum]).GetComponent<Building>();
+                currentPrefab = newHouse;
+                break;
 
-            randNum = Random.Range(0, MapData.Instance.housePrefabs.Count);
-            var newBuilding = LeanPool.Spawn(MapData.Instance.housePrefabs[randNum]);
-            newBuilding.transform.position = _blockPos.position;
-            newBuilding.transform.SetParent(gameObject.transform);
-            newBuilding.transform.LookAt(target);
+        }
+        currentPrefab.Setting();
+        currentPrefab.transform.position = _blockPos.position;
+        currentPrefab.transform.SetParent(gameObject.transform);
+        currentPrefab.transform.LookAt(target);
         
     }
 }

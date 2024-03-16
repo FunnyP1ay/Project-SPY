@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234644598431641014}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6306628654638875373}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3034894569462957736}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6852186011426951682}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavTargetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

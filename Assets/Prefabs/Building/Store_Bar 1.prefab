@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 9500000}
   - component: {fileID: 3867381358232564347}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Store_Bar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7833122174734704578}
   m_Layer: 0
-  m_Name: NavPoint
+  m_Name: NavTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
