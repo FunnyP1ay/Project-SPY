@@ -135,8 +135,8 @@ public class Citizen : MonoBehaviour
     }
     private void SetNavTarget_Building(int _value)
     {
-        int roadLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 15f, roadLayerMask);
+        int BuildingLayerMask = LayerMask.GetMask("Building");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, BuildingLayerMask);
         
         if(colliders.Length == 0)
         {

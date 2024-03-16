@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 8769678542050233018}
+  - component: {fileID: 6476851391145955556}
   m_Layer: 11
   m_Name: Building_House_01_color01 1
   m_TagString: Untagged
@@ -99,6 +100,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building_NavTargetPoint: []
   building_In_Citizen: []
+--- !u!64 &6476851391145955556
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6fddb771ca917c6498310bcc16a817e6, type: 3}
 --- !u!1 &5107471015136253484
 GameObject:
   m_ObjectHideFlags: 0

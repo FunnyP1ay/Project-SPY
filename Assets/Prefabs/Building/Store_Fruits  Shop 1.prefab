@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 3107807345622811032}
+  - component: {fileID: 8384396884703212340}
   m_Layer: 11
   m_Name: Store_Fruits  Shop 1
   m_TagString: Untagged
@@ -99,6 +100,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building_NavTargetPoint: []
   building_In_Citizen: []
+--- !u!64 &8384396884703212340
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0f5d2e6533e3fb44fbd094c173ba3f32, type: 3}
 --- !u!1 &320208978832358705
 GameObject:
   m_ObjectHideFlags: 0
