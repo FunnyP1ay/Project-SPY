@@ -30,7 +30,7 @@ public class BuildingSpawner : MonoBehaviour
         }
     }
 
-    public void BuildingSpawn(int _value)
+    public void BuildingSpawn(int _value)  // 1: Building, 2: Store, 3: House
     {
         if (MapData.Instance.empty_Building_Block_List.Count > 0)
         {

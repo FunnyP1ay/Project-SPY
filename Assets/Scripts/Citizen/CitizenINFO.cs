@@ -7,18 +7,30 @@ public class CitizenINFO : MonoBehaviour
 {
     private Transform        cam;
     public  TextMeshProUGUI  nameText;
-    void Start()
+    public  int              citizenMoney;
+
+    private void Start()
     {
         cam = Camera.main.transform;
     }
-
-    //TODO : 플레이어가 특정 키를 눌렀을 때만 카메라쪽으로 보게 설정하기 (최적화 )
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.Tab))
         {
 
            nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         }
+    }
+
+    public void GetMoney(int _Value)
+    {
+        citizenMoney += _Value;
+    }
+    public void TakeMoney(int _Cost)
+    {
+        if (citizenMoney >= _Cost)
+            citizenMoney -= _Cost;
+        else
+            print("시민이 돈이 부족합니다."); //TODO 돈 쓰는거 상황 ,구현
     }
 }

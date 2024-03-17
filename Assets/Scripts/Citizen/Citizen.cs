@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
 public class Citizen : MonoBehaviour
 {
     [SerializeField]
-    Transform navTarget;
-    NavMeshAgent nav;
-    CitizenINFO citizenINFO;
-    private int randNum;
-    private int randNum2;
-    private int randNum3;
-    private float checkDistance;
-    public string citizenName;
+    Transform           navTarget;
+    NavMeshAgent        nav;
+    CitizenINFO         citizenINFO;
+    private int         randNum;
+    private int         randNum2;
+    private int         randNum3;
+    private float       checkDistance;
+    public string       citizenName;
 
     private void Awake()
     {
@@ -205,6 +204,6 @@ public class Citizen : MonoBehaviour
                             GameDB.Instance.nameChar_2[randNum3].ToString();
 
         citizenINFO.nameText.text = citizenName;
-        citizenINFO.nameText.fontSize = 1;
+        citizenINFO.nameText.fontSize = 0.5f;
     }
 }
