@@ -10,9 +10,8 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce = 50f;
     public float rotationSpeed = 100f;
 
-    private Rigidbody rb;
-    private bool isGrounded;
-
+    private Rigidbody       rb;
+    private bool            isGrounded;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +37,7 @@ public class PlayerMove : MonoBehaviour
 
         // 입력 벡터를 이동 벡터로 변환
         moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
+
     }
     /*
     private void OnCollisionEnter(Collision collision)
