@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,9 @@ public class Mayor : MonoBehaviour
 {
     public MayorControll    mayorControll;
     private int             randNum;
-    private int             randNum2;
-
+    private int             StateCount              = Enum.GetValues(typeof(State)).Length;
+    private int             Build_ControllsCount    = Enum.GetValues(typeof(Build_Controlls)).Length;
+    private int             Police_ControllsCount   = Enum.GetValues(typeof(Police_Controlls)).Length;
     public enum State
     {
         die,
@@ -20,16 +22,16 @@ public class Mayor : MonoBehaviour
         build_Store=2,
         build_House=3
     }
-    public enum Police_Contrills
+    public enum Police_Controlls
     {
         none=0,
         police_Spawn=1,
         police_AllSpawn=2,
-        police_Despawn=3,
+        martial_Law=3
     }
-    public State state;
-    public Build_Controlls build_Controlls;
-    public Police_Contrills police_Controlls;
+    public State                state;
+    public Build_Controlls      build_Controlls;
+    public Police_Controlls     police_Controlls;
 
     void Start()
     {
@@ -40,46 +42,49 @@ public class Mayor : MonoBehaviour
     {
         while(state == State.cityControll)
         {
-
-            if((build_Controlls != Build_Controlls.none))
+            NextOrder();
+            //---------------------Build_Orders------------------
+            if ((build_Controlls != Build_Controlls.none))
             {
-                if(build_Controlls == Build_Controlls.build_Building)
+                switch (build_Controlls)
                 {
-
-                }
-                if(build_Controlls == Build_Controlls.build_Store)
-                {
-
-                }
-                if(build_Controlls == Build_Controlls.build_House)
-                {
-
+                    case Build_Controlls.build_Building:
+                        mayorControll.Build_Building();
+                        break;
+                    case Build_Controlls.build_Store:
+                        mayorControll.Build_Store();
+                        break;
+                    case Build_Controlls.build_House:
+                        mayorControll.Build_House();
+                        break;
                 }
             }
-            if( police_Controlls != Police_Contrills.none)
+            // ---------------------Police_Orders-----------------------
+            if ( police_Controlls != Police_Controlls.none)
             {
-                if(police_Controlls == Police_Contrills.police_Spawn)
+                switch (police_Controlls)
                 {
-
-                }
-                if(police_Controlls == Police_Contrills.police_AllSpawn)
-                {
-
-                }
-                if(police_Controlls == Police_Contrills.police_Despawn)
-                {
-
+                    case Police_Controlls.police_Spawn:
+                        mayorControll.Police_Spawn();
+                        break;
+                    case Police_Controlls.police_AllSpawn:
+                        mayorControll.All_Poice_Spawn();
+                        break;
+                    case Police_Controlls.martial_Law:
+                        mayorControll.Martial_law();
+                        break;
                 }
             }
             yield return new WaitForSecondsRealtime(60f);
         }
         yield break;
     }
-    public void NextOrder()
+    private void NextOrder()
     {
+        // ---------------------Build_Orders------------------
         if (CityData.Instance.building_Tax > CityData.Instance.cost_Building)
         {
-            randNum = Random.Range(0, 4);
+            randNum = UnityEngine.Random.Range(0, Build_ControllsCount);
             switch (randNum)
             {
                 case 0:
@@ -96,23 +101,34 @@ public class Mayor : MonoBehaviour
                     break;
             }
         }
-        if (CityData.Instance.building_Tax > CityData.Instance.cost_Building)
+        else
         {
-            randNum = Random.Range(0, 4);
-            switch (randNum)
+            build_Controlls = Build_Controlls.none;
+        }
+        // ---------------------Police_Orders-----------------------
+
+        if(CityData.Instance.approval_Rating <= 80) // 정치 지지율 80 이상인 정상 적인 상태
+        {
+            police_Controlls = Police_Controlls.none;
+        }
+        else
+        {
+            if(CityData.Instance.approval_Rating > 20)
             {
-                case 0:
-                    police_Controlls = Police_Contrills.none;
-                    break;
-                case 1:
-                    police_Controlls = Police_Contrills.police_Spawn;
-                    break;
-                case 2:
-                    police_Controlls = Police_Contrills.police_AllSpawn;
-                    break;
-                case 3:
-                    police_Controlls = Police_Contrills.police_Despawn;
-                    break;
+                police_Controlls = Police_Controlls.martial_Law; // 계엄령
+            }
+            else if(CityData.Instance.approval_Rating > 40)
+            {
+                police_Controlls = Police_Controlls.police_AllSpawn; // 경찰 인력 총동원
+            }
+            else if(CityData.Instance.approval_Rating > 60)
+            {
+                police_Controlls = Police_Controlls.police_Spawn; // 경찰 증원
+            }
+            else
+            {
+                police_Controlls = Police_Controlls.none;
+                //TODO 미정 정치인의 60~80 사이의 추가 행동 구현 할 때 필요할듯
             }
         }
     }

@@ -44,18 +44,16 @@ public class MayorControll : MonoBehaviour
             //TODO 불가 UI 띄우던가 하기 (근데 AI가 컨트롤 하고 있기 때문에 스스로 알지 않을 까 ..)
         }
     }
-    public void Spawn_Police()
+    public void Police_Spawn()
     {
 
     }
-    public void AllSpawn_Poice()
+    public void All_Poice_Spawn()
     {
 
     }
-    public void Despawn_Poice()
+    public void Martial_law()
     {
 
     }
-
-
 }
