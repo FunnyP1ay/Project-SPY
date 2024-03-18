@@ -118,7 +118,8 @@ public class Police : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 10f) // TODO 밸런스 조절 제일 필요한 부분 
         {
-            nav.speed = 0.5f;
+            // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
+            nav.speed = 3f;
         }
         
     }
@@ -203,8 +204,10 @@ public class Police : MonoBehaviour
         weaponControll.WeaponChange(1); // equip weapon
         moveTarget  = MoveTarget.spy;
         state       = MoveState.Move;
+        nav.updatePosition = true;
         nav.SetDestination(_target.position);
     }
+    //TODO 경찰이 플레이어 일정 수준 이상으로 왔을 때, 총을 쏘거나 체포.
     public void ChaseFailed()
     {
         weaponControll.weaponState = WeaponControll.WeaponState.none;

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SPYTargetObject : MonoBehaviour
 {
-    public ParticleSystem           particleSystem; // VFX 로 변경 가능
+   
     public GameObject               Fkey;
-
+    public VisualEffect             AttackEffect;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out PlayerMove player))
@@ -27,6 +28,10 @@ public class SPYTargetObject : MonoBehaviour
     }
     public void OnAttack()
     {
-
+        AttackEffect.Play();
+    }
+    public void Repair()
+    {
+        AttackEffect.Stop();
     }
 }
