@@ -6,6 +6,7 @@ public class MayorControll : MonoBehaviour
 {
     // TODO Police Spawner
     public BuildingSpawner buildingSpawner;
+    
     private void Start()
     {
         buildingSpawner = GetComponent<BuildingSpawner>();

@@ -26,12 +26,14 @@ public class MapData : MonoBehaviour
     public List<Building> storePrefabs;
     public List<Building> buildingPrefabs;
     public List<Building> factoryPrefabs;
-
+    // --------------- Building Block List  ---------------------
     [Header("Block DATA")]
-    // --------------- Building Block List ---------------------
     public List<BuildingBlock> empty_Building_Block_List;
     public List<BuildingBlock> built_Building_Block_List;
-    // --------------- TrafficSignal List ----------------------
+    // ---------------      Citizen DATA    ----------------------
+    [Header("Citizen DATA")]
+    public int currentCitizenCount = 0;
+    // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
     public List<TrafficSignal> trafficSignals_List;
 
