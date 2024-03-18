@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SPYAction : MonoBehaviour
 {
+
     public void BrokenObjectAttack(SPYTargetObject _target)
     {
         

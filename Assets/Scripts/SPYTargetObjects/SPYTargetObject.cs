@@ -13,6 +13,7 @@ public class SPYTargetObject : MonoBehaviour
         {
             Fkey.SetActive(true);
             player.isBrokenAttack = true;
+            player.spy_Target_Object = this;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -21,6 +22,7 @@ public class SPYTargetObject : MonoBehaviour
         {
             Fkey.SetActive(false);
             player.isBrokenAttack = false;
+            player.spy_Target_Object = null;
         }
     }
     public void OnAttack()

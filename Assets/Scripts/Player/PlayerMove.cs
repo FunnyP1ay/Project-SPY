@@ -12,8 +12,8 @@ public class PlayerMove : MonoBehaviour
     public float            moveSpeed = 5f;
     public float            jumpForce = 50f;
     public float            rotationSpeed = 100f;
-    public bool             isBrokenAttack = false;
-    public SPYTargetObject  spy_Target_Object;
+    public bool             isBrokenAttack = true;
+    public SPYTargetObject  spy_Target_Object = null;
 
     private Rigidbody       rb;
     private WeaponControll  weaponControll;
@@ -50,9 +50,10 @@ public class PlayerMove : MonoBehaviour
             weaponControll.weaponState = WeaponControll.WeaponState.skill;
             weaponControll.WeaponChange(2);
         }
-        if (Input.GetKey(KeyCode.F)&& isBrokenAttack)
+        if (Input.GetKey(KeyCode.F))
         {
-            spyAction.BrokenObjectAttack(spy_Target_Object);
+            spyAction.ExposedAction(10f);
+            // TODO spyAction.BrokenObjectAttack(spy_Target_Object);
         }
     }
 
