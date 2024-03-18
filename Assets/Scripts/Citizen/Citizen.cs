@@ -71,24 +71,23 @@ public class Citizen : MonoBehaviour
     // --------- Check Target Position 
     private void CheckTargetPos()
     {
-        if(moveTarget == MoveTarget.road)
+        switch (moveTarget)
         {
-            CheckRoadTargetPos();
-        }
-        else if(moveTarget == MoveTarget.building)
-        {
-            CheckBuildingTargetPos();
-        }
-        else if(moveTarget == MoveTarget.store)
-        {
-            CheckBuildingTargetPos();
-        }
-        else if(moveTarget == MoveTarget.house)
-        {
-            CheckBuildingTargetPos();
+            case MoveTarget.building:
+                CheckBuildingTargetPos();
+                break;
+            case MoveTarget.store:
+                CheckBuildingTargetPos();
+                break;
+            case MoveTarget.house:
+                CheckBuildingTargetPos();
+                break;
+            case MoveTarget.road:
+                CheckRoadTargetPos();
+                break;
         }
     }
-   
+
     private void CheckRoadTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
@@ -115,21 +114,20 @@ public class Citizen : MonoBehaviour
     {
         // next move target value setting
         randNum = Random.Range(0, 10);
-        if(randNum == 0)
+        switch (randNum)
         {
-            SetNavTarget_Building(0); // Building
-        }
-        if(randNum == 1)
-        {
-            SetNavTarget_Building(1); // Store
-        }
-        if(randNum == 2)
-        {
-            SetNavTarget_Building(2); // House
-        }
-        if(randNum > 2)                
-        {
-            SetNavTarget_Road();      // Road
+            case 0:
+                SetNavTarget_Building(0); // Building
+                break;
+            case 1:
+                SetNavTarget_Building(1); // Store
+                break;
+            case 2:
+                SetNavTarget_Building(2); // House
+                break;
+            default:
+                SetNavTarget_Road();      // Road
+                break;
         }
     }
     private void SetNavTarget_Building(int _value)

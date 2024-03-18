@@ -7,17 +7,19 @@ public class Police : MonoBehaviour
 {
    
     [SerializeField]
-    Transform navTarget;
-    NavMeshAgent nav;
-    CitizenINFO citizenINFO;
-    private int randNum;
-    private int randNum2;
-    private int randNum3;
-    private float checkDistance;
-    public string citizenName;
+    Transform           navTarget;
+    NavMeshAgent        nav;
+    CitizenINFO         citizenINFO;
+    WeaponControll      weaponControll;
+    private int         randNum;
+    private int         randNum2;
+    private int         randNum3;
+    private float       checkDistance;
+    public string       citizenName;
 
     private void Awake()
     {
+        weaponControll = GetComponent<WeaponControll>();
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
     }
@@ -53,13 +55,7 @@ public class Police : MonoBehaviour
     }
     public MoveTarget moveTarget;
 
-    public enum Weapon
-    {
-        none,
-        equip
-        
-    }
-    public Weapon weapon;
+
     IEnumerator MoveCoroutine()
     {
         while (state != MoveState.die)
@@ -79,24 +75,25 @@ public class Police : MonoBehaviour
     // --------- Check Target Position -----------
     private void CheckTargetPos()
     {
-        if (moveTarget == MoveTarget.road)
+        switch (moveTarget)
         {
-            CheckRoadTargetPos();
-        }
-        else if (moveTarget == MoveTarget.building)
-        {
-            CheckBuildingTargetPos();
-        }
-        else if (moveTarget == MoveTarget.store)
-        {
-            CheckBuildingTargetPos();
-        }
-        else if (moveTarget == MoveTarget.house)
-        {
-            CheckBuildingTargetPos();
+            case MoveTarget.building:
+                CheckBuildingTargetPos();
+                break;
+                case MoveTarget.store:
+                CheckBuildingTargetPos();
+                break;
+                case MoveTarget.house:
+                CheckBuildingTargetPos();
+                break;
+                case MoveTarget.road:
+                CheckRoadTargetPos();
+                break;
+                case MoveTarget.spy:
+                CheckSpyTargetPos();
+                break;
         }
     }
-
     private void CheckRoadTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
@@ -105,38 +102,45 @@ public class Police : MonoBehaviour
             nav.updatePosition = false;
             state = MoveState.needNextMove;
         }
-
     }
     private void CheckBuildingTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2f)
+        if (checkDistance < 2f)  //  도착 했을 때 TODO 각 건물 별 행동 패턴 구현
         {
             // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
             nav.updatePosition = false;
             state = MoveState.needNextMove;
         }
     }
+    private void CheckSpyTargetPos()
+    {
+        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+        if (checkDistance < 10f) // TODO 밸런스 조절 제일 필요한 부분 
+        {
+            nav.speed = 0.5f;
+        }
+        
+    }
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()
     {
         // next move target value setting
         randNum = Random.Range(0, 10);
-        if (randNum == 0)
+        switch (randNum)
         {
-            SetNavTarget_Building(0); // Building
-        }
-        if (randNum == 1)
-        {
-            SetNavTarget_Building(1); // Store
-        }
-        if (randNum == 2)
-        {
-            SetNavTarget_Building(2); // House
-        }
-        if (randNum > 2)
-        {
-            SetNavTarget_Road();      // Road
+            case 0:
+                SetNavTarget_Building(0); // Building
+                break;
+            case 1:
+                SetNavTarget_Building(1); // Store
+                break;
+            case 2:
+                SetNavTarget_Building(2); // House
+                break;
+            default:
+                SetNavTarget_Road();      // Road
+                break;
         }
     }
     private void SetNavTarget_Building(int _value)
@@ -151,19 +155,19 @@ public class Police : MonoBehaviour
         }
         else
         {
-            switch (_value) // TODO 각 건물 별 행동 패턴 구현
+            switch (_value)
             {
                 case 0:
                     moveTarget = MoveTarget.building;
-                    print("타겟을 빌딩으로 잡았습니다 ! ");
+                    print("경찰이 타겟을 빌딩으로 잡았습니다 ! ");
                     break;
                 case 1:
                     moveTarget = MoveTarget.store;
-                    print("타겟을 상점으로 잡았습니다 ! ");
+                    print("경찰이 타겟을 상점으로 잡았습니다 ! ");
                     break;
                 case 2:
                     moveTarget = MoveTarget.house;
-                    print("타겟을 주택으로 잡았습니다 ! ");
+                    print("경찰이 타겟을 주택으로 잡았습니다 ! ");
                     break;
             }
             randNum = Random.Range(0, colliders.Length);
@@ -192,11 +196,21 @@ public class Police : MonoBehaviour
             moveTarget = MoveTarget.road;
         }
     }
+
     public void ChaseSpy(Transform _target)
     {
-        weapon = Weapon.equip;
-        moveTarget = MoveTarget.spy;
+        weaponControll.weaponState = WeaponControll.WeaponState.equip;
+        weaponControll.WeaponChange(1); // equip weapon
+        moveTarget  = MoveTarget.spy;
+        state       = MoveState.Move;
         nav.SetDestination(_target.position);
+    }
+    public void ChaseFailed()
+    {
+        weaponControll.weaponState = WeaponControll.WeaponState.none;
+        weaponControll.WeaponChange(0); // none weapon
+        moveTarget  = MoveTarget.road;
+        state       = MoveState.needNextMove;
 
     }
     public void SetName()

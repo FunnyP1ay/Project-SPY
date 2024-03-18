@@ -17,11 +17,9 @@ public class CitizenINFO : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
-
            nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         }
     }
-
     public void GetMoney(int _Value)
     {
         citizenMoney += _Value;
