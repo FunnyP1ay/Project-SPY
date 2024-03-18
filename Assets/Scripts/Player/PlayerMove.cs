@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
     public SPYTargetObject  spy_Target_Object = null;
 
     private Rigidbody       rb;
-    private WeaponControll  weaponControll;
+    private WeaponControl  weaponControl;
     private SPYAction       spyAction;
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        weaponControll = GetComponent<WeaponControll>();
+        weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
     }
     void Update()
@@ -37,18 +37,18 @@ public class PlayerMove : MonoBehaviour
         // 인풋매니저로 수정 해야 할듯 함.
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            weaponControll.WeaponChange(0);
-            weaponControll.weaponState = WeaponControll.WeaponState.none;
+            weaponControl.WeaponChange(0);
+            weaponControl.weaponState = WeaponControl.WeaponState.none;
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
-            weaponControll.WeaponChange(1);
-            weaponControll.weaponState = WeaponControll.WeaponState.equip;
+            weaponControl.WeaponChange(1);
+            weaponControl.weaponState = WeaponControl.WeaponState.equip;
         }
         if(Input.GetKey(KeyCode.Alpha3))
         {
-            weaponControll.weaponState = WeaponControll.WeaponState.skill;
-            weaponControll.WeaponChange(2);
+            weaponControl.weaponState = WeaponControl.WeaponState.skill;
+            weaponControl.WeaponChange(2);
         }
         if (Input.GetKey(KeyCode.F)&& isBrokenAttack)
         {

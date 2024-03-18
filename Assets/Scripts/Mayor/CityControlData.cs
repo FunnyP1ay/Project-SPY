@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CityData : MonoBehaviour
+public class CityControlData : MonoBehaviour
 {
-    private static CityData instance;
-    public static CityData Instance { get { if (instance == null) return null; return instance; } }
+    private static CityControlData instance;
+    public static CityControlData Instance { get { if (instance == null) return null; return instance; } }
     private void Awake()
     {
         if (instance == null)

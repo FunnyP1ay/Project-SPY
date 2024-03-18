@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6728790340606376604}
   - component: {fileID: 2192096103968563123}
   - component: {fileID: 8649226116679721}
+  - component: {fileID: 1344234815753033020}
   m_Layer: 0
   m_Name: MayorTest
   m_TagString: Untagged
@@ -122,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8d21500395918479d70d94a78807eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mayorControll: {fileID: 0}
+  mayorControl: {fileID: 0}
   state: 0
-  build_Controlls: 0
-  police_Controlls: 0
+  build_Controls: 0
+  police_Controls: 0
 --- !u!114 &2192096103968563123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSpawner: {fileID: 0}
+  citizenSpawner: {fileID: 0}
 --- !u!114 &8649226116679721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +156,16 @@ MonoBehaviour:
   startBuildingCount: 10
   startStoreCount: 20
   startHouseCount: 50
+--- !u!114 &1344234815753033020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851082585640309005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc289325f8e0234aa48fc3ff99a5e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  citizenPrefab: {fileID: 8640574259226101372, guid: aca4972045e831c46af98f33f0734fe2, type: 3}

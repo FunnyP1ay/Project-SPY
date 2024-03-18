@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MapData : MonoBehaviour
@@ -32,9 +33,11 @@ public class MapData : MonoBehaviour
     public List<BuildingBlock> built_Building_Block_List;
     // ---------------      Citizen DATA    ----------------------
     [Header("Citizen DATA")]
-    public int currentCitizenCount = 0;
+    public int currentCitizenCount  = 0;
+    public int maxCitizenCount      = 250;
     // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
     public List<TrafficSignal> trafficSignals_List;
 
+ 
 }

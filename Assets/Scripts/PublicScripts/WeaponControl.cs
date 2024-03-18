@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class WeaponControll : MonoBehaviour
+public class WeaponControl : MonoBehaviour
 {
 
     public List<GameObject> weaponList = new List<GameObject>();

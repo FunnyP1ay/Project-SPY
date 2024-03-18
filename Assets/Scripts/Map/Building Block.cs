@@ -12,7 +12,7 @@ public class BuildingBlock : MonoBehaviour
     Transform           target;
     Collider[]          colliders;
     public LayerMask    layerMask;
-    private Building    currentPrefab;
+    public Building     currentPrefab;
     private void Awake()
     {
         currentPrefab = GetComponent<Building>();

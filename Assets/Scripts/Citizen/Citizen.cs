@@ -7,7 +7,7 @@ public class Citizen : MonoBehaviour
 {
     [SerializeField]
     Transform           navTarget;
-    NavMeshAgent        nav;
+    public NavMeshAgent        nav;
     CitizenINFO         citizenINFO;
     private int         randNum;
     private int         randNum2;
@@ -19,20 +19,6 @@ public class Citizen : MonoBehaviour
     {
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
-    }
-    // Start is called before the first frame update
-    private void Start()
-    {
-
-        nav.speed = 3.0f;
-        state = State.needNextMove;
-        StartCoroutine(MoveCoroutine());
-        SetName();
-
-
-    }
-    private void OnEnable()
-    {
     }
 
     public enum State
@@ -52,7 +38,7 @@ public class Citizen : MonoBehaviour
     }
     public MoveTarget moveTarget; 
 
-    IEnumerator MoveCoroutine()
+    public IEnumerator MoveCoroutine()
     {
         while (state != State.die)
         {
@@ -171,7 +157,7 @@ public class Citizen : MonoBehaviour
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 15f, roadLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
         randNum = Random.Range(0, colliders.Length);
         if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
         {

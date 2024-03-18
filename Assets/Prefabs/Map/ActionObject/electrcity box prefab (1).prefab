@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fkey: {fileID: 3218195169473818486}
-  AttackEffect: {fileID: 0}
+  AttackEffect: {fileID: 6958103057844805388}
 --- !u!65 &6287635696748980714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -294,6 +294,10 @@ PrefabInstance:
     - target: {fileID: 2553009213078581374, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_Name
       value: Sub_Fire_
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553009213078581374, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,6 +339,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3772719316755123543, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -343,6 +351,11 @@ PrefabInstance:
 --- !u!4 &4317060297979322191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
+  m_PrefabInstance: {fileID: 2127705965443124864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &6958103057844805388 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 9013678199515746700, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
   m_PrefabInstance: {fileID: 2127705965443124864}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6895422593830723745

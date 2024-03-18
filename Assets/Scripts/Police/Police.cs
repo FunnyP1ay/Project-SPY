@@ -10,7 +10,7 @@ public class Police : MonoBehaviour
     Transform           navTarget;
     NavMeshAgent        nav;
     CitizenINFO         citizenINFO;
-    WeaponControll      weaponControll;
+    WeaponControl      weaponControl;
     private int         randNum;
     private int         randNum2;
     private int         randNum3;
@@ -19,22 +19,19 @@ public class Police : MonoBehaviour
 
     private void Awake()
     {
-        weaponControll = GetComponent<WeaponControll>();
+        weaponControl = GetComponent<WeaponControl>();
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
     }
-    // Start is called before the first frame update
     private void Start()
     {
-
-        nav.speed = 3.0f;
-        state = MoveState.needNextMove;
-        StartCoroutine(MoveCoroutine());
         SetName();
-
     }
     private void OnEnable()
     {
+        nav.speed = 3.0f;
+        state = MoveState.needNextMove;
+        StartCoroutine(MoveCoroutine());
     }
 
     public enum MoveState
@@ -200,8 +197,8 @@ public class Police : MonoBehaviour
 
     public void ChaseSpy(Transform _target)
     {
-        weaponControll.weaponState = WeaponControll.WeaponState.equip;
-        weaponControll.WeaponChange(1); // equip weapon
+        weaponControl.weaponState = WeaponControl.WeaponState.equip;
+        weaponControl.WeaponChange(1); // equip weapon
         moveTarget  = MoveTarget.spy;
         state       = MoveState.Move;
         nav.updatePosition = true;
@@ -210,8 +207,8 @@ public class Police : MonoBehaviour
     //TODO 경찰이 플레이어 일정 수준 이상으로 왔을 때, 총을 쏘거나 체포.
     public void ChaseFailed()
     {
-        weaponControll.weaponState = WeaponControll.WeaponState.none;
-        weaponControll.WeaponChange(0); // none weapon
+        weaponControl.weaponState = WeaponControl.WeaponState.none;
+        weaponControl.WeaponChange(0); // none weapon
         moveTarget  = MoveTarget.road;
         state       = MoveState.needNextMove;
 

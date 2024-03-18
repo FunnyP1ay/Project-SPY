@@ -10,11 +10,7 @@ public class BuildingSpawner : MonoBehaviour
     public  int     startHouseCount;
 
     private int     randNum;
-    private void Start()
-    {
-        FirstSpawn();
-    }
-    private void FirstSpawn()
+    public void FirstSpawn()
     {
         for (int i = 0; i < startBuildingCount; i++)
         {
@@ -40,6 +36,5 @@ public class BuildingSpawner : MonoBehaviour
             MapData.Instance.built_Building_Block_List.Add(SpawnBuilding);
             SpawnBuilding.BuildingSpawn(SpawnBuilding.transform, _value);
         }
-        
     }
 }
