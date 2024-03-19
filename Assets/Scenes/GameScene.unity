@@ -5301,7 +5301,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36344,12 +36344,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f159fe1f4c85c5478e293c4aa893ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  approval_Rating: 0
   cost_Building: 0
   cost_Store: 0
   cost_House: 0
   citizen_Tax: 0
   building_Tax: 0
-  approval_Rating: 0
+  martial_Law: 0
+  travel_Law: 0
+  romance_Law: 0
+  game_Law: 0
+  prohibition_Law: 0
+  cigarette_Law: 0
+  pets_Law: 0
+  tax_Law: 0
+  sportEvent_Law: 0
+  freeHair_Law: 0
+  cannabis_Law: 0
+  parade_Law: 0
+  mayorsMovie_Law: 0
+  hospital_Law: 0
+  marshmallow_Law: 0
+  sleep_Law: 0
+  chocolate_Law: 0
+  pizza_Law: 0
+  goodMorning_Law: 0
+  rockScissorsPaper_Law: 0
+  cola_Law: 0
+  handstand_Law: 0
+  brushingTeeth_Law: 0
 --- !u!4 &987591700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 64593128690826182, guid: 0276250d8de809d4594660c723e16962, type: 3}
@@ -44061,7 +44084,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -60733,7 +60756,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -76092,7 +76115,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -77559,6 +77582,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272025243214899519, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016362230666363863, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3218195169473818486, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533221669546671870, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737608230667927174, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}

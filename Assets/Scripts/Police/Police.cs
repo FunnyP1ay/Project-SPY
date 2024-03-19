@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static Citizen;
 
 public class Police : MonoBehaviour
 {
@@ -103,8 +104,17 @@ public class Police : MonoBehaviour
     private void CheckBuildingTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2f)  //  도착 했을 때 TODO 각 건물 별 행동 패턴 구현
+        if (checkDistance < 2f)
         {
+            switch (moveTarget)
+            {
+                case MoveTarget.building:
+                    break;
+                case MoveTarget.store:
+                    break;
+                case MoveTarget.house:
+                    break;
+            }
             // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
             nav.updatePosition = false;
             state = MoveState.needNextMove;
@@ -128,20 +138,20 @@ public class Police : MonoBehaviour
         switch (randNum)
         {
             case 0:
-                SetNavTarget_Building(0); // Building
+                SetNavTarget_Building(); // Building
                 break;
             case 1:
-                SetNavTarget_Building(1); // Store
+                SetNavTarget_Building(); // Store
                 break;
             case 2:
-                SetNavTarget_Building(2); // House
+                SetNavTarget_Building(); // House
                 break;
             default:
                 SetNavTarget_Road();      // Road
                 break;
         }
     }
-    private void SetNavTarget_Building(int _value)
+    private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
         Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, BuildingLayerMask);
@@ -149,25 +159,9 @@ public class Police : MonoBehaviour
         if (colliders.Length == 0)
         {
             SetNavTarget_Road();
-            print("건물이 없습니다 !");
         }
         else
         {
-            switch (_value)
-            {
-                case 0:
-                    moveTarget = MoveTarget.building;
-               
-                    break;
-                case 1:
-                    moveTarget = MoveTarget.store;
-                
-                    break;
-                case 2:
-                    moveTarget = MoveTarget.house;
-        
-                    break;
-            }
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Mayor : MonoBehaviour
 {
-    public MayorControl     mayorControl;
+    public MayorsSpawnControl       mayorsSpawnControl;
+    public MayorsLawControl         mayorsLawControl;
     private int             randNum;
     private int             StateCount              = Enum.GetValues(typeof(State)).Length;
     private int             Build_ControlsCount    = Enum.GetValues(typeof(Build_Controls)).Length;
@@ -35,8 +36,9 @@ public class Mayor : MonoBehaviour
 
     void Start()
     {
-        state           = State.cityControl;
-        mayorControl    = GetComponent<MayorControl>();
+        state                   = State.cityControl;
+        mayorsSpawnControl      = GetComponent<MayorsSpawnControl>();
+        mayorsLawControl        = GetComponent<MayorsLawControl>();
         StartCoroutine(CityControl());
         StartCoroutine(TaxCollectionBuilding_AND_LawControl());
     }
@@ -52,13 +54,13 @@ public class Mayor : MonoBehaviour
                 switch (build_Controls)
                 {
                     case Build_Controls.build_Building:
-                        mayorControl.Build_Building();
+                        mayorsSpawnControl.Build_Building();
                         break;
                     case Build_Controls.build_Store:
-                        mayorControl.Build_Store();
+                        mayorsSpawnControl.Build_Store();
                         break;
                     case Build_Controls.build_House:
-                        mayorControl.Build_House();
+                        mayorsSpawnControl.Build_House();
                         break;
                 }
             }
@@ -68,13 +70,13 @@ public class Mayor : MonoBehaviour
                 switch (police_Controls)
                 {
                     case Police_Controls.police_Spawn:
-                        mayorControl.Police_Spawn();
+                        mayorsSpawnControl.Police_Spawn();
                         break;
                     case Police_Controls.police_AllSpawn:
-                        mayorControl.All_Police_Spawn();
+                        mayorsSpawnControl.All_Police_Spawn();
                         break;
                     case Police_Controls.martial_Law:
-                        mayorControl.Martial_law();
+                        mayorsSpawnControl.Martial_law();
                         break;
                 }
             }
@@ -141,6 +143,7 @@ public class Mayor : MonoBehaviour
         while(state == State.cityControl)
         {
             CityControlData.Instance.building_Tax += MapData.Instance.built_Building_Block_List.Count;
+            mayorsLawControl.CheckMayor_LawOrder();
             yield return new WaitForSecondsRealtime(90f);
         }
         yield return null;

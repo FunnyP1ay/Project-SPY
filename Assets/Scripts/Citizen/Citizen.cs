@@ -142,7 +142,6 @@ public class Citizen : MonoBehaviour
         if(colliders.Length == 0)
         {
             SetNavTarget_Road();
-            print("건물이 없습니다 !");
         }
         else
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MayorControl : MonoBehaviour
+public class MayorsSpawnControl : MonoBehaviour
 {
     // TODO Police Spawner
     public BuildingSpawner      buildingSpawner;

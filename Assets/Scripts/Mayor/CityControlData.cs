@@ -32,6 +32,7 @@ public class CityControlData : MonoBehaviour
     public int      building_Tax     = 0;
     [Header("CITY Law List")]
     // ----------- CITY Law List ------------
+    // -----Bad Law
     public bool     martial_Law;
     public bool     travel_Law;
     public bool     romance_Law;
@@ -40,7 +41,24 @@ public class CityControlData : MonoBehaviour
     public bool     cigarette_Law;
     public bool     pets_Law;
     public bool     tax_Law;
-
+    // -----Good Law
+    public bool     sportEvent_Law;
+    public bool     freeHair_Law;
+    public bool     cannabis_Law;   //´ë¸¶ÃÊ
+    public bool     parade_Law;
+    public bool     mayorsMovie_Law;
+    public bool     hospital_Law;
+    // -----Comic Law : approval Rating Not Change
+    public bool     marshmallow_Law;
+    public bool     sleep_Law;
+    public bool     chocolate_Law;
+    public bool     pizza_Law;
+    public bool     goodMorning_Law;
+    public bool     rockScissorsPaper_Law;
+    public bool     cola_Law;
+    public bool     handstand_Law;
+    public bool     brushingTeeth_Law;
+    // --------------------------------------
     public bool TakeBuildingTax(int value)
     {
         if (building_Tax >= value)
@@ -60,5 +78,13 @@ public class CityControlData : MonoBehaviour
         }
         else
             return false;
+    }
+    public bool LawStateChange(bool _value)
+    {
+        return !_value;
+    }
+    public void SetApprovalRating(float _value)
+    {
+        approval_Rating += _value;
     }
 }

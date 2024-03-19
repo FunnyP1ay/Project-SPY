@@ -28,10 +28,12 @@ public class SPYTargetObject : MonoBehaviour
     }
     public void OnAttack()
     {
+        AttackEffect.gameObject.SetActive(true);
         AttackEffect.Play();
     }
     public void Repair()
     {
+        AttackEffect.gameObject.SetActive(false);
         AttackEffect.Stop();
     }
 }
