@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static Citizen;
 
 public class Police : MonoBehaviour
 {
@@ -123,12 +122,18 @@ public class Police : MonoBehaviour
     private void CheckSpyTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 10f) // TODO 밸런스 조절 제일 필요한 부분 
+        if (checkDistance < 1f) // TODO 밸런스 조절 제일 필요한 부분 
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
+            nav.speed = 0.5f;
+            nav.SetDestination(navTarget.position);
+        }
+        else
+        {
             nav.speed = 3f;
         }
-        
+        nav.SetDestination(navTarget.position);
+
     }
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()

@@ -21,15 +21,22 @@ public class CityControlData : MonoBehaviour
     [Header("Mayor Approval Rating")]
     // ----------- Mayor Approval Rating-----
     public float approval_Rating = 90.0f;
+
+    [Header("Safety Rating")]
+    // ----------- Safety Rating ------------
+    public float safety_Rating = 90.0f;
+
     [Header("BuildCost")]
     // ----------- Costs --------------------
     public int      cost_Building    = 500;
     public int      cost_Store       = 200;
     public int      cost_House       = 100;
+
     [Header("CITY Tax")]
     // ----------- CITY Tax -----------------
     public int      citizen_Tax      = 0;
     public int      building_Tax     = 0;
+
     [Header("CITY Law List")]
     // ----------- CITY Law List ------------
     // -----Bad Law
