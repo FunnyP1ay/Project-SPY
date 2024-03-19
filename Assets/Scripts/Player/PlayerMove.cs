@@ -9,17 +9,18 @@ using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float            moveSpeed = 5f;
-    public float            jumpForce = 50f;
-    public float            rotationSpeed = 100f;
-    public bool             isBrokenAttack = false;
-    public SPYTargetObject  spy_Target_Object = null;
+    public float            moveSpeed           = 5f;
+    public float            jumpForce           = 50f;
+    public float            rotationSpeed       = 100f;
+    public bool             isBrokenAttack      = false;
+    public SPYTargetObject  spy_Target_Object   = null;
 
     private Rigidbody       rb;
-    private WeaponControl  weaponControl;
+    private WeaponControl   weaponControl;
     private SPYAction       spyAction;
     private Vector2         inputVector;
     private Vector3         moveVector;
+    private bool            isOpen              = false;
 
 
     private void Start()
@@ -54,6 +55,26 @@ public class PlayerMove : MonoBehaviour
         {
             spyAction.ExposedAction(10f);
             // TODO spyAction.BrokenObjectAttack(spy_Target_Object);
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            print("Tab키가 눌렸습니다");
+            if (isOpen == false)
+            {
+                print("패널을 열었습니다");
+                isOpen = true;
+                UI_Manager.Instance.currentCityBuildingTax.text         = ("BuildingTax :")     + CityControlData.Instance.building_Tax.ToString();
+                UI_Manager.Instance.currentCityCitizenTax.text          = ("CitizenTax :")      + CityControlData.Instance.citizen_Tax.ToString();
+                UI_Manager.Instance.currentCityBuildingCount.text       = ("CityBuilding : ")   + MapData.Instance.built_Building_Block_List.Count.ToString();
+                UI_Manager.Instance.currentMayor_Approval_Rating.text   = ("APProval Rating")   + CityControlData.Instance.approval_Rating.ToString();
+                UI_Manager.Instance.cityINFOPanel.SetActive(true);
+            }
+            else if (isOpen == true)
+            {
+                print("패널을 닫았습니다.");
+                isOpen = false;
+                UI_Manager.Instance.cityINFOPanel.SetActive(false);
+            }
         }
     }
 

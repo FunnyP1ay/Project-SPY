@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using static Citizen;
+
 public class Citizen : MonoBehaviour
 {
     [SerializeField]
-    Transform           navTarget;
-    public NavMeshAgent        nav;
-    CitizenINFO         citizenINFO;
-    private int         randNum;
-    private int         randNum2;
-    private int         randNum3;
-    private float       checkDistance;
-    public string       citizenName;
+    Transform                   navTarget;
+    public NavMeshAgent         nav;
+    CitizenINFO                 citizenINFO;
+    private int                 randNum;
+    private int                 randNum2;
+    private int                 randNum3;
+    private float               checkDistance;
+    public string               citizenName;
 
     private void Awake()
     {
@@ -29,14 +31,14 @@ public class Citizen : MonoBehaviour
     }
     public State state;
 
-    public enum MoveTarget
+    public enum MoveResult
     {
-        building,
-        store,
-        house,
-        road,
+        GetMoney,
+        TakeMoney,
+        NoneMoney,
+        None
     }
-    public MoveTarget moveTarget; 
+    public MoveResult moveResult; 
 
     public IEnumerator MoveCoroutine()
     {
@@ -54,21 +56,21 @@ public class Citizen : MonoBehaviour
         }
         yield break;
     }
-    // --------- Check Target Position 
+    // --------- Check Target Position -------------
     private void CheckTargetPos()
     {
-        switch (moveTarget)
+        switch (moveResult)
         {
-            case MoveTarget.building:
+            case MoveResult.GetMoney:
                 CheckBuildingTargetPos();
                 break;
-            case MoveTarget.store:
+            case MoveResult.TakeMoney:
                 CheckBuildingTargetPos();
                 break;
-            case MoveTarget.house:
+            case MoveResult.NoneMoney:
                 CheckBuildingTargetPos();
                 break;
-            case MoveTarget.road:
+            case MoveResult.None:
                 CheckRoadTargetPos();
                 break;
         }
@@ -77,18 +79,30 @@ public class Citizen : MonoBehaviour
     private void CheckRoadTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2f)
+        if (checkDistance < 4f)
         {
             nav.updatePosition = false;
             state = State.needNextMove;
         }
 
     }
-    private void CheckBuildingTargetPos()
+    private void CheckBuildingTargetPos() // Money Cal
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 2f)
         {
+            switch (moveResult)
+            {
+                case MoveResult.GetMoney:
+                    citizenINFO.GetMoney(1);
+                    break;
+                case MoveResult.TakeMoney: 
+                    citizenINFO.TakeMoney(1);
+                    break;
+                case MoveResult.NoneMoney: 
+                    break;
+            }
+            
             // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
             nav.updatePosition = false;
             state = State.needNextMove;
@@ -103,23 +117,27 @@ public class Citizen : MonoBehaviour
         switch (randNum)
         {
             case 0:
-                SetNavTarget_Building(0); // Building
+                moveResult = MoveResult.GetMoney;
+                SetNavTarget_Building(); // GetMoney
                 break;
             case 1:
-                SetNavTarget_Building(1); // Store
+                moveResult = MoveResult.TakeMoney;
+                SetNavTarget_Building(); // TakeMoney
                 break;
             case 2:
-                SetNavTarget_Building(2); // House
+                moveResult = MoveResult.NoneMoney;
+                SetNavTarget_Building(); // NoneMoney
                 break;
             default:
-                SetNavTarget_Road();      // Road
+                moveResult = MoveResult.None;
+                SetNavTarget_Road();      // Road : None
                 break;
         }
     }
-    private void SetNavTarget_Building(int _value)
+    private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
         
         if(colliders.Length == 0)
         {
@@ -128,21 +146,6 @@ public class Citizen : MonoBehaviour
         }
         else
         {
-            switch (_value) // TODO 각 건물 별 행동 패턴 구현
-            {
-                case 0:
-                    moveTarget = MoveTarget.building;
-                    print("타겟을 빌딩으로 잡았습니다 ! ");
-                    break;
-                case 1:
-                    moveTarget = MoveTarget.store;
-                    print("타겟을 상점으로 잡았습니다 ! ");
-                    break;
-                case 2:
-                    moveTarget = MoveTarget.house;
-                    print("타겟을 주택으로 잡았습니다 ! ");
-                    break;
-            }
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
@@ -166,7 +169,7 @@ public class Citizen : MonoBehaviour
             nav.SetDestination(navTarget.position);
             nav.updatePosition = true;
             state = State.Move;
-            moveTarget = MoveTarget.road;
+            moveResult = MoveResult.None;
         }
 
     }

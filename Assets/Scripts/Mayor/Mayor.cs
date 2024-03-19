@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mayor : MonoBehaviour
 {
-    public MayorControl    mayorControl;
+    public MayorControl     mayorControl;
     private int             randNum;
     private int             StateCount              = Enum.GetValues(typeof(State)).Length;
     private int             Build_ControlsCount    = Enum.GetValues(typeof(Build_Controls)).Length;
@@ -35,8 +35,10 @@ public class Mayor : MonoBehaviour
 
     void Start()
     {
-        mayorControl = GetComponent<MayorControl>();
+        state           = State.cityControl;
+        mayorControl    = GetComponent<MayorControl>();
         StartCoroutine(CityControl());
+        StartCoroutine(TaxCollectionBuilding_AND_LawControl());
     }
     private IEnumerator CityControl()
     {
@@ -132,5 +134,15 @@ public class Mayor : MonoBehaviour
                 //TODO 미정 정치인의 60~80 사이의 추가 행동 구현 할 때 필요할듯
             }
         }
+    }
+    // ---------------빌딩에 세금 걷기 및 새로운 정책 발표하기 ---------------
+    IEnumerator TaxCollectionBuilding_AND_LawControl()
+    {
+        while(state == State.cityControl)
+        {
+            CityControlData.Instance.building_Tax += MapData.Instance.built_Building_Block_List.Count;
+            yield return new WaitForSecondsRealtime(90f);
+        }
+        yield return null;
     }
 }

@@ -22,6 +22,7 @@ public class MayorControl : MonoBehaviour
         if (CityControlData.Instance.TakeBuildingTax(CityControlData.Instance.cost_Building))
         {
             buildingSpawner.BuildingSpawn(0); // 0 : Building
+            print("정치인이 빌딩을 지었습니다 ! ");
         }
     }
     public void Build_Store()
@@ -29,6 +30,7 @@ public class MayorControl : MonoBehaviour
         if (CityControlData.Instance.TakeBuildingTax(CityControlData.Instance.cost_Store))
         {
             buildingSpawner.BuildingSpawn(1); // 1 : Store
+            print("정치인이 상점을 지었습니다 !");
         }
     }
     public void Build_House()
@@ -36,6 +38,7 @@ public class MayorControl : MonoBehaviour
         if (CityControlData.Instance.TakeBuildingTax(CityControlData.Instance.cost_House))
         {
             buildingSpawner.BuildingSpawn(2); // 2 : House
+            print("정치인이 집을 공급했습니다 ! ");
         }
     }
     public void Police_Spawn()

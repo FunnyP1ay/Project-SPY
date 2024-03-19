@@ -157,15 +157,15 @@ public class Police : MonoBehaviour
             {
                 case 0:
                     moveTarget = MoveTarget.building;
-                    print("경찰이 타겟을 빌딩으로 잡았습니다 ! ");
+               
                     break;
                 case 1:
                     moveTarget = MoveTarget.store;
-                    print("경찰이 타겟을 상점으로 잡았습니다 ! ");
+                
                     break;
                 case 2:
                     moveTarget = MoveTarget.house;
-                    print("경찰이 타겟을 주택으로 잡았습니다 ! ");
+        
                     break;
             }
             randNum = Random.Range(0, colliders.Length);

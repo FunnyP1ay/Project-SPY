@@ -18,7 +18,8 @@ public class CitizenSpawner : MonoBehaviour
         while (MapData.Instance.currentCitizenCount < MapData.Instance.maxCitizenCount)
         {
             CitizenSpawn();
-            yield return new WaitForSecondsRealtime(60f);
+            print("시민이 새로 왔습니다 !" + MapData.Instance.currentCitizenCount);
+            yield return new WaitForSecondsRealtime(75f);
         }
         yield break;
     }
@@ -45,7 +46,7 @@ public class CitizenSpawner : MonoBehaviour
             spawnCitizen.StartCoroutine(spawnCitizen.MoveCoroutine());
             spawnCitizen.SetName();
             MapData.Instance.currentCitizenCount++;
-                print("시민 생성완료" + MapData.Instance.currentCitizenCount);
+            
             
         }
     }

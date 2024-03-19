@@ -18,15 +18,29 @@ public class CityControlData : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    // ----------- Costs -----------------
-    public int      cost_Building    = 100;
-    public int      cost_Store       = 40;
-    public int      cost_House       = 25;
-    // ----------- CITY Tax --------------
+    [Header("Mayor Approval Rating")]
+    // ----------- Mayor Approval Rating-----
+    public float approval_Rating = 90.0f;
+    [Header("BuildCost")]
+    // ----------- Costs --------------------
+    public int      cost_Building    = 500;
+    public int      cost_Store       = 200;
+    public int      cost_House       = 100;
+    [Header("CITY Tax")]
+    // ----------- CITY Tax -----------------
     public int      citizen_Tax      = 0;
     public int      building_Tax     = 0;
-    // ------- Mayor Approval Rating------
-    public float    approval_Rating  = 90;
+    [Header("CITY Law List")]
+    // ----------- CITY Law List ------------
+    public bool     martial_Law;
+    public bool     travel_Law;
+    public bool     romance_Law;
+    public bool     game_Law;
+    public bool     prohibition_Law; // ±ÝÁÖ·É
+    public bool     cigarette_Law;
+    public bool     pets_Law;
+    public bool     tax_Law;
+
     public bool TakeBuildingTax(int value)
     {
         if (building_Tax >= value)

@@ -36,5 +36,9 @@ public class BuildingSpawner : MonoBehaviour
             MapData.Instance.built_Building_Block_List.Add(SpawnBuilding);
             SpawnBuilding.BuildingSpawn(SpawnBuilding.transform, _value);
         }
+        else
+        {
+            print("더이상 건물을 지을 곳이 없습니다");
+        }
     }
 }

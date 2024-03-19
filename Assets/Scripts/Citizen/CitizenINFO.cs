@@ -13,13 +13,8 @@ public class CitizenINFO : MonoBehaviour
     {
         cam = Camera.main.transform;
     }
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-           nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
-        }
-    }
+
+         //  nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
     public void GetMoney(int _Value)
     {
         citizenMoney += _Value;
@@ -27,7 +22,12 @@ public class CitizenINFO : MonoBehaviour
     public void TakeMoney(int _Cost)
     {
         if (citizenMoney >= _Cost)
+        {
+
             citizenMoney -= _Cost;
+            CityControlData.Instance.citizen_Tax += _Cost;
+            print("시민이 세금을 냈습니다 !");
+        }
         else
             print("시민이 돈이 부족합니다."); //TODO 돈 쓰는거 상황 ,구현
     }
