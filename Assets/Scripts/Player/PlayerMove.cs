@@ -36,6 +36,13 @@ public class PlayerMove : MonoBehaviour
         // 이동 처리
         transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
         // 인풋매니저로 수정 해야 할듯 함.
+        if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip)
+        {
+            if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
+            {
+                _gun.Fire();
+            }
+        }
         if (Input.GetKey(KeyCode.Alpha1))
         {
             weaponControl.WeaponChange(0);
