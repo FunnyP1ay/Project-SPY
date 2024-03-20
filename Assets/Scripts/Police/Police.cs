@@ -208,16 +208,26 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 15f, roadLayerMask);
-        randNum = Random.Range(0, colliders.Length);
-        if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
+        if (colliders.Length == 0)
         {
-            randNum = Random.Range(0, _road.navTargetPos_List.Count);
-            navTarget = _road.navTargetPos_List[randNum].transform;
-            nav.SetDestination(navTarget.position);
+            nav.SetDestination(MapData.Instance.empty_Building_Block_List[0].transform.position);
             nav.updatePosition = true;
             moveState = MoveState.Move;
             moveTarget = MoveTarget.road;
+        }
+        else 
+        { 
+            randNum = Random.Range(0, colliders.Length);
+            if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
+            {
+                randNum = Random.Range(0, _road.navTargetPos_List.Count);
+                navTarget = _road.navTargetPos_List[randNum].transform;
+                nav.SetDestination(navTarget.position);
+                nav.updatePosition = true;
+                moveState = MoveState.Move;
+                moveTarget = MoveTarget.road;
+            }
         }
     }
 
