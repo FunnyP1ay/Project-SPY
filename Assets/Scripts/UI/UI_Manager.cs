@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -30,4 +31,6 @@ public class UI_Manager : MonoBehaviour
     public TextMeshProUGUI      currentMayor_Approval_Rating;
     public TextMeshProUGUI      currentCitizenCount;
     public TextMeshProUGUI      currentSafety_Rating;
+    [Header("City Laws Informtion")]
+    public List<Image>          currentlawList;
 }
