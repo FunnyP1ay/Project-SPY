@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class SPYAction : MonoBehaviour
 {
-    
+    public UI_PlayerState playerState;
+    private void Awake()
+    {
+        playerState = GetComponent<UI_PlayerState>();
+    }
     public void BrokenObjectAttack(SPYTargetObject _target)
     {
         _target.OnAttack();
@@ -26,5 +30,11 @@ public class SPYAction : MonoBehaviour
             }
         }
     }
-
+    public void ChangeCoatUI(bool _value)
+    {
+        if(_value)
+            playerState.enabled = true;
+        else
+            playerState.enabled = false;
+    }
 }

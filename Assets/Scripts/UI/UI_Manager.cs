@@ -31,6 +31,9 @@ public class UI_Manager : MonoBehaviour
     public TextMeshProUGUI      currentMayor_Approval_Rating;
     public TextMeshProUGUI      currentCitizenCount;
     public TextMeshProUGUI      currentSafety_Rating;
-    [Header("City Laws Informtion")]
+    [Header("City Laws Information")]
     public List<Image>          currentlawList;
+
+    [Header("Player State Information")]
+    public Image                playerCoatStateImage;
 }

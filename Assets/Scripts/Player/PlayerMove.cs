@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool             isBrokenAttack      = false;
     public SPYTargetObject  spy_Target_Object   = null;
-    private SPYAction       spyAction;
+    public SPYAction        spyAction;
 
     private Rigidbody       rb;
     public  WeaponControl   weaponControl;
@@ -82,9 +82,12 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.currentCitizenCount.text            = ("CitizenCount : ")   + MapData.Instance.currentCitizenCount.ToString();
                 UI_Manager.Instance.currentSafety_Rating.text           = ("Safety Rating : ")  + CityControlData.Instance.safety_Rating.ToString();
                 UI_Manager.Instance.cityINFOPanel.SetActive(true);
+
+                spyAction.ChangeCoatUI(true);
             }
             else if (isOpen == true)
             {
+                spyAction.ChangeCoatUI(false);
                 print("패널을 닫았습니다.");
                 isOpen = false;
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
