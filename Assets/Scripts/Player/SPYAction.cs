@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SPYAction : MonoBehaviour
 {
-
+    
     public void BrokenObjectAttack(SPYTargetObject _target)
     {
-        
-        ExposedAction(10f);
+        _target.OnAttack();
+        ExposedAction(_target.exposedRange);
     }
 
     public void ExposedAction(float _range)

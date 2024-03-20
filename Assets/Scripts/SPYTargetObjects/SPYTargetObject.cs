@@ -5,7 +5,8 @@ using UnityEngine.VFX;
 
 public class SPYTargetObject : MonoBehaviour
 {
-   
+    public float                    exposedRange;
+
     public GameObject               Fkey;
     public VisualEffect             AttackEffect;
     private void OnTriggerEnter(Collider other)

@@ -10,12 +10,13 @@ public class Police : MonoBehaviour
     Transform           navTarget;
     NavMeshAgent        nav;
     CitizenINFO         citizenINFO;
-    WeaponControl      weaponControl;
+    WeaponControl       weaponControl;
     private int         randNum;
     private int         randNum2;
     private int         randNum3;
     private float       checkDistance;
     public string       citizenName;
+    public bool         isFire = false;
 
     private void Awake()
     {
@@ -122,18 +123,50 @@ public class Police : MonoBehaviour
     private void CheckSpyTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 1f) // TODO 밸런스 조절 제일 필요한 부분 
+        if (checkDistance < 40f) // TODO 밸런스 조절 제일 필요한 부분 
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
-            nav.speed = 0.5f;
+            nav.speed = 2f;
+            if(navTarget.gameObject.TryGetComponent(out PlayerMove _player)/*SPY AI 추가하기*/)
+            {
+                if (_player.weaponControl.weaponState == WeaponControl.WeaponState.equip)
+                {
+                    weaponControl.WeaponChange(1); // weapon equip
+                    isFire = true;
+                    StartCoroutine(Fire());
+                }
+            }
             nav.SetDestination(navTarget.position);
+            isFire = false;
         }
-        else
+        else if (checkDistance > 40f)
         {
+            print("추격에 실패 했습니다 ! ");
+            ChaseFailed();
+            isFire = false;
             nav.speed = 3f;
         }
-        nav.SetDestination(navTarget.position);
+        else
+            nav.SetDestination(navTarget.position);
 
+    }
+    public IEnumerator Fire()
+    {
+        if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
+        {
+            while (isFire)
+            {
+                print("경찰이 사격합니다");
+                transform.LookAt(navTarget.position);
+                _gun.Fire();
+                yield return new WaitForSecondsRealtime(0.5f);
+            }
+            isFire = false;
+            yield break;
+        }
+        else
+            isFire = false;
+        yield break;
     }
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()
@@ -201,7 +234,8 @@ public class Police : MonoBehaviour
         moveTarget  = MoveTarget.spy;
         state       = MoveState.Move;
         nav.updatePosition = true;
-        nav.SetDestination(_target.position);
+        navTarget = _target;
+        nav.SetDestination(navTarget.position);
     }
     //TODO 경찰이 플레이어 일정 수준 이상으로 왔을 때, 총을 쏘거나 체포.
     public void ChaseFailed()

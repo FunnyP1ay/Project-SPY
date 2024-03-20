@@ -59,17 +59,14 @@ public class DrivingCar : MonoBehaviour
     {
         
         currentSpeed = 0f;
-        print("잠시 멈췄습니다 ! ");
     }
     private void DrivingSlowStart()
     {
         currentSpeed = setSpeed / 2;
-        print("천천히 운행합니다 ! ");
     }
     private void DrivingReStart()
     {
         currentSpeed = setSpeed;
-        print("다시 운행합니다 ! ");
     }
     private IEnumerator WaitCoroutine()
     {

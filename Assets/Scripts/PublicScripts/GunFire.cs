@@ -7,8 +7,9 @@ public class GunFire : MonoBehaviour
 {
     public Bullet       bullet;
     public Transform    firePos;
-    public float        fireTimer = 1f;
     public float        bulletSpeed   = 30f; 
+
+
 
     public void Fire()
     {

@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581aa16e0c806a74d89929960150ae7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exposedRange: 10
   Fkey: {fileID: 3218195169473818486}
   AttackEffect: {fileID: 6958103057844805388}
 --- !u!65 &6287635696748980714

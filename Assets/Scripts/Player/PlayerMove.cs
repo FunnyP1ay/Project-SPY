@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     private SPYAction       spyAction;
 
     private Rigidbody       rb;
-    private WeaponControl   weaponControl;
+    public  WeaponControl   weaponControl;
     private float           fireRate = 1f;
     private float           nextFireTime = 0f;
 
@@ -32,6 +32,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
+        spy_Target_Object = GetComponent<SPYTargetObject>();
     }
     void Update()
     {
@@ -65,8 +66,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F)&& isBrokenAttack)
         {
-            spyAction.ExposedAction(10f);
-            // TODO spyAction.BrokenObjectAttack(spy_Target_Object);
+            spyAction.BrokenObjectAttack(spy_Target_Object);
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
