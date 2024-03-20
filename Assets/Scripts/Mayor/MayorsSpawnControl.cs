@@ -7,14 +7,16 @@ public class MayorsSpawnControl : MonoBehaviour
     // TODO Police Spawner
     public BuildingSpawner      buildingSpawner;
     public CitizenSpawner       citizenSpawner;
+    public PoliceSpawner        policeSpawner;
     private void Start()
     {
         buildingSpawner =   GetComponent<BuildingSpawner>();
         citizenSpawner  =   GetComponent<CitizenSpawner>();
+        policeSpawner   =   GetComponent<PoliceSpawner>();
 
         buildingSpawner.FirstSpawn();
         citizenSpawner.FirstSpawn();
-      
+        policeSpawner.FirstSpawn();
     }
 
     public void Build_Building()

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8649226116679721}
   - component: {fileID: 1344234815753033020}
   - component: {fileID: 347229354191449791}
+  - component: {fileID: 3156966120699096141}
   m_Layer: 0
   m_Name: MayorTest
   m_TagString: Untagged
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingSpawner: {fileID: 0}
   citizenSpawner: {fileID: 0}
+  policeSpawner: {fileID: 0}
 --- !u!114 &8649226116679721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4269647cb701a34183cbe89ecf9c492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3156966120699096141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851082585640309005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057b5540eee5aa14e9f7d1dcc09317a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  policePrefab: {fileID: 7496228196927346729, guid: e0215ee9ad9aa4c44a7d868a4955ff4a, type: 3}

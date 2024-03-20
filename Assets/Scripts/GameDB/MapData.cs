@@ -35,6 +35,11 @@ public class MapData : MonoBehaviour
     [Header("Citizen DATA")]
     public int currentCitizenCount  = 0;
     public int maxCitizenCount      = 250;
+    // ---------------     Police DATA      ----------------------
+    [Header("Police DATA")]
+    public int startPoliceCount;
+    public int curretPoliceCount;
+    public int maxPoliceCount       = 40;
     // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
     public List<TrafficSignal> trafficSignals_List;

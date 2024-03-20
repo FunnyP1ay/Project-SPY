@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 757790853582448809}
   - component: {fileID: -7483898403405426170}
+  - component: {fileID: 2690314472940261838}
   m_Layer: 11
   m_Name: Building_House_02_color03 1
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8cb6d953267a0884288df6a274f09c40, type: 3}
+--- !u!208 &2690314472940261838
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.155, y: 4.5270004, z: 4.15}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.84, y: 4.526, z: 0.29}
+  m_TimeToStationary: 0.5
 --- !u!1 &1379614662009551242
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 1379614662009551242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 5.88}
+  m_LocalPosition: {x: 1.25, y: 0, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

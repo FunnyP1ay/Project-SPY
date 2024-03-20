@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: -788145423324881604}
   - component: {fileID: 5744896315716686991}
+  - component: {fileID: 1481512697554658732}
   m_Layer: 11
   m_Name: Store_Shoes Shop 1
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 27c09c8008c0ada409e024a1dc2186c0, type: 3}
+--- !u!208 &1481512697554658732
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 4.1790004, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.07, y: 4.1790004, z: 0.3}
+  m_TimeToStationary: 0.5
 --- !u!1 &7033298038908963807
 GameObject:
   m_ObjectHideFlags: 0

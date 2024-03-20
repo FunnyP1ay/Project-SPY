@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 2712231309956970615}
   - component: {fileID: -8647254071606773984}
+  - component: {fileID: -7065221565622604117}
   m_Layer: 11
   m_Name: Building_Residential_color02 1
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 42f28010e67310c4c9ea88fbc4084fc6, type: 3}
+--- !u!208 &-7065221565622604117
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.95, y: 9.620001, z: 5.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 9.620001, z: -0.7}
+  m_TimeToStationary: 0.5
 --- !u!1 &7011545405413991199
 GameObject:
   m_ObjectHideFlags: 0

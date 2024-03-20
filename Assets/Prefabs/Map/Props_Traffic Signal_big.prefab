@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 294009616057536648}
   - component: {fileID: 7905431056534363945}
   - component: {fileID: 9013523344512502526}
+  - component: {fileID: 4450684225583700423}
   m_Layer: 0
   m_Name: Props_Traffic Signal_big
   m_TagString: Untagged
@@ -96,3 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3c79f34aedce4408c70e531175043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &4450684225583700423
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008163572113505727}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.373, y: 3.0100002, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.1140001, y: 3.0100002, z: -0.020000001}
+  m_TimeToStationary: 0.5

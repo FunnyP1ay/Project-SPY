@@ -7,16 +7,17 @@ public class Police : MonoBehaviour
 {
    
     [SerializeField]
-    Transform           navTarget;
-    NavMeshAgent        nav;
-    CitizenINFO         citizenINFO;
-    WeaponControl       weaponControl;
-    private int         randNum;
-    private int         randNum2;
-    private int         randNum3;
-    private float       checkDistance;
-    public string       citizenName;
-    public bool         isFire = false;
+    Transform               navTarget;
+   
+    CitizenINFO             citizenINFO;
+    WeaponControl           weaponControl;
+    public  NavMeshAgent    nav;
+    private int             randNum;
+    private int             randNum2;
+    private int             randNum3;
+    private float           checkDistance;
+    public string           citizenName;
+    public bool             isFire = false;
 
     private void Awake()
     {
@@ -28,20 +29,13 @@ public class Police : MonoBehaviour
     {
         SetName();
     }
-    private void OnEnable()
-    {
-        nav.speed = 3.0f;
-        state = MoveState.needNextMove;
-        StartCoroutine(MoveCoroutine());
-    }
-
     public enum MoveState
     {
         die,
         needNextMove,
         Move
     }
-    public MoveState state;
+    public MoveState moveState;
 
     public enum MoveTarget
     {
@@ -54,15 +48,15 @@ public class Police : MonoBehaviour
     public MoveTarget moveTarget;
 
 
-    IEnumerator MoveCoroutine()
+    public IEnumerator MoveCoroutine()
     {
-        while (state != MoveState.die)
+        while (moveState != MoveState.die)
         {
-            if (state == MoveState.needNextMove)
+            if (moveState == MoveState.needNextMove)
             {
                 SetNextMoveTarget();
             }
-            if (state == MoveState.Move)
+            if (moveState == MoveState.Move)
             {
                 CheckTargetPos();
             }
@@ -98,7 +92,7 @@ public class Police : MonoBehaviour
         if (checkDistance < 2f)
         {
             nav.updatePosition = false;
-            state = MoveState.needNextMove;
+            moveState = MoveState.needNextMove;
         }
     }
     private void CheckBuildingTargetPos()
@@ -117,7 +111,7 @@ public class Police : MonoBehaviour
             }
             // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
             nav.updatePosition = false;
-            state = MoveState.needNextMove;
+            moveState = MoveState.needNextMove;
         }
     }
     private void CheckSpyTargetPos()
@@ -207,7 +201,7 @@ public class Police : MonoBehaviour
                 navTarget = _building.building_NavTargetPoint[randNum].transform;
                 nav.SetDestination(navTarget.position);
                 nav.updatePosition = true;
-                state = MoveState.Move;
+                moveState = MoveState.Move;
             }
         }
     }
@@ -222,7 +216,7 @@ public class Police : MonoBehaviour
             navTarget = _road.navTargetPos_List[randNum].transform;
             nav.SetDestination(navTarget.position);
             nav.updatePosition = true;
-            state = MoveState.Move;
+            moveState = MoveState.Move;
             moveTarget = MoveTarget.road;
         }
     }
@@ -232,7 +226,7 @@ public class Police : MonoBehaviour
         weaponControl.weaponState = WeaponControl.WeaponState.equip;
         weaponControl.WeaponChange(1); // equip weapon
         moveTarget  = MoveTarget.spy;
-        state       = MoveState.Move;
+        moveState       = MoveState.Move;
         nav.updatePosition = true;
         navTarget = _target;
         nav.SetDestination(navTarget.position);
@@ -243,7 +237,7 @@ public class Police : MonoBehaviour
         weaponControl.weaponState = WeaponControl.WeaponState.none;
         weaponControl.WeaponChange(0); // none weapon
         moveTarget  = MoveTarget.road;
-        state       = MoveState.needNextMove;
+        moveState       = MoveState.needNextMove;
 
     }
     public void SetName()

@@ -89,7 +89,7 @@ public class Citizen : MonoBehaviour
     private void CheckBuildingTargetPos() // Money Cal
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2f)
+        if (checkDistance < 4f)
         {
             switch (moveResult)
             {

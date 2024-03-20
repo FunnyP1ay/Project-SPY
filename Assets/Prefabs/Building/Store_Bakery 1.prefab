@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 6114555061667640132}
   - component: {fileID: -4595530392009948018}
+  - component: {fileID: 2672134275866766984}
   m_Layer: 11
   m_Name: Store_Bakery 1
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ea9803764c3c1e74b83f6dda1cfa0885, type: 3}
+--- !u!208 &2672134275866766984
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 6.51, y: 4.2400002, z: 4.15}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 4.2400002, z: -1.1}
+  m_TimeToStationary: 0.5
 --- !u!1 &3065090913609693488
 GameObject:
   m_ObjectHideFlags: 0
