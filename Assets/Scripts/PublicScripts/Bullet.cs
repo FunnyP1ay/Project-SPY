@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    void Start()
+    public IEnumerator BulletLife()
     {
-        StartCoroutine(BulletLife());
-    }
-    IEnumerator BulletLife()
-    {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(5f);
         LeanPool.Despawn(gameObject);
         yield break;
     }

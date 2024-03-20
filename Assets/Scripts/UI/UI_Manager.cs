@@ -28,5 +28,6 @@ public class UI_Manager : MonoBehaviour
     public TextMeshProUGUI      currentCityCitizenTax;
     public TextMeshProUGUI      currentCityBuildingCount;
     public TextMeshProUGUI      currentMayor_Approval_Rating;
-
+    public TextMeshProUGUI      currentCitizenCount;
+    public TextMeshProUGUI      currentSafety_Rating;
 }

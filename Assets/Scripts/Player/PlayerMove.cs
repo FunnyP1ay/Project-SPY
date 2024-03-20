@@ -12,12 +12,16 @@ public class PlayerMove : MonoBehaviour
     public float            moveSpeed           = 5f;
     public float            jumpForce           = 50f;
     public float            rotationSpeed       = 100f;
+
     public bool             isBrokenAttack      = false;
     public SPYTargetObject  spy_Target_Object   = null;
+    private SPYAction       spyAction;
 
     private Rigidbody       rb;
     private WeaponControl   weaponControl;
-    private SPYAction       spyAction;
+    private float           fireRate = 1f;
+    private float           nextFireTime = 0f;
+
     private Vector2         inputVector;
     private Vector3         moveVector;
     private bool            isOpen              = false;
@@ -36,11 +40,12 @@ public class PlayerMove : MonoBehaviour
         // 이동 처리
         transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
         // 인풋매니저로 수정 해야 할듯 함.
-        if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip)
+        if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip&& Time.time >= nextFireTime)
         {
             if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
             {
                 _gun.Fire();
+                nextFireTime = Time.time + 1f / fireRate;
             }
         }
         if (Input.GetKey(KeyCode.Alpha1))
@@ -74,6 +79,8 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.currentCityCitizenTax.text          = ("CitizenTax :")      + CityControlData.Instance.citizen_Tax.ToString();
                 UI_Manager.Instance.currentCityBuildingCount.text       = ("CityBuilding : ")   + MapData.Instance.built_Building_Block_List.Count.ToString();
                 UI_Manager.Instance.currentMayor_Approval_Rating.text   = ("APProval Rating")   + CityControlData.Instance.approval_Rating.ToString();
+                UI_Manager.Instance.currentCitizenCount.text            = ("CitizenCount : ")   + MapData.Instance.currentCitizenCount.ToString();
+                UI_Manager.Instance.currentSafety_Rating.text           = ("Safety Rating : ")  + CityControlData.Instance.safety_Rating.ToString();
                 UI_Manager.Instance.cityINFOPanel.SetActive(true);
             }
             else if (isOpen == true)

@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class GunFire : MonoBehaviour
 {
-    public GameObject   bullet;
+    public Bullet       bullet;
     public Transform    firePos;
-    public float        bulletSpeed   = 10; 
-
-    void Start()
-    {
-    }
+    public float        fireTimer = 1f;
+    public float        bulletSpeed   = 30f; 
 
     public void Fire()
     {
         var _bullet =  LeanPool.Spawn(bullet);
         _bullet.transform.position = firePos.position;
         _bullet.transform.rotation = firePos.rotation;
+        _bullet.StartCoroutine(_bullet.BulletLife());
         Rigidbody rb = _bullet.GetComponent<Rigidbody>();
         rb.velocity = firePos.forward * bulletSpeed;
     }
