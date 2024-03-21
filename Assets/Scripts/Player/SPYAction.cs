@@ -30,6 +30,10 @@ public class SPYAction : MonoBehaviour
             }
         }
     }
+    public void ChangeCoat()
+    {
+
+    }
     public void ChangeCoatUI(bool _value)
     {
         if(_value)

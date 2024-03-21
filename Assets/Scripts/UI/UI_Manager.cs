@@ -33,7 +33,8 @@ public class UI_Manager : MonoBehaviour
     public TextMeshProUGUI      currentSafety_Rating;
     [Header("City Laws Information")]
     public List<Image>          currentlawList;
-
     [Header("Player State Information")]
-    public Image                playerCoatStateImage;
+    public UI_PlayerState       playerCoatStateImage;
+    [Header("Police Icon Panel")]
+    public UI_PoliceIcon        ui_PoliceIcon;
 }

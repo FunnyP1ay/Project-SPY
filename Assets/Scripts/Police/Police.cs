@@ -1,3 +1,4 @@
+using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -235,6 +236,7 @@ public class Police : MonoBehaviour
     {
         weaponControl.weaponState = WeaponControl.WeaponState.equip;
         weaponControl.WeaponChange(1); // equip weapon
+        PoliceIconControl(1);
         moveTarget  = MoveTarget.spy;
         moveState       = MoveState.Move;
         nav.updatePosition = true;
@@ -248,8 +250,15 @@ public class Police : MonoBehaviour
         weaponControl.WeaponChange(0); // none weapon
         moveTarget  = MoveTarget.road;
         moveState       = MoveState.needNextMove;
-
+        PoliceIconControl(-3);
     }
+    //------------------Police Icon Control ------------------
+    public void PoliceIconControl(int _value)
+    {
+        UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(_value);
+    }
+
+
     public void SetName()
     {
         randNum = Random.Range(0, GameDB.Instance.nameChar.Count);
@@ -262,4 +271,14 @@ public class Police : MonoBehaviour
         citizenINFO.nameText.text = citizenName;
         citizenINFO.nameText.fontSize = 0.5f;
     }
+
+    public void Die()
+    {
+        if(moveTarget== MoveTarget.spy)
+        {
+        }
+        MapData.Instance.curretPoliceCount--;
+        LeanPool.Despawn(this);
+    }
+
 }

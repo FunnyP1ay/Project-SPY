@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_PlayerState : MonoBehaviour
 {
+    public Image Coat_Icon;
     public Color targetColor = Color.red;
     public float transitionDuration = 1f;
 
@@ -13,6 +15,7 @@ public class UI_PlayerState : MonoBehaviour
 
     private void Start()
     {
+        Coat_Icon = GetComponent<Image>();
         originalColor = Color.clear;
     }
 
@@ -21,11 +24,11 @@ public class UI_PlayerState : MonoBehaviour
         // 스프라이트 색상 변경
         if (isRed)
         {
-            UI_Manager.Instance.playerCoatStateImage.color = Color.Lerp(originalColor, targetColor, elapsedTime / transitionDuration);
+            Coat_Icon.color = Color.Lerp(originalColor, targetColor, elapsedTime / transitionDuration);
         }
         else
         {
-            UI_Manager.Instance.playerCoatStateImage.color = Color.Lerp(targetColor, originalColor, elapsedTime / transitionDuration);
+            Coat_Icon.color = Color.Lerp(targetColor, originalColor, elapsedTime / transitionDuration);
         }
 
         // 보간 시간 업데이트
