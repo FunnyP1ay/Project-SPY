@@ -33,7 +33,6 @@ public class UI_PopUpBase : MonoBehaviour
     {
         this.closeCallback = closeCallback;
         gameObject.SetActive(true);
-        
     }
     public virtual void Close()
     {
