@@ -37316,7 +37316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f159fe1f4c85c5478e293c4aa893ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  approval_Rating: 0
+  approval_Rating: 90
   safety_Rating: 90
   cost_Building: 0
   cost_Store: 0

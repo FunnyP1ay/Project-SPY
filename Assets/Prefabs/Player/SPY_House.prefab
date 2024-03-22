@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9604a556b7ef2fc48a6425c7b2627937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outBuildingPos: {fileID: 0}
 --- !u!65 &163350355637741194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -353,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2337027556097600920}
   m_Layer: 0
-  m_Name: GetInPos
+  m_Name: GetInPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

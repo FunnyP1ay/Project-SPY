@@ -15,7 +15,6 @@ public class UI_Coat_Icon : MonoBehaviour
 
     private void Start()
     {
-        Coat_Icon = GetComponent<Image>();
         originalColor = Color.clear;
     }
 

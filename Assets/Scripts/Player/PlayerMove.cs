@@ -80,7 +80,6 @@ public class PlayerMove : MonoBehaviour
             else
             {
                 isPlayerBuilding_In = true;
-                MapData.Instance.playerHouse_OutPos = this.transform;
                 this.transform.position = MapData.Instance.playerHouse_InPos.position;
             }
         }
