@@ -44,6 +44,9 @@ public class MapData : MonoBehaviour
     // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
     public List<TrafficSignal>      trafficSignals_List;
+    // ---------------  Player House DATA -------------------------
+    [Header("Player House DATA")]
+    public Transform playerHouse_InPos;
 
  
 }

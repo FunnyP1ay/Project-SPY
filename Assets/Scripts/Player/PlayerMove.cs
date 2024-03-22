@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float            rotationSpeed       = 100f;
 
     public bool             isBrokenAttack      = false;
+    public bool             isGetIn             = false;
     public SPYTargetObject  spy_Target_Object   = null;
     public SPYAction        spyAction;
 
@@ -64,9 +65,13 @@ public class PlayerMove : MonoBehaviour
             weaponControl.weaponState = WeaponControl.WeaponState.skill;
             weaponControl.WeaponChange(2);
         }
-        if (Input.GetKey(KeyCode.F)&& isBrokenAttack)
+        if (Input.GetKey(KeyCode.F) && isBrokenAttack)
         {
             spyAction.BrokenObjectAttack(spy_Target_Object);
+        }
+        if (Input.GetKey(KeyCode.F) && isGetIn)
+        {
+            this.transform.position = MapData.Instance.playerHouse_InPos.position;
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {

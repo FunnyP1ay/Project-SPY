@@ -36,7 +36,7 @@ public class UI_Manager : MonoBehaviour
     [Header("Player Coat Icon")]
     public UI_Coat_Icon         ui_Player_Coat_Icon;
     [Header("Key Icon")]
-    public UI_Key_Icon          ui_Key_Icon;
+    public UI_Key_Icon_Action   ui_Key_Icon_Action;
     [Header("Police Icon Panel")]
     public UI_PoliceIcon        ui_PoliceIcon;
 

@@ -12,10 +12,8 @@ public class Building : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-
             if (child.gameObject.name == "NavTarget")
             {
-
                 building_NavTargetPoint.Add(child);
             }
         }

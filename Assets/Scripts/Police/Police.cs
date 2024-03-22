@@ -71,6 +71,7 @@ public class Police : MonoBehaviour
         switch (moveTarget)
         {
             case MoveTarget.building:
+                CityControlData.Instance.safety_Rating += 0.01f; // 수치 조절, 최대값 설정 필요
                 CheckBuildingTargetPos();
                 break;
                 case MoveTarget.store:

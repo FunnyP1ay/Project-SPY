@@ -6,22 +6,12 @@ using UnityEngine.VFX;
 public class SPYTargetObject : MonoBehaviour
 {
     public float                    exposedRange;
-
-    public GameObject               Fkey;
     public VisualEffect             AttackEffect;
-
-    private Transform               cam;
-
-    private void Start()
-    {
-        cam = Camera.main.transform;
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out PlayerMove player))
         {
-            Fkey.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
-            Fkey.SetActive(true);
+            UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_True();
             player.isBrokenAttack = true;
             player.spy_Target_Object = this;
         }
@@ -30,7 +20,7 @@ public class SPYTargetObject : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlayerMove player))
         {
-            Fkey.SetActive(false);
+            UI_Manager.Instance.ui_Key_Icon_Action.F_key_SetActive_False();
             player.isBrokenAttack = false;
             player.spy_Target_Object = null;
         }
