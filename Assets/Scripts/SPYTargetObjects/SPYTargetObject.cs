@@ -9,10 +9,18 @@ public class SPYTargetObject : MonoBehaviour
 
     public GameObject               Fkey;
     public VisualEffect             AttackEffect;
+
+    private Transform               cam;
+
+    private void Start()
+    {
+        cam = Camera.main.transform;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out PlayerMove player))
         {
+            Fkey.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
             Fkey.SetActive(true);
             player.isBrokenAttack = true;
             player.spy_Target_Object = this;
