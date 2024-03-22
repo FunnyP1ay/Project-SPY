@@ -1,4 +1,4 @@
-using DG.Tweening;
+/*using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,3 +45,4 @@ public class UI_PopUpBase : MonoBehaviour
         transform.DOScale(0f, 0.2f).SetEase(Ease.InBounce).onComplete += () => gameObject.SetActive(false);
     }
 }
+*/

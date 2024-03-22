@@ -20,7 +20,7 @@ public class SPYTargetObject : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlayerMove player))
         {
-            UI_Manager.Instance.ui_Key_Icon_Action.F_key_SetActive_False();
+            UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_False();
             player.isBrokenAttack = false;
             player.spy_Target_Object = null;
         }

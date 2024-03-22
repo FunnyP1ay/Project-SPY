@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool             isBrokenAttack      = false;
     public bool             isGetIn             = false;
+    public bool             isPlayerBuilding_In = false;
     public SPYTargetObject  spy_Target_Object   = null;
     public SPYAction        spyAction;
 
@@ -71,7 +72,17 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F) && isGetIn)
         {
-            this.transform.position = MapData.Instance.playerHouse_InPos.position;
+            if (isPlayerBuilding_In)
+            {
+                isPlayerBuilding_In = false;
+                this.transform.position = MapData.Instance.playerHouse_OutPos.position;
+            }
+            else
+            {
+                isPlayerBuilding_In = true;
+                MapData.Instance.playerHouse_OutPos = this.transform;
+                this.transform.position = MapData.Instance.playerHouse_InPos.position;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {

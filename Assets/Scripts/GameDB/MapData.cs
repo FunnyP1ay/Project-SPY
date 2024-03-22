@@ -47,6 +47,7 @@ public class MapData : MonoBehaviour
     // ---------------  Player House DATA -------------------------
     [Header("Player House DATA")]
     public Transform playerHouse_InPos;
+    public Transform playerHouse_OutPos;
 
  
 }

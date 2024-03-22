@@ -11,7 +11,7 @@ public class UI_Key_Icon_Action : MonoBehaviour
     {
         F_Key_Icon.SetActive(true);
     }
-    public void F_key_SetActive_False()
+    public void F_Key_SetActive_False()
     {
         F_Key_Icon.SetActive(false);
     }

@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6237201816203224042}
   - component: {fileID: 1458058786748083811}
+  - component: {fileID: 143838420367329652}
   m_Layer: 0
-  m_Name: In Spy House
+  m_Name: In Player House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +60,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPos: {fileID: 1533717163404821377}
+--- !u!65 &143838420367329652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849623097115646108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 2, y: 1, z: 1.2}
 --- !u!1 &935737065330392074
 GameObject:
   m_ObjectHideFlags: 0

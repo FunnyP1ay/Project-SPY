@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class GetInBuilding : MonoBehaviour
+public class Player_In_PlayerHouse : MonoBehaviour
 {
+    public Transform doorPos;
+    void Start()
+    {
+        MapData.Instance.playerHouse_InPos = doorPos.transform;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out PlayerMove player))
