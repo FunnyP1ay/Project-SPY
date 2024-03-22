@@ -7666,9 +7666,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 176251711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9a897992c028e418e0b77002e576e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 63076fbdebb171e4cbd43f6c6e6dfe83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Coat_Icon: {fileID: 850150477}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  transitionDuration: 1
 --- !u!1001 &179006004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37778,8 +37781,8 @@ MonoBehaviour:
   currentCitizenCount: {fileID: 632245681}
   currentSafety_Rating: {fileID: 1480296114}
   currentlawList: []
-  ui_Player_Coat_Icon: {fileID: 0}
-  ui_Key_Icon_Action: {fileID: 0}
+  ui_Player_Coat_Icon: {fileID: 176251716}
+  ui_Key_Icon_Action: {fileID: 1106943999}
   ui_PoliceIcon: {fileID: 462792297}
 --- !u!4 &1006021640
 Transform:
@@ -41837,7 +41840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129, y: 260.5}
+  m_AnchoredPosition: {x: 149.2, y: 90}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106943997
@@ -44841,7 +44844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1205921040
 RectTransform:
   m_ObjectHideFlags: 0
