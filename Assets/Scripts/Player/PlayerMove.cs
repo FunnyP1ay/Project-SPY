@@ -9,29 +9,35 @@ using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
+    // ------------- Player Setting -------------------
     public float            moveSpeed           = 5f;
     public float            jumpForce           = 50f;
     public float            rotationSpeed       = 100f;
+    private float           fireRate            = 1f;
+    private float           nextFireTime        = 0f;
 
+    // --------------- Player State Check --------------
+    [Header("Player State Check")]
     public bool             isBrokenAttack      = false;
     public bool             isGetIn             = false;
     public bool             isPlayerBuilding_In = false;
+    public bool             isCoatChange        = false;
+    private bool            isOpen              = false;
+
+    // --------------- Player Script -------------------
+    [Header("Player Scripts")]
     public SPYTargetObject  spy_Target_Object   = null;
     public SPYAction        spyAction;
+    public WeaponControl    weaponControl;
 
-    private Rigidbody       rb;
-    public  WeaponControl   weaponControl;
-    private float           fireRate = 1f;
-    private float           nextFireTime = 0f;
 
     private Vector2         inputVector;
     private Vector3         moveVector;
-    private bool            isOpen              = false;
+
 
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();
@@ -70,7 +76,7 @@ public class PlayerMove : MonoBehaviour
         {
             spyAction.BrokenObjectAttack(spy_Target_Object);
         }
-        if (Input.GetKey(KeyCode.F) && isGetIn)
+        if (Input.GetKeyDown(KeyCode.F) && isGetIn)
         {
             if (isPlayerBuilding_In)
             {
@@ -82,6 +88,10 @@ public class PlayerMove : MonoBehaviour
                 isPlayerBuilding_In = true;
                 this.transform.position = MapData.Instance.playerHouse_InPos.position;
             }
+        }
+        if (Input.GetKey(KeyCode.F) && isCoatChange)
+        {
+            spyAction.ChangeCoat(false); // is Coat UI Coat Change Icon :false
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -105,6 +115,8 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
             }
         }
+
+      
     }
 
     public void OnMove(InputAction.CallbackContext value)

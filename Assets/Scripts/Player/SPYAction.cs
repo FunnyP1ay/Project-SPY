@@ -23,17 +23,23 @@ public class SPYAction : MonoBehaviour
                     _police.ChaseSpy(transform);
                 }
             }
+            ChangeCoatUI(true); // is Player Coat change UI True 
         }
     }
-    public void ChangeCoat()
+    public void ChangeCoat(bool _value)
     {
-
+        print("Change Coat ! ");
+        ChangeCoatUI(_value);
     }
-    public void ChangeCoatUI(bool _value)
+    public void ChangeCoatUI(bool _value) // Police가 Player를 탐지 했을 때 단독으로 실행 하기
     {
-        if(_value)
+        if (_value)
+        {
             UI_Manager.Instance.ui_Player_Coat_Icon.enabled = true;
+        }
         else
+        {
             UI_Manager.Instance.ui_Player_Coat_Icon.enabled = false;
+        }
     }
 }
