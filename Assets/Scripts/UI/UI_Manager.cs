@@ -39,5 +39,7 @@ public class UI_Manager : MonoBehaviour
     public UI_Key_Icon_Action   ui_Key_Icon_Action;
     [Header("Police Icon Panel")]
     public UI_PoliceIcon        ui_PoliceIcon;
+    [Header("Law List Panel")]
+    public UI_LawListPanel      ui_LawListPanel;
 
 }

@@ -31,45 +31,109 @@ public class MayorsLawControl : MonoBehaviour
         {    
                 case 0:
                 CityControlData.Instance.martial_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.martial_Law);
-                print("정부가 계엄령을 선포 했습니다.");
+                if (CityControlData.Instance.martial_Law)
+                {
+                    print("정부가 계엄령을 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
                 break;
 
                 case 1:
                     CityControlData.Instance.travel_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.travel_Law);
-                if(CityControlData.Instance.travel_Law)
+                if (CityControlData.Instance.travel_Law)
+                {
                     print("정부가 여행 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
                 else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
                     print("정부가 여행 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 2:
                 CityControlData.Instance.romance_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.romance_Law);
-                print("정부가 연애 금지를 선포 했습니다.");
+                if (CityControlData.Instance.romance_Law)
+                {
+                    print("정부가 연애 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 연애 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 3:
                 CityControlData.Instance.game_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.game_Law);
-                print("정부가 게임 금지를 선포 했습니다.");
+                if (CityControlData.Instance.game_Law)
+                {
+                    print("정부가 게임 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 게임 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 4:
                 CityControlData.Instance.prohibition_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.prohibition_Law);
-                print("정부가  금주령을 선포 했습니다.");
+                if (CityControlData.Instance.prohibition_Law)
+                {
+                    print("정부가 금주령을 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 금주령을 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 5:
                 CityControlData.Instance.cigarette_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.cigarette_Law);
-                print("정부가 흡연 금지를 선포 했습니다.");
+                if (CityControlData.Instance.cigarette_Law)
+                {
+                    print("정부가 흡연 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 흡연 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 6:
                 CityControlData.Instance.pets_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.pets_Law);
-                print("정부가 반려동물 금지를 선포 했습니다.");
+                if (CityControlData.Instance.pets_Law)
+                {
+                    print("정부가 반려동물 금지를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 반려동물 허용을 선포 했습니다.");
+                }
                 break;
 
                 case 7:
                 CityControlData.Instance.tax_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.tax_Law);
-                print("정부가 세금 인상을 선포 했습니다.");
+                if (CityControlData.Instance.tax_Law)
+                {
+                    print("정부가 세금 인상을 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    print("정부가 세금 인하을 선포 했습니다.");
+                }
                 break;  
 
                 default:
@@ -85,27 +149,77 @@ public class MayorsLawControl : MonoBehaviour
         {
             case 0:
                 CityControlData.Instance.sportEvent_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.sportEvent_Law);
-                print("정부가 스포츠 이벤트를 지원하기로 했습니다.");
+                if (CityControlData.Instance.sportEvent_Law)
+                {
+                    print("정부가 스포츠 이벤트를 지원하기로 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                    print("정부가 스포츠 이벤트를 중단하기로 했습니다.");
+                }
                 break; 
             case 1:
                 CityControlData.Instance.freeHair_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.freeHair_Law);
-                print("정부가 두발자유 허용를 선포 했습니다.");
+                if (CityControlData.Instance.freeHair_Law)
+                {
+                    print("정부가 두발자유 허용를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                    print("정부가 단발령을 선포 했습니다.");
+                }
                 break;
             case 2:
                 CityControlData.Instance.cannabis_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.cannabis_Law);
-                print("정부가 대마초 허용를 선포 했습니다.");
+                if (CityControlData.Instance.cannabis_Law)
+                {
+                    print("정부가 대마초 허용를 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                    print("정부가 대마초 금지를 선포 했습니다.");
+                }
                 break;
             case 3:
                 CityControlData.Instance.parade_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.parade_Law);
-                print("정부가 퍼레이드 지원을 선포 했습니다.");
+                if (CityControlData.Instance.parade_Law)
+                {
+                    print("정부가 퍼레이드 지원을 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                    print("정부가 퍼레이드 금지를 선포 했습니다.");
+                }
                 break;
             case 4:
                 CityControlData.Instance.mayorsMovie_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.mayorsMovie_Law);
-                print("정부가 위대한 우리 시장님 영화를 개봉 했습니다.");
+                if (CityControlData.Instance.mayorsMovie_Law)
+                {
+                    print("정부가 위대한 우리 시장님 영화를 개봉 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
                 break;
             case 5:
                 CityControlData.Instance.hospital_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.hospital_Law);
                 print("정부가 병원비 지원을 선포 했습니다.");
+                if (CityControlData.Instance.hospital_Law)
+                {
+                    print("정부가 병원비 지원을 선포 했습니다.");
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(-0.1f);
+                    print("정부가 병원비 지원을 중단 했습니다.");
+                }
                 break;
             default : 
                 break;
