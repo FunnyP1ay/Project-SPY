@@ -32,14 +32,17 @@ public class SPYAction : MonoBehaviour
         print("Change Coat ! ");
         ChangeCoatUI(_value);
     }
-    public void ChangeCoatUI(bool _value) // Police가 Player를 탐지 했을 때 단독으로 실행 하기
+    public void ChangeCoatUI(bool _value) // Police가 Player를 탐지 했을 때 True으로 실행함.
     {
         if (_value)
         {
+            UI_Manager.Instance.ui_Player_Coat_Icon.gameObject.SetActive(true);
             UI_Manager.Instance.ui_Player_Coat_Icon.enabled = true;
+
         }
         else
         {
+            UI_Manager.Instance.ui_Player_Coat_Icon.gameObject.SetActive(false);
             UI_Manager.Instance.ui_Player_Coat_Icon.enabled = false;
         }
     }

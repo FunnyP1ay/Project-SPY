@@ -17,6 +17,7 @@ public class Police : MonoBehaviour
     private int             randNum2;
     private int             randNum3;
     private float           checkDistance;
+    public float            chaseRange;
     public string           citizenName;
     public bool             isFire = false;
 
@@ -119,7 +120,7 @@ public class Police : MonoBehaviour
     private void CheckSpyTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 40f) // TODO 밸런스 조절 제일 필요한 부분 
+        if (checkDistance < chaseRange) // TODO 밸런스 조절 제일 필요한 부분 
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
             nav.speed = 2f;

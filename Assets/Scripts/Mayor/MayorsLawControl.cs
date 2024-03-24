@@ -35,6 +35,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 계엄령을 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.martial_Law);
+                }
+                else
+                {
+                    print("정부가 계엄령을 해제 했습니다.");
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.martial_Law);
                 }
                 break;
 
@@ -44,10 +50,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 여행 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.travel_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.travel_Law);
                     print("정부가 여행 허용을 선포 했습니다.");
                 }
                 break;
@@ -58,10 +66,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 연애 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.romance_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.romance_Law);
                     print("정부가 연애 허용을 선포 했습니다.");
                 }
                 break;
@@ -72,10 +82,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 게임 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.game_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.game_Law);
                     print("정부가 게임 허용을 선포 했습니다.");
                 }
                 break;
@@ -84,13 +96,15 @@ public class MayorsLawControl : MonoBehaviour
                 CityControlData.Instance.prohibition_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.prohibition_Law);
                 if (CityControlData.Instance.prohibition_Law)
                 {
-                    print("정부가 금주령을 금지를 선포 했습니다.");
+                    print("정부가 금주령을 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.prohibition_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
-                    print("정부가 금주령을 허용을 선포 했습니다.");
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.prohibition_Law);
+                    print("정부가 금주령을 해제 했습니다.");
                 }
                 break;
 
@@ -100,10 +114,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 흡연 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.cigarette_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.cigarette_Law);
                     print("정부가 흡연 허용을 선포 했습니다.");
                 }
                 break;
@@ -114,10 +130,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 반려동물 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.pets_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.pets_Law);
                     print("정부가 반려동물 허용을 선포 했습니다.");
                 }
                 break;
@@ -128,10 +146,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 세금 인상을 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.tax_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.tax_Law);
                     print("정부가 세금 인하을 선포 했습니다.");
                 }
                 break;  
@@ -153,11 +173,13 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 스포츠 이벤트를 지원하기로 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.sportEvent_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(-0.1f);
                     print("정부가 스포츠 이벤트를 중단하기로 했습니다.");
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.sportEvent_Law);
                 }
                 break; 
             case 1:
@@ -166,24 +188,28 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 두발자유 허용를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.freeHair_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.freeHair_Law);
                     print("정부가 단발령을 선포 했습니다.");
                 }
                 break;
             case 2:
-                CityControlData.Instance.cannabis_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.cannabis_Law);
-                if (CityControlData.Instance.cannabis_Law)
+                CityControlData.Instance.gym_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.gym_Law);
+                if (CityControlData.Instance.gym_Law)
                 {
-                    print("정부가 대마초 허용를 선포 했습니다.");
+                    print("정부가 헬스장 출입 금지를 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.gym_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(-0.1f);
-                    print("정부가 대마초 금지를 선포 했습니다.");
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.gym_Law);
+                    print("정부가 헬스장 금지를 해제 했습니다.");
                 }
                 break;
             case 3:
@@ -192,10 +218,12 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 퍼레이드 지원을 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.parade_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.parade_Law);
                     print("정부가 퍼레이드 금지를 선포 했습니다.");
                 }
                 break;
@@ -205,19 +233,26 @@ public class MayorsLawControl : MonoBehaviour
                 {
                     print("정부가 위대한 우리 시장님 영화를 개봉 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.mayorsMovie_Law);
+                }
+                else
+                {
+                    CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.mayorsMovie_Law);
                 }
                 break;
             case 5:
                 CityControlData.Instance.hospital_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.hospital_Law);
-                print("정부가 병원비 지원을 선포 했습니다.");
                 if (CityControlData.Instance.hospital_Law)
                 {
                     print("정부가 병원비 지원을 선포 했습니다.");
                     CityControlData.Instance.SetApprovalRating(0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Add(UI_Manager.Instance.ui_LawListPanel.hospital_Law);
                 }
                 else
                 {
                     CityControlData.Instance.SetApprovalRating(-0.1f);
+                    UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Remove(UI_Manager.Instance.ui_LawListPanel.hospital_Law);
                     print("정부가 병원비 지원을 중단 했습니다.");
                 }
                 break;

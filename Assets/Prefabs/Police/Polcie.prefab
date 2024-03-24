@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navTarget: {fileID: 0}
   nav: {fileID: 0}
+  chaseRange: 25
   citizenName: 
   isFire: 0
   moveState: 0

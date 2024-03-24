@@ -107,11 +107,14 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.currentCitizenCount.text            = ("CitizenCount : ")   + MapData.Instance.currentCitizenCount.ToString();
                 UI_Manager.Instance.currentSafety_Rating.text           = ("Safety Rating : ")  + CityControlData.Instance.safety_Rating.ToString();
                 UI_Manager.Instance.cityINFOPanel.SetActive(true);
+                UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(true);
+                UI_Manager.Instance.ui_LawListPanel.LawList_Setting();
             }
             else if (isOpen == true)
             {
                 print("패널을 닫았습니다.");
                 isOpen = false;
+                UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
             }
         }

@@ -51,7 +51,7 @@ public class CityControlData : MonoBehaviour
     // -----Good Law
     public bool     sportEvent_Law;
     public bool     freeHair_Law;
-    public bool     cannabis_Law;   //¥Î∏∂√ 
+    public bool     gym_Law;
     public bool     parade_Law;
     public bool     mayorsMovie_Law;
     public bool     hospital_Law;
