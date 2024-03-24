@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static GetInBuilding;
 
 public class GetInBuilding : MonoBehaviour
 {
+    public enum BuildingDATA
+    {
+        PlayerHouse,
+        SuperMarket,
+        CoatStore,
+    }
+    public BuildingDATA buildingDATA;
     public Transform outBuildingPos;
     private void Start()
     {
@@ -15,8 +23,19 @@ public class GetInBuilding : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerMove player))
         {
             UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_True();
-
             MapData.Instance.player_OutPos = outBuildingPos;
+            switch (buildingDATA)
+            {
+                case BuildingDATA.PlayerHouse:
+                    MapData.Instance.player_InPos = MapData.Instance.playerHouse_InPos;
+                    break;
+                case BuildingDATA.SuperMarket:
+                    MapData.Instance.player_InPos = MapData.Instance.playerSuperMarket_InPos;
+                    break;
+                case BuildingDATA.CoatStore:
+                    MapData.Instance.player_InPos = MapData.Instance.playerCoatStore_InPos;
+                    break;
+            }
             player.isGetIn = true;
             
         }

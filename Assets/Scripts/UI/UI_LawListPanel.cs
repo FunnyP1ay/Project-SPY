@@ -42,9 +42,9 @@ public class UI_LawListPanel : MonoBehaviour
         int currentSlot=0;
         if(currentLawIcon_List.Count > 0)
         {
-            foreach (var slotImage in currentLawIcon_List)
+            foreach (var slotImage in UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List)
             {
-                if (slotImage != null && currentSlot < currentLawIcon_List.Count)
+                if (slotImage != null && currentSlot < UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Count)
                 {
                     slot_List[currentSlot].gameObject.SetActive(true);
                     slot_List[currentSlot].lawImageIcon.sprite = slotImage;

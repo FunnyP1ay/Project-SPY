@@ -45,10 +45,11 @@ public class MapData : MonoBehaviour
     [Header("TrafficSignal")]
     public List<TrafficSignal>      trafficSignals_List;
     // ---------------  Player House DATA -------------------------
-    [Header("Player House DATA")]
-    public Transform playerHouse_InPos;
+    [Header("Player IN OUT DATA")]
+    public Transform player_InPos;
     public Transform player_OutPos;
     [Header("Player InStore DATA")]
+    public Transform playerHouse_InPos;
     public Transform playerSuperMarket_InPos;
     public Transform playerCoatStore_InPos;
     

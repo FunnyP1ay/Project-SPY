@@ -2155,6 +2155,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 0, z: 2.5}
   m_Center: {x: -1.25, y: 0, z: 1.2500012}
+--- !u!1 &3831911321301141700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608940825663968072}
+  m_Layer: 0
+  m_Name: doorPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608940825663968072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831911321301141700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.97, y: 0.907, z: 0.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 23677341046683638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3849723868019730430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,6 +3773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23677341046683638}
   - component: {fileID: 4421688888013916984}
+  - component: {fileID: 466561041073370586}
   m_Layer: 0
   m_Name: In_Super_market
   m_TagString: Untagged
@@ -3809,6 +3841,7 @@ Transform:
   - {fileID: 1083928305838705386}
   - {fileID: 8282436698384445528}
   - {fileID: 5761434141177766039}
+  - {fileID: 608940825663968072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4421688888013916984
@@ -3823,6 +3856,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9d72d95bc1cc243be0d859ee862c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorPos: {fileID: 608940825663968072}
+--- !u!65 &466561041073370586
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342024425229512229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 1.51}
+  m_Center: {x: -3.75, y: 0, z: 1.09}
 --- !u!1 &6533929398046786813
 GameObject:
   m_ObjectHideFlags: 0

@@ -84,9 +84,22 @@ public class PlayerMove : MonoBehaviour
                 this.transform.position = MapData.Instance.player_OutPos.position;
             }
             else
-            {
+            { // 경찰이 따라오고 있을 때 건물에 들어갈려한다면
+                if (isCoatChange == true)
+                {
+                    int police = LayerMask.GetMask("Police");
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, 45f, police);
+                    if (colliders.Length > 0)
+                    {
+                        foreach (Collider collider in colliders)
+                        {
+                            collider.GetComponent<Police>().nav.SetDestination(MapData.Instance.player_OutPos.position);
+                            collider.GetComponent<Police>().moveTarget = Police.MoveTarget.road;
+                        }
+                    }
+                }
                 isPlayerBuilding_In = true;
-                this.transform.position = MapData.Instance.playerHouse_InPos.position;
+                this.transform.position = MapData.Instance.player_InPos.position;
             }
         }
         if (Input.GetKey(KeyCode.F) && isCoatChange)
