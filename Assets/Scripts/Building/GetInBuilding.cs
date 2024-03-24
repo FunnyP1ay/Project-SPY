@@ -16,7 +16,7 @@ public class GetInBuilding : MonoBehaviour
         {
             UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_True();
 
-            MapData.Instance.playerHouse_OutPos = outBuildingPos;
+            MapData.Instance.player_OutPos = outBuildingPos;
             player.isGetIn = true;
             
         }

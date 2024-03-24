@@ -81,7 +81,7 @@ public class PlayerMove : MonoBehaviour
             if (isPlayerBuilding_In)
             {
                 isPlayerBuilding_In = false;
-                this.transform.position = MapData.Instance.playerHouse_OutPos.position;
+                this.transform.position = MapData.Instance.player_OutPos.position;
             }
             else
             {
