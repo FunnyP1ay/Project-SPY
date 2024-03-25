@@ -5482,7 +5482,6 @@ MonoBehaviour:
   - {fileID: 1481271938}
   - {fileID: 367617756}
   - {fileID: 761971613}
-  currentLawIcon_List: []
   martial_Law: {fileID: 21300000, guid: d3f414a18c9a3724686eddb3b391e2b5, type: 3}
   travel_Law: {fileID: 21300000, guid: d2b064252e69a4344a9ad1fef55b85f8, type: 3}
   romance_Law: {fileID: 21300000, guid: 0f7376b138f80a045a0cf69ddac3f6c2, type: 3}
@@ -34781,7 +34780,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 2, z: 10}
+  m_Size: {x: 40, y: 2, z: 40}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &890998485
 PrefabInstance:
@@ -39025,6 +39024,7 @@ MonoBehaviour:
   ui_Key_Icon_Action: {fileID: 1106943999}
   ui_PoliceIcon: {fileID: 462792297}
   ui_LawListPanel: {fileID: 125190565}
+  currentLawIcon_List: []
 --- !u!4 &1006021640
 Transform:
   m_ObjectHideFlags: 0

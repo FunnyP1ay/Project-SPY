@@ -189,7 +189,7 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
 
         if (colliders.Length == 0)
         {

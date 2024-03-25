@@ -106,7 +106,7 @@ public class PlayerMove : MonoBehaviour
         {
             spyAction.ChangeCoat(false); // is Coat UI Coat Change Icon :false
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyUp(KeyCode.Tab))
         {
             print("Tab키가 눌렸습니다");
             if (isOpen == false)

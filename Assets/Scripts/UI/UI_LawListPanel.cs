@@ -7,7 +7,6 @@ public class UI_LawListPanel : MonoBehaviour
 {
     [Header("City Laws Information")]
     public List<UI_Slot> slot_List;
-    public List<Sprite> currentLawIcon_List;
     // ----------- CITY Law List ------------
     // -----Bad Law
     public Sprite martial_Law;
@@ -40,14 +39,15 @@ public class UI_LawListPanel : MonoBehaviour
     {
        ResetSlotList();
         int currentSlot=0;
-        if(currentLawIcon_List.Count > 0)
+        if(UI_Manager.Instance.currentLawIcon_List.Count > 0)
         {
-            foreach (var slotImage in UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List)
+            foreach (var slotImage in UI_Manager.Instance.currentLawIcon_List)
             {
-                if (slotImage != null && currentSlot < UI_Manager.Instance.ui_LawListPanel.currentLawIcon_List.Count)
+                if (slotImage != null && currentSlot < UI_Manager.Instance.currentLawIcon_List.Count)
                 {
+                    slot_List[currentSlot].GetComponent<Image>();
+                    slot_List[currentSlot].lawImageIcon.sprite      = slotImage;
                     slot_List[currentSlot].gameObject.SetActive(true);
-                    slot_List[currentSlot].lawImageIcon.sprite = slotImage;
                     currentSlot++;
                 }
             }
