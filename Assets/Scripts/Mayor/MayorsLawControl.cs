@@ -20,7 +20,8 @@ public class MayorsLawControl : MonoBehaviour
             case 2:
                 GoodLawSetting();
                 break;
-            default: 
+            default:
+                GoodLawSetting();
                 break;
         }
     }

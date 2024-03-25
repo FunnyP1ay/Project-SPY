@@ -45,8 +45,7 @@ public class UI_LawListPanel : MonoBehaviour
             {
                 if (slotImage != null && currentSlot < UI_Manager.Instance.currentLawIcon_List.Count)
                 {
-                    slot_List[currentSlot].GetComponent<Image>();
-                    slot_List[currentSlot].lawImageIcon.sprite      = slotImage;
+                    slot_List[currentSlot].GetComponent<Image>().sprite      = slotImage;
                     slot_List[currentSlot].gameObject.SetActive(true);
                     currentSlot++;
                 }
