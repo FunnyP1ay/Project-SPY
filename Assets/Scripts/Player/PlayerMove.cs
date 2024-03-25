@@ -28,10 +28,10 @@ public class PlayerMove : MonoBehaviour
 
     // --------------- Player Script -------------------
     [Header("Player Scripts")]
-    public SPYTargetObject  spy_Target_Object   = null;
-    public SPYAction        spyAction;
-    public WeaponControl    weaponControl;
-
+    public SPYTargetObject      spy_Target_Object   = null;
+    public SPYAction            spyAction;
+    public WeaponControl        weaponControl;
+    public Player_Impact_effect player_Impact_Effect;
 
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -41,6 +41,7 @@ public class PlayerMove : MonoBehaviour
         weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();
+        player_Impact_Effect = GetComponent<Player_Impact_effect>();
     }
     void Update()
     {
@@ -54,6 +55,7 @@ public class PlayerMove : MonoBehaviour
             if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
             {
                 _gun.Fire();
+                player_Impact_Effect.Impulse();
                 nextFireTime = Time.time + 1f / fireRate;
             }
         }

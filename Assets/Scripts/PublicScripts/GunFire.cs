@@ -8,7 +8,7 @@ public class GunFire : MonoBehaviour
     public Bullet       bullet;
     public Transform    firePos;
     public float        bulletSpeed   = 100f; 
-
+  
 
 
     public void Fire()
