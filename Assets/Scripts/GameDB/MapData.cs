@@ -52,6 +52,8 @@ public class MapData : MonoBehaviour
     public Transform playerHouse_InPos;
     public Transform playerSuperMarket_InPos;
     public Transform playerCoatStore_InPos;
+    public Transform playerPizzaStore_InPos;
+    public Transform playerFruitsStore_InPos;
     
  
 }

@@ -20,6 +20,7 @@ public class Police : MonoBehaviour
     public float            chaseRange;
     public string           citizenName;
     public bool             isFire = false;
+    public float            currentHP = 100f;
 
     private void Awake()
     {
@@ -274,11 +275,19 @@ public class Police : MonoBehaviour
         citizenINFO.nameText.fontSize = 0.5f;
     }
 
+    public void GetDamage(float _damage)
+    {
+        print("데미지를 입었습니다 ! ");
+        currentHP -= _damage;
+        if(currentHP < 0)
+        {
+            Die();
+        }
+    }
+
     public void Die()
     {
-        if(moveTarget== MoveTarget.spy)
-        {
-        }
+        // 죽을 때 애니매이션 
         MapData.Instance.curretPoliceCount--;
         LeanPool.Despawn(this);
     }

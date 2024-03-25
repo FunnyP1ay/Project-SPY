@@ -1,3 +1,4 @@
+using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Citizen : MonoBehaviour
     private int                 randNum3;
     private float               checkDistance;
     public string               citizenName;
-
+    public float                currentHP = 100f;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -203,4 +204,21 @@ public class Citizen : MonoBehaviour
         citizenINFO.nameText.text = citizenName;
         citizenINFO.nameText.fontSize = 0.5f;
     }
+    public void GetDamage(float _damage)
+    {
+        print("데미지를 입었습니다 ! ");
+        currentHP -= _damage;
+        if (currentHP < 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        // 죽을 때 애니매이션 
+        MapData.Instance.currentCitizenCount--;
+        LeanPool.Despawn(this);
+    }
+
 }

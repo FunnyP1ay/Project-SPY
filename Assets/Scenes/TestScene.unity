@@ -591,7 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637e6ee77b500d84dbebd8b9754f90f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUp: {fileID: 0}
 --- !u!1 &1097910272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1176,14 @@ PrefabInstance:
     - target: {fileID: 3089859012168461188, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089859012168461188, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089859012168461188, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3199660645560457868, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
       propertyPath: m_Layer

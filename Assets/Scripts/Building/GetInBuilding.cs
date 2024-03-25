@@ -11,6 +11,8 @@ public class GetInBuilding : MonoBehaviour
         PlayerHouse,
         SuperMarket,
         CoatStore,
+        PizzaStore,
+        FruitsStore
     }
     public BuildingDATA buildingDATA;
     public Transform outBuildingPos;
@@ -34,6 +36,12 @@ public class GetInBuilding : MonoBehaviour
                     break;
                 case BuildingDATA.CoatStore:
                     MapData.Instance.player_InPos = MapData.Instance.playerCoatStore_InPos;
+                    break;
+                case BuildingDATA.PizzaStore:
+                    MapData.Instance.player_InPos = MapData.Instance.playerPizzaStore_InPos;
+                    break;
+                case BuildingDATA.FruitsStore:
+                    MapData.Instance.player_InPos = MapData.Instance.playerFruitsStore_InPos;
                     break;
             }
             player.isGetIn = true;

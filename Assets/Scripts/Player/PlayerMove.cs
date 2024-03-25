@@ -1,3 +1,4 @@
+using Lean.Pool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float            moveSpeed           = 5f;
     public float            jumpForce           = 50f;
     public float            rotationSpeed       = 100f;
+    public float            currentHP           = 500;
     private float           fireRate            = 1f;
     private float           nextFireTime        = 0f;
 
@@ -33,8 +35,6 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2         inputVector;
     private Vector3         moveVector;
-
-
 
     private void Start()
     {
@@ -131,8 +131,6 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
             }
         }
-
-      
     }
 
     public void OnMove(InputAction.CallbackContext value)
@@ -142,14 +140,18 @@ public class PlayerMove : MonoBehaviour
         // 입력 벡터를 이동 벡터로 변환
         moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
     }
-   
-    /*
-    private void OnCollisionEnter(Collision collision)
+    public void GetDamage(float _damage)
     {
-        // 땅에 닿았을 때
-        if (collision.gameObject.CompareTag("Ground"))
+        currentHP -= _damage;
+        if (currentHP < 0)
         {
-            isGrounded = true;
+            Die();
         }
-    }*/
+    }
+
+    public void Die()
+    {
+        // 죽을 때 애니매이션 이나 게임 종료 !
+
+    }
 }
