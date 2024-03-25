@@ -31,7 +31,7 @@ public class PlayerMove : MonoBehaviour
     public SPYTargetObject      spy_Target_Object   = null;
     public SPYAction            spyAction;
     public WeaponControl        weaponControl;
-    public Player_Impact_effect player_Impact_Effect;
+    public Player_Cinemachine_Control player_Cinemachine_Control;
 
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();
-        player_Impact_Effect = GetComponent<Player_Impact_effect>();
+        player_Cinemachine_Control = GetComponent<Player_Cinemachine_Control>();
     }
     void Update()
     {
@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
             if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
             {
                 _gun.Fire();
-                player_Impact_Effect.Impulse();
+                player_Cinemachine_Control.Fire_Impulse();
                 nextFireTime = Time.time + 1f / fireRate;
             }
         }
@@ -77,6 +77,9 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.F) && isBrokenAttack)
         {
             spyAction.BrokenObjectAttack(spy_Target_Object);
+            if (player_Cinemachine_Control.iszoomSPYAction == false)
+                StartCoroutine(player_Cinemachine_Control.zoomSPYAction());
+
         }
         if (Input.GetKeyDown(KeyCode.F) && isGetIn)
         {
