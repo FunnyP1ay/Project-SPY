@@ -70,7 +70,7 @@ public class Mayor : MonoBehaviour
                 switch (police_Controls)
                 {
                     case Police_Controls.police_Spawn:
-                        mayorsSpawnControl.Police_Spawn();
+                        mayorsSpawnControl.Poilce_Spawn();
                         break;
                     case Police_Controls.police_AllSpawn:
                         mayorsSpawnControl.All_Police_Spawn();

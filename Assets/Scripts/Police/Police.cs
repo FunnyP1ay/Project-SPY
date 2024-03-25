@@ -12,6 +12,8 @@ public class Police : MonoBehaviour
    
     CitizenINFO             citizenINFO;
     WeaponControl           weaponControl;
+    public GameObject       question_Mark;
+    public GameObject       surprised_Mark;
     public  NavMeshAgent    nav;
     private int             randNum;
     private int             randNum2;
@@ -36,7 +38,8 @@ public class Police : MonoBehaviour
     {
         die,
         needNextMove,
-        Move
+        Move,
+
     }
     public MoveState moveState;
 
@@ -245,6 +248,7 @@ public class Police : MonoBehaviour
         nav.updatePosition = true;
         navTarget = _target;
         nav.SetDestination(navTarget.position);
+        surprised_Mark.SetActive(true);
     }
     //TODO 경찰이 플레이어 일정 수준 이상으로 왔을 때, 총을 쏘거나 체포.
     public void ChaseFailed()
@@ -254,6 +258,7 @@ public class Police : MonoBehaviour
         moveTarget  = MoveTarget.road;
         moveState       = MoveState.needNextMove;
         PoliceIconControl(-3);
+        surprised_Mark.SetActive(false);
     }
     //------------------Police Icon Control ------------------
     public void PoliceIconControl(int _value)
@@ -277,6 +282,8 @@ public class Police : MonoBehaviour
 
     public void GetDamage(float _damage)
     {
+        surprised_Mark.SetActive(true);
+        ChaseSpy(MapData.Instance.chasePlayer_Pos);
         print("데미지를 입었습니다 ! ");
         currentHP -= _damage;
         if(currentHP < 0)

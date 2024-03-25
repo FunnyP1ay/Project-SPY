@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SPYAction : MonoBehaviour
@@ -11,13 +12,13 @@ public class SPYAction : MonoBehaviour
         ExposedAction(_target.exposedRange);
     }
 
-    public void ExposedAction(float _range)
+    public void ExposedAction(float _range) //입력값에 따라 거리 정함
     {
         int police = LayerMask.GetMask("Police");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, _range, police);
-        if (colliders.Length > 0)
+        Collider[] policeColliders = Physics.OverlapSphere(transform.position, _range, police);
+        if (policeColliders.Length > 0)
         {
-            foreach (Collider collider in colliders)
+            foreach (Collider collider in policeColliders)
             {
                 if (collider.TryGetComponent(out Police _police))
                 {
@@ -25,6 +26,16 @@ public class SPYAction : MonoBehaviour
                 }
             }
             ChangeCoatUI(true); // is Player Coat change UI True 
+        }
+
+        int citizen = LayerMask.GetMask("Citizen");
+        Collider[] citizenColliders = Physics.OverlapSphere(transform.position, _range, citizen);
+        if(citizenColliders.Length > 0)
+        {
+            foreach(Collider collider in citizenColliders)
+            {
+                collider.gameObject.GetComponent<Citizen>().RunAway();
+            }
         }
     }
     public void ChangeCoat(bool _value)

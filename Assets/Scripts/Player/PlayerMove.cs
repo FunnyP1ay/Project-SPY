@@ -55,6 +55,7 @@ public class PlayerMove : MonoBehaviour
             if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
             {
                 _gun.Fire();
+                spyAction.ExposedAction(10f);
                 player_Cinemachine_Control.Fire_Impulse();
                 nextFireTime = Time.time + 1f / fireRate;
             }

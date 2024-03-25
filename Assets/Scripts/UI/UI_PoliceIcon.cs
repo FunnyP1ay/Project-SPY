@@ -12,6 +12,7 @@ public class UI_PoliceIcon : MonoBehaviour
     {
         foreach(Image _image in currentPoliceIcon_List)
         {
+            _image.gameObject.SetActive(false);
             _image.sprite = null;
         }
 
@@ -26,6 +27,7 @@ public class UI_PoliceIcon : MonoBehaviour
              policeIconCount = 3;
             for (int i = 0; i < policeIconCount; i++)
             {
+                currentPoliceIcon_List[i].gameObject.SetActive(true);
                 currentPoliceIcon_List[i].sprite = policeIcon;
             }
        }

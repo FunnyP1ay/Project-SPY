@@ -13,6 +13,8 @@ public class Citizen : MonoBehaviour
     Transform                   navTarget;
     public NavMeshAgent         nav;
     CitizenINFO                 citizenINFO;
+    public GameObject           question_Mark;
+    public GameObject           surprised_Mark;
     private int                 randNum;
     private int                 randNum2;
     private int                 randNum3;
@@ -29,7 +31,8 @@ public class Citizen : MonoBehaviour
     {
         die,
         needNextMove,
-        Move
+        Move,
+        Run
     }
     public State state;
 
@@ -53,6 +56,10 @@ public class Citizen : MonoBehaviour
             if (state == State.Move)
             {
                 CheckTargetPos();
+            }
+            if (state == State.Run)
+            {
+                RunAway();
             }
             yield return new WaitForSecondsRealtime(3f);
         }
@@ -184,6 +191,24 @@ public class Citizen : MonoBehaviour
         }
 
     }
+
+    public void RunAway()
+    {
+        int spyLayerMask = LayerMask.GetMask("SPY");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 35f, spyLayerMask);
+        if (colliders.Length == 0)
+        {
+            state = State.needNextMove;
+            surprised_Mark.SetActive(false);
+        }
+        else
+        {
+            state = State.Run;
+            nav.speed = 7;
+            surprised_Mark.SetActive(true);
+        }
+      
+    }
     private void CrossTheCrosswalk()
     {
 
@@ -207,6 +232,7 @@ public class Citizen : MonoBehaviour
     public void GetDamage(float _damage)
     {
         print("데미지를 입었습니다 ! ");
+        RunAway();
         currentHP -= _damage;
         if (currentHP < 0)
         {

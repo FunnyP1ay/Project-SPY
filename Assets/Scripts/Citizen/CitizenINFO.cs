@@ -14,7 +14,7 @@ public class CitizenINFO : MonoBehaviour
         cam = Camera.main.transform;
     }
 
-         //  nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
+         //nameText.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
     public void GetMoney(int _Value)
     {
         citizenMoney += _Value;

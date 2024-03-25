@@ -43,7 +43,15 @@ public class MayorsSpawnControl : MonoBehaviour
             print("정치인이 집을 공급했습니다 ! ");
         }
     }
-    public void Police_Spawn()
+    public void OperationsPoliceSpawn()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            policeSpawner.OperationsPoliceSpawn();
+        }
+        
+    }
+    public void Poilce_Spawn()
     {
 
     }

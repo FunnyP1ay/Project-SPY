@@ -34,12 +34,14 @@ public class MapData : MonoBehaviour
     // ---------------      Citizen DATA    ----------------------
     [Header("Citizen DATA")]
     public int                      currentCitizenCount  = 0;
-    public int                      maxCitizenCount      = 250;
+    public int                      maxCitizenCount      = 200;
     // ---------------     Police DATA      ----------------------
     [Header("Police DATA")]
     public int                      startPoliceCount;
     public int                      curretPoliceCount;
-    public int                      maxPoliceCount       = 40;
+    public int                      maxPoliceCount       = 80;
+    public Transform                policeCenter;
+    public Transform                chasePlayer_Pos;
     
     // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
@@ -55,5 +57,5 @@ public class MapData : MonoBehaviour
     public Transform playerPizzaStore_InPos;
     public Transform playerFruitsStore_InPos;
     
- 
+    
 }
