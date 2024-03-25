@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 38256295}
   - component: {fileID: 38256294}
   - component: {fileID: 38256293}
+  - component: {fileID: 38256296}
+  - component: {fileID: 38256297}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -182,7 +184,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -208,13 +210,91 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38256292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20558837, y: 0.021801194, z: 0.018604482, w: 0.97821885}
-  m_LocalPosition: {x: -0.44011587, y: 3.276051, z: -3.2058134}
+  m_LocalRotation: {x: -0.07248269, y: 0.64326024, z: 0.06225109, w: 0.75966275}
+  m_LocalPosition: {x: -2.0787354, y: 1.0427265, z: 0.058555603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4633075858255907}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &38256296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38256292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &38256297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38256292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &596612645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,11 +1145,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 664189740185753132, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
   m_PrefabInstance: {fileID: 8707597365902231137}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4633075858255907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8315293772692554338, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
-  m_PrefabInstance: {fileID: 8707597365902231137}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &95235709006120319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,10 +1489,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3986247019376712414, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
     - {fileID: 7621218110322294974, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8315293772692554338, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 38256295}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 664189740185753132, guid: 2deafbdefbfe43242a9876e877a91801, type: 3}
       insertIndex: -1
@@ -1433,3 +1505,4 @@ SceneRoots:
   - {fileID: 596612647}
   - {fileID: 1444699065}
   - {fileID: 8707597365902231137}
+  - {fileID: 38256295}

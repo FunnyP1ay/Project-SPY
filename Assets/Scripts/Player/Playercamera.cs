@@ -11,7 +11,7 @@ public class Playercamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAround();
+      //  LookAround();
         transform.position = PlayerBody.transform.position;
 
         // 테스트 코드
@@ -30,7 +30,7 @@ public class Playercamera : MonoBehaviour
         }
         // 테스트 코드
     }
-
+    /*
     private void LookAround()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -48,5 +48,5 @@ public class Playercamera : MonoBehaviour
     
 
         cameraArm.rotation = Quaternion.Euler(camAngle.x , camAngle.y + mouseDelta.x, camAngle.z);
-    }
+    }*/
 }
