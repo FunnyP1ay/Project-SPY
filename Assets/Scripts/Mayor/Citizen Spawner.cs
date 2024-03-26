@@ -37,16 +37,14 @@ public class CitizenSpawner : MonoBehaviour
         {
           
             randNum = Random.Range(0, MapData.Instance.built_Building_Block_List.Count);
-            
-            
             var spawnCitizen = LeanPool.Spawn(citizenPrefab).GetComponent<Citizen>();
-            spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
             spawnCitizen.nav.speed = 3.0f;
             spawnCitizen.state = Citizen.State.needNextMove;
+            spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
             spawnCitizen.CitizenSetting();
             spawnCitizen.SetName();
             MapData.Instance.currentCitizenCount++;
-
+            spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
         }
     }
 }

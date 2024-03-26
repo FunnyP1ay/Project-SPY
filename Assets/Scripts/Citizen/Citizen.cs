@@ -21,10 +21,18 @@ public class Citizen : MonoBehaviour
     private float               checkDistance;
     public string               citizenName;
     public float                currentHP = 100f;
+    public List<GameObject>     prefab_List;
+    public GameObject           currentPrefab;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
+    }
+    private void OnEnable()
+    {
+        randNum = Random.Range(0, prefab_List.Count);
+        currentPrefab = prefab_List[randNum];
+        currentPrefab.SetActive(true);
     }
 
     public enum State
@@ -246,6 +254,7 @@ public class Citizen : MonoBehaviour
     public void Die()
     {
         // 죽을 때 애니매이션 
+        currentPrefab.SetActive(false);
         MapData.Instance.currentCitizenCount--;
         LeanPool.Despawn(this);
     }
