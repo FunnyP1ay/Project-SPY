@@ -37,6 +37,8 @@ public class UI_Manager : MonoBehaviour
     public UI_Key_Icon_Action   ui_Key_Icon_Action;
     [Header("Police Icon Panel")]
     public UI_PoliceIcon        ui_PoliceIcon;
+    [Header("Event Camera Panel")]
+    public UI_EventCarmera      eventCarmera;
     [Header("Law List Panel")]
     public UI_LawListPanel      ui_LawListPanel;
     public List<Sprite>         currentLawIcon_List;

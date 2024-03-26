@@ -793,7 +793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &15999598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7916,7 +7916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &176251712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14763,6 +14763,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 289936402}
     m_Modifications:
+    - target: {fileID: -1735270383389527292, guid: 781ca5799d160794aad8d57ec0344167, type: 3}
+      propertyPath: building_NavTargetPoint
+      value: 
+      objectReference: {fileID: 1865852797}
     - target: {fileID: 100000, guid: 781ca5799d160794aad8d57ec0344167, type: 3}
       propertyPath: m_Name
       value: Store_Super Market 1
@@ -16662,6 +16666,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 289936402}
     m_Modifications:
+    - target: {fileID: -4207850048391468916, guid: 5cea3db63b9c11f4f8f5db41378c0390, type: 3}
+      propertyPath: building_NavTargetPoint
+      value: 
+      objectReference: {fileID: 1865852797}
     - target: {fileID: 100000, guid: 5cea3db63b9c11f4f8f5db41378c0390, type: 3}
       propertyPath: m_Name
       value: Store_Pizza 1
@@ -39448,6 +39456,7 @@ MonoBehaviour:
   ui_Player_Coat_Icon: {fileID: 176251716}
   ui_Key_Icon_Action: {fileID: 1106943999}
   ui_PoliceIcon: {fileID: 462792297}
+  eventCarmera: {fileID: 1724480736}
   ui_LawListPanel: {fileID: 125190565}
   currentLawIcon_List: []
 --- !u!4 &1006021640
@@ -60180,6 +60189,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5888342692703018444, guid: b371d0a08c42d9049ba9d16b3695e368, type: 3}
+      propertyPath: building_NavTargetPoint
+      value: 
+      objectReference: {fileID: 1865852797}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68646,13 +68659,14 @@ GameObject:
   - component: {fileID: 1724480733}
   - component: {fileID: 1724480735}
   - component: {fileID: 1724480734}
+  - component: {fileID: 1724480736}
   m_Layer: 5
   m_Name: EventCamPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1724480733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68711,6 +68725,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724480732}
   m_CullTransparentMesh: 1
+--- !u!114 &1724480736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724480732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47ebe6450c1aca4db6aa4b13735a1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1727445760
 GameObject:
   m_ObjectHideFlags: 0
@@ -73434,6 +73460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f574f08e8228454e8b8afc032254f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1865852797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 580869145305852352, guid: 5cea3db63b9c11f4f8f5db41378c0390, type: 3}
+  m_PrefabInstance: {fileID: 400278529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1866219480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81885,6 +81916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3107807345622811032, guid: b2b1ff94918b82649a5f9ef3193598b8, type: 3}
+      propertyPath: building_NavTargetPoint
+      value: 
+      objectReference: {fileID: 1865852797}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

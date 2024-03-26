@@ -56,11 +56,10 @@ public class PoliceSpawner : MonoBehaviour
 
         spawnPolice.moveState = Police.MoveState.Move;
         spawnPolice.moveTarget = Police.MoveTarget.OperationsTarget;
-        
+        spawnPolice.PoliceSetting();
         spawnPolice.nav.SetDestination(MapData.Instance.chasePlayer_Pos.position);
         spawnPolice.nav.speed = 7.0f;
         spawnPolice.SetName();
-        spawnPolice.PoliceSetting();
         MapData.Instance.curretPoliceCount++;
     }
 }

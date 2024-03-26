@@ -48,6 +48,7 @@ public class MayorsSpawnControl : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             policeSpawner.OperationsPoliceSpawn();
+            UI_Manager.Instance.eventCarmera.gameObject.SetActive(true);
         }
     }
     public void Poilce_Spawn()
