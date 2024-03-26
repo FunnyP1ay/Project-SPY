@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Mayor : MonoBehaviour
@@ -154,8 +155,8 @@ public class Mayor : MonoBehaviour
     {
         while(state == State.cityControl)
         {
-            
-            if (MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
+            randNum = UnityEngine.Random.Range(0, 3);
+            if (randNum == 0 && MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
             {
                 mayorsSpawnControl.OperationsPoliceSpawn();
             }

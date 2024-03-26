@@ -111,6 +111,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.F) && isCoatChange)
         {
             spyAction.ChangeCoat(false); // is Coat UI Coat Change Icon :false
+            UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(-3);
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
