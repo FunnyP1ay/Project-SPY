@@ -49,8 +49,6 @@ public class MayorsSpawnControl : MonoBehaviour
         {
             policeSpawner.OperationsPoliceSpawn();
         }
-        MapData.Instance.curretPoliceCount += 8;
-
     }
     public void Poilce_Spawn()
     {

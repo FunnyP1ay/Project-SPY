@@ -33451,7 +33451,7 @@ MonoBehaviour:
   startPoliceCount: 20
   curretPoliceCount: 0
   maxPoliceCount: 50
-  policeCenter: {fileID: 0}
+  policeCenterPos: {fileID: 0}
   chasePlayer_Pos: {fileID: 930990547208131591}
   trafficSignals_List:
   - {fileID: 0}
@@ -63387,8 +63387,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1531558006742134928, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531558006742134928, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531558006742134928, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
