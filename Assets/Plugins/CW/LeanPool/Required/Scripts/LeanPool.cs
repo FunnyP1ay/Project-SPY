@@ -35,7 +35,8 @@ namespace Lean.Pool
 			where T : Component
 		{
 			if (prefab == null) { Debug.LogError("Attempting to spawn a null prefab."); return null; }
-			var clone = Spawn(prefab.gameObject); return clone != null ? clone.GetComponent<T>() : null;
+			var clone = Spawn(prefab.gameObject);
+			return clone != null ? clone.GetComponent<T>() : null;
 		}
 
 		/// <summary>This allows you to spawn a prefab via GameObject.</summary>

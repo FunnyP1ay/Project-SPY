@@ -6,7 +6,7 @@ using UnityEngine;
 public class MapData : MonoBehaviour
 {
     private static MapData instance;
-    public static MapData Instance { get { if (instance == null) return null; return instance; } }
+    public static MapData Instance { get { return instance; } }
     private void Awake()
     {
         if (instance == null)

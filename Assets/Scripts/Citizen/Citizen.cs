@@ -45,6 +45,10 @@ public class Citizen : MonoBehaviour
     }
     public MoveResult moveResult; 
 
+    public void CitizenSetting()
+    {
+        StartCoroutine(MoveCoroutine());
+    }
     public IEnumerator MoveCoroutine()
     {
         while (state != State.die)

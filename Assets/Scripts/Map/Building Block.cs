@@ -38,17 +38,17 @@ public class BuildingBlock : MonoBehaviour
         {
             case 0:
                 randNum = Random.Range(0, MapData.Instance.buildingPrefabs.Count);
-                var newBuilding = LeanPool.Spawn(MapData.Instance.buildingPrefabs[randNum]).GetComponent<Building>();
+                var newBuilding = LeanPool.Spawn(MapData.Instance.buildingPrefabs[randNum]);
                 currentPrefab = newBuilding;
                 break;
             case 1:
                 randNum = Random.Range(0, MapData.Instance.storePrefabs.Count);
-                var newStore = LeanPool.Spawn(MapData.Instance.storePrefabs[randNum]).GetComponent<Building>();
+                var newStore = LeanPool.Spawn(MapData.Instance.storePrefabs[randNum]);
                 currentPrefab = newStore;
                 break;
             case 2:
                 randNum = Random.Range(0, MapData.Instance.housePrefabs.Count);
-                var newHouse = LeanPool.Spawn(MapData.Instance.housePrefabs[randNum]).GetComponent<Building>();
+                var newHouse = LeanPool.Spawn(MapData.Instance.housePrefabs[randNum]);
                 currentPrefab = newHouse;
                 break;
 

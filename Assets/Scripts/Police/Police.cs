@@ -30,17 +30,14 @@ public class Police : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
     }
-    private void Start()
-    {
-        SetName();
-    }
     public enum MoveState
     {
         die,
         needNextMove,
         Move,
+        None
     }
-    public MoveState moveState;
+    public MoveState moveState = MoveState.None;
 
     public enum MoveTarget
     {
@@ -49,12 +46,17 @@ public class Police : MonoBehaviour
         house,
         road,
         spy,
-        OperationsTarget
+        OperationsTarget,
+        None
 
     }
-    public MoveTarget moveTarget  ;
+    public MoveTarget moveTarget = MoveTarget.None;
 
 
+    public void PoliceSetting()
+    {
+        StartCoroutine(MoveCoroutine());
+    }
     public IEnumerator MoveCoroutine()
     {
         while (moveState != MoveState.die)
@@ -94,6 +96,8 @@ public class Police : MonoBehaviour
                 break;
                 case MoveTarget.OperationsTarget:
                 CheckOperations();
+                break;
+            default:
                 break;
         }
     }
@@ -217,7 +221,7 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 40f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
 
         if (colliders.Length == 0)
         {
