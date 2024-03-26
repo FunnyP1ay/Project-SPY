@@ -98,6 +98,7 @@ public class Citizen : MonoBehaviour
                 CheckRoadTargetPos();
                 break;
         }
+        animator.SetFloat("isMove", nav.speed);
     }
 
     private void CheckRoadTargetPos()
@@ -161,6 +162,7 @@ public class Citizen : MonoBehaviour
                 SetNavTarget_Road();      // Road : None
                 break;
         }
+        animator.SetFloat("isMove", nav.speed);
     }
     private void SetNavTarget_Building()
     {
@@ -222,8 +224,14 @@ public class Citizen : MonoBehaviour
         }
         else
         {
+            checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+            if (checkDistance < 4f)
+            {
+                SetNavTarget_Road();
+            }
             state = State.Run;
             nav.speed = 7.5f;
+            animator.SetFloat("isMove", nav.speed);
             surprised_Mark.SetActive(true);
         }
       
