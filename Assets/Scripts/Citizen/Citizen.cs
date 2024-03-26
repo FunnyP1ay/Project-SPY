@@ -225,7 +225,7 @@ public class Citizen : MonoBehaviour
         else
         {
             checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-            if (checkDistance < 4f)
+            if (checkDistance < 2f)
             {
                 SetNavTarget_Road();
             }
