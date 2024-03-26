@@ -407,7 +407,7 @@ Animator:
   m_GameObject: {fileID: 1103436073540691481}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 318840a7e38980943bb4c508fa842265, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3197541a40dcc184c81a7c74a43b81a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 25ed607d234017542ac83395ac944f05, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -502,9 +502,8 @@ MonoBehaviour:
   - {fileID: 1103511305104768959}
   - {fileID: 1104263755401225973}
   - {fileID: 1104482785013094153}
-  - {fileID: 1103534841159512385}
-  - {fileID: 1103549581392476767}
   currentPrefab: {fileID: 0}
+  animator: {fileID: 0}
   state: 1
   moveResult: 3
 --- !u!114 &5036007170449279667

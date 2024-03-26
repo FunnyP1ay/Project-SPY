@@ -23,10 +23,12 @@ public class Citizen : MonoBehaviour
     public float                currentHP = 100f;
     public List<GameObject>     prefab_List;
     public GameObject           currentPrefab;
+    public Animator             animator;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -61,6 +63,7 @@ public class Citizen : MonoBehaviour
     {
         while (state != State.die)
         {
+            animator.SetFloat("isMove", nav.speed);
             if (state == State.needNextMove)
             {
                 SetNextMoveTarget();
@@ -102,6 +105,7 @@ public class Citizen : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 4f)
         {
+            nav.speed = 0.1f;
             nav.updatePosition = false;
             state = State.needNextMove;
         }
@@ -125,6 +129,7 @@ public class Citizen : MonoBehaviour
             }
             
             // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
+            nav.speed = 0.1f;
             nav.updatePosition = false;
             state = State.needNextMove;
         }
@@ -133,7 +138,9 @@ public class Citizen : MonoBehaviour
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()
     {
+
         // next move target value setting
+        nav.speed = 2.5f;
         randNum = Random.Range(0, 10);
         switch (randNum)
         {
@@ -210,12 +217,13 @@ public class Citizen : MonoBehaviour
         if (colliders.Length == 0)
         {
             state = State.needNextMove;
+            nav.speed = 0.1f;
             surprised_Mark.SetActive(false);
         }
         else
         {
             state = State.Run;
-            nav.speed = 7;
+            nav.speed = 7.5f;
             surprised_Mark.SetActive(true);
         }
       
