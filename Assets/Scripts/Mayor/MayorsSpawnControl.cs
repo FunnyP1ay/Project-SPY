@@ -45,11 +45,12 @@ public class MayorsSpawnControl : MonoBehaviour
     }
     public void OperationsPoliceSpawn()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 8; i++)
         {
             policeSpawner.OperationsPoliceSpawn();
         }
-        
+        MapData.Instance.curretPoliceCount += 8;
+
     }
     public void Poilce_Spawn()
     {

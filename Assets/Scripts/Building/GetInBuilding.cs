@@ -26,6 +26,7 @@ public class GetInBuilding : MonoBehaviour
         {
             UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_True();
             MapData.Instance.player_OutPos = outBuildingPos;
+            MapData.Instance.chasePlayer_Pos = outBuildingPos;
             switch (buildingDATA)
             {
                 case BuildingDATA.PlayerHouse:
@@ -54,6 +55,7 @@ public class GetInBuilding : MonoBehaviour
         {
             UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_False();
             player.isGetIn = false;
+            MapData.Instance.chasePlayer_Pos = player.transform;
         }
     }
 }

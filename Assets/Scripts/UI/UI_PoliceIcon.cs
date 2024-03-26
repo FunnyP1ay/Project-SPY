@@ -16,7 +16,7 @@ public class UI_PoliceIcon : MonoBehaviour
             _image.sprite = null;
         }
 
-        policeIconCount += _value;
+        policeIconCount = _value;
        if (policeIconCount <= 0)
        {
           policeIconCount = 0;

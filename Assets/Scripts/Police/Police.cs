@@ -52,7 +52,7 @@ public class Police : MonoBehaviour
         OperationsTarget
 
     }
-    public MoveTarget moveTarget;
+    public MoveTarget moveTarget  ;
 
 
     public IEnumerator MoveCoroutine()
@@ -141,6 +141,12 @@ public class Police : MonoBehaviour
                     StartCoroutine(Fire());
                 }
             }
+            else
+            {
+                ChaseFailed();
+                isFire = false;
+            }
+
             nav.SetDestination(navTarget.position);
             isFire = false;
         }
@@ -149,7 +155,7 @@ public class Police : MonoBehaviour
             print("추격에 실패 했습니다 ! ");
             ChaseFailed();
             isFire = false;
-            nav.speed = 3f;
+            
         }
         else
             nav.SetDestination(navTarget.position);
@@ -222,7 +228,7 @@ public class Police : MonoBehaviour
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
-                navTarget = _building.building_NavTargetPoint[0].transform;
+                navTarget = _building.building_NavTargetPoint;
                 nav.SetDestination(navTarget.position);
                 nav.updatePosition = true;
                 moveState = MoveState.Move;
@@ -259,7 +265,7 @@ public class Police : MonoBehaviour
     {
         weaponControl.weaponState = WeaponControl.WeaponState.equip;
         weaponControl.WeaponChange(1); // equip weapon
-        PoliceIconControl(1);
+        
         moveTarget  = MoveTarget.spy;
         moveState       = MoveState.Move;
         nav.updatePosition = true;
@@ -274,7 +280,9 @@ public class Police : MonoBehaviour
         weaponControl.WeaponChange(0); // none weapon
         moveTarget  = MoveTarget.road;
         moveState       = MoveState.needNextMove;
-        PoliceIconControl(-3);
+        nav.speed = 3f;
+        PoliceIconControl(-1);
+
         surprised_Mark.SetActive(false);
     }
     //------------------Police Icon Control ------------------
@@ -312,6 +320,7 @@ public class Police : MonoBehaviour
     public void Die()
     {
         // 죽을 때 애니매이션 
+        UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(3);
         MapData.Instance.curretPoliceCount--;
         LeanPool.Despawn(this);
     }

@@ -40,7 +40,7 @@ public class MapData : MonoBehaviour
     public int                      startPoliceCount;
     public int                      curretPoliceCount;
     public int                      maxPoliceCount       = 80;
-    public Transform                policeCenter;
+    public Transform                policeCenterPos;
     public Transform                chasePlayer_Pos;
     
     // ---------------  TrafficSignal List  ----------------------

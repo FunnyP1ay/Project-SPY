@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
 
-    public List<Transform> building_NavTargetPoint = new List<Transform>();
+    public Transform       building_NavTargetPoint;
     public List<Citizen>   building_In_Citizen = new List<Citizen>();
 
     public void Setting()
@@ -13,9 +13,7 @@ public class Building : MonoBehaviour
         foreach (Transform child in transform)
         {
             if (child.gameObject.name == "NavTarget")
-            {
-                building_NavTargetPoint.Add(child);
-            }
+                building_NavTargetPoint = child;
         }
     }
 }

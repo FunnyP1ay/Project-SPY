@@ -41,6 +41,7 @@ public class Mayor : MonoBehaviour
         mayorsLawControl        = GetComponent<MayorsLawControl>();
         StartCoroutine(CityControl());
         StartCoroutine(TaxCollectionBuilding_AND_LawControl());
+        StartCoroutine(SafetyOperations());
     }
     private IEnumerator CityControl()
     {
@@ -121,6 +122,7 @@ public class Mayor : MonoBehaviour
             if(CityControlData.Instance.approval_Rating > 20)
             {
                 police_Controls = Police_Controls.martial_Law; // °è¾ö·É
+
             }
             else if(CityControlData.Instance.approval_Rating > 40)
             {
@@ -147,5 +149,18 @@ public class Mayor : MonoBehaviour
             yield return new WaitForSecondsRealtime(90f);
         }
         yield return null;
+    }
+    IEnumerator SafetyOperations()
+    {
+        while(state == State.cityControl)
+        {
+            
+            if (MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
+            {
+                mayorsSpawnControl.OperationsPoliceSpawn();
+            }
+            yield return new WaitForSecondsRealtime(20f);
+        }
+        yield break;
     }
 }

@@ -23,6 +23,7 @@ public class SPYAction : MonoBehaviour
                 if (collider.TryGetComponent(out Police _police))
                 {
                     _police.ChaseSpy(transform);
+                    _police.PoliceIconControl(1);
                 }
             }
             ChangeCoatUI(true); // is Player Coat change UI True 

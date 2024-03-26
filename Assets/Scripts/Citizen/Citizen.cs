@@ -157,7 +157,7 @@ public class Citizen : MonoBehaviour
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
-                navTarget = _building.building_NavTargetPoint[0].transform;
+                navTarget = _building.building_NavTargetPoint;
                 nav.SetDestination(navTarget.position);
                 nav.updatePosition = true;
                 state = State.Move;

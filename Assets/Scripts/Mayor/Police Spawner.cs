@@ -29,6 +29,7 @@ public class PoliceSpawner : MonoBehaviour
         {
             PoliceSpawn();
         }
+        
     }
     public void PoliceSpawn()
     {
@@ -40,7 +41,7 @@ public class PoliceSpawner : MonoBehaviour
 
 
             var spawnPolice = LeanPool.Spawn(policePrefab).GetComponent<Police>();
-            spawnPolice.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint[0].transform.position;
+            spawnPolice.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
             spawnPolice.nav.speed = 3.0f;
             spawnPolice.moveState = Police.MoveState.needNextMove;
             spawnPolice.StartCoroutine(spawnPolice.MoveCoroutine());
@@ -51,11 +52,11 @@ public class PoliceSpawner : MonoBehaviour
     public void OperationsPoliceSpawn()
     {
         var spawnPolice = LeanPool.Spawn(policePrefab).GetComponent<Police>();
-        
+        spawnPolice.transform.position = MapData.Instance.policeCenterPos.transform.position;
 
         spawnPolice.moveState = Police.MoveState.Move;
         spawnPolice.moveTarget = Police.MoveTarget.OperationsTarget;
-        spawnPolice.transform.position = MapData.Instance.policeCenter.transform.position;
+        
         spawnPolice.nav.SetDestination(MapData.Instance.chasePlayer_Pos.position);
         spawnPolice.nav.speed = 7.0f;
         spawnPolice.SetName();
