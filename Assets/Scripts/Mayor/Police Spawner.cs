@@ -52,26 +52,14 @@ public class PoliceSpawner : MonoBehaviour
     {
         var spawnPolice = LeanPool.Spawn(policePrefab).GetComponent<Police>();
         
-        int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(MapData.Instance.chasePlayer_Pos.position, 20f, BuildingLayerMask);
-        
-            if (colliders.Length == 0)
-            {
-                spawnPolice.moveState = Police.MoveState.needNextMove;
-            }
-            else
-            {
-                randNum = Random.Range(0, colliders.Length);
-                if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
-                {
-                    spawnPolice.moveState = Police.MoveState.Move;
-                    spawnPolice.nav.SetDestination(_building.building_NavTargetPoint[0].transform.position);
-                }
-            }
-        spawnPolice.StartCoroutine(spawnPolice.MoveCoroutine());
-        spawnPolice.transform.position = MapData.Instance.policeCenter.transform.position;
-        spawnPolice.nav.speed = 7.0f;
+
         spawnPolice.moveState = Police.MoveState.Move;
+        spawnPolice.moveTarget = Police.MoveTarget.OperationsTarget;
+        spawnPolice.transform.position = MapData.Instance.policeCenter.transform.position;
+        spawnPolice.nav.SetDestination(MapData.Instance.chasePlayer_Pos.position);
+        spawnPolice.nav.speed = 7.0f;
+        spawnPolice.SetName();
         spawnPolice.StartCoroutine(spawnPolice.MoveCoroutine());
+        MapData.Instance.curretPoliceCount++;
     }
 }

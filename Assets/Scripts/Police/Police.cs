@@ -39,7 +39,6 @@ public class Police : MonoBehaviour
         die,
         needNextMove,
         Move,
-
     }
     public MoveState moveState;
 
@@ -49,7 +48,9 @@ public class Police : MonoBehaviour
         store,
         house,
         road,
-        spy
+        spy,
+        OperationsTarget
+
     }
     public MoveTarget moveTarget;
 
@@ -91,6 +92,9 @@ public class Police : MonoBehaviour
                 case MoveTarget.spy:
                 CheckSpyTargetPos();
                 break;
+                case MoveTarget.OperationsTarget:
+                CheckOperations();
+                break;
         }
     }
     private void CheckRoadTargetPos()
@@ -105,7 +109,7 @@ public class Police : MonoBehaviour
     private void CheckBuildingTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2f)
+        if (checkDistance < 3f)
         {
             switch (moveTarget)
             {
@@ -127,7 +131,7 @@ public class Police : MonoBehaviour
         if (checkDistance < chaseRange) // TODO 밸런스 조절 제일 필요한 부분 
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
-            nav.speed = 2f;
+            nav.speed = 4f;
             if(navTarget.gameObject.TryGetComponent(out PlayerMove _player)/*SPY AI 추가하기*/)
             {
                 if (_player.weaponControl.weaponState == WeaponControl.WeaponState.equip)
@@ -140,7 +144,7 @@ public class Police : MonoBehaviour
             nav.SetDestination(navTarget.position);
             isFire = false;
         }
-        else if (checkDistance > 40f)
+        else if (checkDistance > 35f)
         {
             print("추격에 실패 했습니다 ! ");
             ChaseFailed();
@@ -150,6 +154,20 @@ public class Police : MonoBehaviour
         else
             nav.SetDestination(navTarget.position);
 
+    }
+
+    private void CheckOperations()
+    {
+        navTarget = MapData.Instance.chasePlayer_Pos;
+        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+        if (checkDistance < chaseRange)
+        {
+            moveTarget = MoveTarget.spy;
+        }
+        else
+        {
+            nav.SetDestination(navTarget.position);
+        }
     }
     public IEnumerator Fire()
     {
@@ -193,7 +211,7 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 40f, BuildingLayerMask);
 
         if (colliders.Length == 0)
         {
@@ -204,8 +222,7 @@ public class Police : MonoBehaviour
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
-                randNum = Random.Range(0, _building.building_NavTargetPoint.Count);
-                navTarget = _building.building_NavTargetPoint[randNum].transform;
+                navTarget = _building.building_NavTargetPoint[0].transform;
                 nav.SetDestination(navTarget.position);
                 nav.updatePosition = true;
                 moveState = MoveState.Move;
@@ -215,7 +232,7 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 40f, roadLayerMask);
         if (colliders.Length == 0)
         {
             nav.SetDestination(MapData.Instance.empty_Building_Block_List[0].transform.position);
