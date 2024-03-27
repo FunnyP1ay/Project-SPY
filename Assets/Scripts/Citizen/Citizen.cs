@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
-using static Citizen;
-using static Police;
 
 public class Citizen : MonoBehaviour
 {
@@ -13,6 +10,7 @@ public class Citizen : MonoBehaviour
     Transform                   navTarget;
     public NavMeshAgent         nav;
     CitizenINFO                 citizenINFO;
+    Citizen_INOUT_Control       citizen_INOUT_Control;
     public GameObject           question_Mark;
     public GameObject           surprised_Mark;
     private int                 randNum;
@@ -29,9 +27,11 @@ public class Citizen : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
         animator = GetComponent<Animator>();
+        citizen_INOUT_Control = GetComponent<Citizen_INOUT_Control>();
     }
     private void OnEnable()
     {
+        currentPrefab.SetActive(false);
         randNum = Random.Range(0, prefab_List.Count);
         currentPrefab = prefab_List[randNum];
         currentPrefab.SetActive(true);
@@ -124,6 +124,7 @@ public class Citizen : MonoBehaviour
                     break;
                 case MoveResult.TakeMoney: 
                     citizenINFO.TakeMoney(1);
+                    citizen_INOUT_Control.GetInBuilding();
                     break;
                 case MoveResult.NoneMoney: 
                     break;
@@ -236,10 +237,7 @@ public class Citizen : MonoBehaviour
         }
       
     }
-    private void CrossTheCrosswalk()
-    {
-
-    }
+    
     private void TrafficTarget()
     {
 

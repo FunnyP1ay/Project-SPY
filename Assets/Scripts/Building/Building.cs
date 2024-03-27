@@ -5,8 +5,8 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
 
-    public Transform       building_NavTargetPoint;
-    public List<Citizen>   building_In_Citizen = new List<Citizen>();
+    public Transform            building_NavTargetPoint;
+    public List<GameObject>     inCitizen_List;
 
     public void Setting()
     {
