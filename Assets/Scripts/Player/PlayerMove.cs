@@ -32,6 +32,7 @@ public class PlayerMove : MonoBehaviour
     public SPYAction            spyAction;
     public WeaponControl        weaponControl;
     public Player_Cinemachine_Control player_Cinemachine_Control;
+    public Animator             animator;
 
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -42,11 +43,15 @@ public class PlayerMove : MonoBehaviour
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();
         player_Cinemachine_Control = GetComponent<Player_Cinemachine_Control>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
-        float rotateAmount = moveVector.x * rotationSpeed;
-        transform.Rotate(new Vector3( 0f, 0f + rotateAmount, 0f) ) ;
+        //회전 보정 코드인데 없는게 더 나은거 같아서 임시로 삭제 
+        //---------------------------------------------------------
+        //float rotateAmount = moveVector.x * rotationSpeed;
+        //transform.Rotate(new Vector3( 0f, 0f + rotateAmount, 0f) ) ;
+        //---------------------------------------------------------
         // 이동 처리
         transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
         // 인풋매니저로 수정 해야 할듯 함.
@@ -146,6 +151,14 @@ public class PlayerMove : MonoBehaviour
 
         // 입력 벡터를 이동 벡터로 변환
         moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
+        if (moveVector.magnitude > 0.1f)
+        {
+            animator.SetBool("isMove", true);
+            animator.SetFloat("inputVectorX", inputVector.x);
+            animator.SetFloat("inputVectorY", inputVector.y);
+        }
+        else
+            animator.SetBool("isMove", false);
     }
     public void GetDamage(float _damage)
     {
