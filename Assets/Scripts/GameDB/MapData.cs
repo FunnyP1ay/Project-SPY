@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MapData : MonoBehaviour
 {
@@ -42,7 +43,8 @@ public class MapData : MonoBehaviour
     public int                      maxPoliceCount       = 80;
     public Transform                policeCenterPos;
     public Transform                chasePlayer_Pos;
-    
+    // --------------- NavMesh Target Bug Fix Pos ---------
+    public Transform                NavMesh_Target_Bug_Fix_Pos;
     // ---------------  TrafficSignal List  ----------------------
     [Header("TrafficSignal")]
     public List<TrafficSignal>      trafficSignals_List;

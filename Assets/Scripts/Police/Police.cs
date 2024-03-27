@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static Citizen;
 
 public class Police : MonoBehaviour
 {
@@ -245,7 +246,7 @@ public class Police : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, 40f, roadLayerMask);
         if (colliders.Length == 0)
         {
-            nav.SetDestination(MapData.Instance.empty_Building_Block_List[0].transform.position);
+            nav.SetDestination(MapData.Instance.NavMesh_Target_Bug_Fix_Pos.position);
             nav.updatePosition = true;
             moveState = MoveState.Move;
             moveTarget = MoveTarget.road;

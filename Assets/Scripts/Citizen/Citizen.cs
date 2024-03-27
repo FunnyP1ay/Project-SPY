@@ -193,7 +193,7 @@ public class Citizen : MonoBehaviour
         randNum = Random.Range(0, colliders.Length);
         if (colliders.Length == 0)
         {
-            nav.SetDestination(MapData.Instance.empty_Building_Block_List[0].transform.position);
+            nav.SetDestination(MapData.Instance.NavMesh_Target_Bug_Fix_Pos.position);
             nav.updatePosition = true;
             state = State.Move;
             moveResult = MoveResult.None;
