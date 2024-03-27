@@ -27,6 +27,7 @@ public class DrivingCar : MonoBehaviour
     {
         if(currentDrivingPoint != null)
         {
+            //TODO 최적화 생각해보기 
             if(Physics.Raycast(transform.position,transform.forward, out hit, raycastRange, targetLayer)) 
             {
           

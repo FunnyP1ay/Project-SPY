@@ -41,10 +41,13 @@ public class CitizenSpawner : MonoBehaviour
             spawnCitizen.nav.speed = 3.0f;
             spawnCitizen.state = Citizen.State.needNextMove;
             spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
-            spawnCitizen.CitizenSetting();
+            spawnCitizen.CitizenCoroutineSetting();
             spawnCitizen.SetName();
             MapData.Instance.currentCitizenCount++;
-            spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
         }
+    }
+    public void In_Building_Move_Setting()
+    {
+
     }
 }

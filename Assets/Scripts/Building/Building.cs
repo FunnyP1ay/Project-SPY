@@ -6,7 +6,6 @@ public class Building : MonoBehaviour
 {
 
     public Transform            building_NavTargetPoint;
-    public List<GameObject>     inCitizen_List;
 
     public void Setting()
     {

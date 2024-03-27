@@ -6,6 +6,8 @@ using static GetInBuilding;
 
 public class GetInBuilding : MonoBehaviour
 {
+    public List<GameObject> inCitizen_List;
+    private int             randNum;
     public enum BuildingDATA
     {
         PlayerHouse,
@@ -16,8 +18,9 @@ public class GetInBuilding : MonoBehaviour
     }
     public BuildingDATA buildingDATA;
     public Transform outBuildingPos;
-    private void Start()
+    private void OnEnable()
     {
+        StartCoroutine(CheckCitizen());
         outBuildingPos = transform.Find("GetInPos");
     }
     private void OnTriggerEnter(Collider other)
@@ -47,7 +50,7 @@ public class GetInBuilding : MonoBehaviour
             }
             player.isGetIn = true;
         }
-        if(other.gameObject.TryGetComponent(out Citizen_INOUT_Control citizen))
+        if (other.gameObject.TryGetComponent(out Citizen_INOUT_Control citizen))
         {
             citizen.outPos = outBuildingPos;
         }
@@ -61,4 +64,32 @@ public class GetInBuilding : MonoBehaviour
             MapData.Instance.chasePlayer_Pos = player.transform;
         }
     }
+
+    IEnumerator CheckCitizen()
+    {
+        while (true)
+        {
+            if (inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
+            {
+                randNum = Random.Range(0, inCitizen_List.Count);
+                inCitizen_List[randNum].gameObject.GetComponent<Citizen_INOUT_Control>().GetOutBuilding();
+                inCitizen_List.RemoveAt(randNum);
+            }
+            else if(inCitizen_List.Count >0 && outBuildingPos == MapData.Instance.player_OutPos)
+            {
+                foreach(var citizen in inCitizen_List)
+                {
+                  var _citizen  =citizen.gameObject.GetComponent<Citizen>();
+
+                    _citizen.gameObject.SetActive(true);
+                    _citizen.InBuildingSetting();// 시민 다시 키는 거 설정
+
+
+                }
+            }
+            yield return new WaitForSecondsRealtime(10f);
+        }
+    }
+    // 코루틴 돌면서 10초에 한번씩 그러나, if(플레이어가 해당하는 빌딩 안에 있으면) 내부에 켜진 시민들을 중 나갈 시민을 입구로 이동시키고 나가기
+    // 플레이어가 다시 나간 상태면 그안에 있는 시민들 어떻게 다시 리스트에 넣을 건지
 }

@@ -51,11 +51,12 @@ public class Citizen : MonoBehaviour
         GetMoney,
         TakeMoney,
         NoneMoney,
+        InBuilding,
         None
     }
     public MoveResult moveResult; 
 
-    public void CitizenSetting()
+    public void CitizenCoroutineSetting() // 시민스포너랑 건물안에서 나올 때, 밖으로 나올 때 사용 해야함
     {
         StartCoroutine(MoveCoroutine());
     }
@@ -64,11 +65,11 @@ public class Citizen : MonoBehaviour
         while (state != State.die)
         {
             animator.SetFloat("isMove", nav.speed);
-            if (state == State.needNextMove)
+            if (state == State.needNextMove) // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
             {
-                SetNextMoveTarget();
+                SetNextMoveTarget();  
             }
-            if (state == State.Move)
+            if (state == State.Move) // 한번 돌때마다 MoveResult 에 따른 타겟확인을 함
             {
                 CheckTargetPos();
             }
@@ -93,6 +94,9 @@ public class Citizen : MonoBehaviour
                 break;
             case MoveResult.NoneMoney:
                 CheckBuildingTargetPos();
+                break;
+            case MoveResult.InBuilding:
+                CheckInBuildingMovePos();
                 break;
             case MoveResult.None:
                 CheckRoadTargetPos();
@@ -141,6 +145,16 @@ public class Citizen : MonoBehaviour
             state = State.needNextMove;
         }
 
+    }
+
+    private void CheckInBuildingMovePos()
+    {
+        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+        if (checkDistance < 2.5f)
+        {
+            //TODO 건물 밖으로 나가게 하는거
+            InBuildingTargetSetting(); 
+        }
     }
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()
@@ -242,7 +256,30 @@ public class Citizen : MonoBehaviour
         }
       
     }
-    
+    public void InBuildingSetting()
+    {
+        state = State.Move;
+        moveResult = MoveResult.InBuilding;
+        InBuildingTargetSetting();
+        nav.speed = 3f;
+        animator.SetFloat("isMove", nav.speed);
+        CitizenCoroutineSetting();
+    }
+
+    public void InBuildingTargetSetting()
+    {
+        int InmovePos = LayerMask.GetMask("InBuildingMovePos");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, InmovePos);
+        randNum = Random.Range(0, colliders.Length);
+        navTarget = colliders[randNum].transform;
+        nav.SetDestination(navTarget.position);
+    }
+    public void OutBuildingSetting()
+    {
+        state = State.needNextMove;
+
+        CitizenCoroutineSetting();
+    }
     private void TrafficTarget()
     {
 
