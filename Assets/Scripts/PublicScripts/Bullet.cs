@@ -25,6 +25,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void BulletLifeSetting()
+    {
+        StartCoroutine(BulletLife());
+    }
     public IEnumerator BulletLife()
     {
         yield return new WaitForSecondsRealtime(5f);

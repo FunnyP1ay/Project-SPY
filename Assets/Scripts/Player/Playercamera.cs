@@ -7,7 +7,7 @@ public class Playercamera : MonoBehaviour
 {
     public Camera mainCamera; // 메인 카메라
     public Transform cameraArm;
-    public Transform PlayerBody;
+    public PlayerMove player;
 
     public bool isZoom = false;
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class Playercamera : MonoBehaviour
         if (isZoom == false)
         {
         //  LookAround();
-        transform.position = PlayerBody.transform.position;
+        transform.position = player.transform.position;
 
         // 테스트 코드
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -26,9 +26,9 @@ public class Playercamera : MonoBehaviour
             {
                 // 레이가 충돌한 지점을 바라보도록 플레이어 회전
                 Vector3 targetPosition = hitInfo.point;
-                targetPosition.y = PlayerBody.position.y; // 플레이어의 높이를 고려하여 y값 설정
-                PlayerBody.LookAt(targetPosition);
-            
+                targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
+                player.transform.LookAt(targetPosition);
+                player.weaponPos.LookAt(targetPosition);
             }
         }
  

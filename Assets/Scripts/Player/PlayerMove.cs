@@ -34,6 +34,7 @@ public class PlayerMove : MonoBehaviour
     public Player_Cinemachine_Control player_Cinemachine_Control;
     public Animator             animator;
 
+    public Transform        weaponPos;
     private Vector2         inputVector;
     private Vector3         moveVector;
 
@@ -44,6 +45,15 @@ public class PlayerMove : MonoBehaviour
         spy_Target_Object = GetComponent<SPYTargetObject>();
         player_Cinemachine_Control = GetComponent<Player_Cinemachine_Control>();
         animator = GetComponent<Animator>();
+    }
+    public void PlayerFire()
+    {
+        if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
+        {
+            _gun.Fire();
+            spyAction.ExposedAction(10f);
+            player_Cinemachine_Control.Fire_Impulse();
+        }
     }
     void Update()
     {
@@ -57,13 +67,9 @@ public class PlayerMove : MonoBehaviour
         // 인풋매니저로 수정 해야 할듯 함.
         if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip&& Time.time >= nextFireTime)
         {
-            if(weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
-            {
-                _gun.Fire();
-                spyAction.ExposedAction(10f);
-                player_Cinemachine_Control.Fire_Impulse();
+
+                animator.SetTrigger("isFire");
                 nextFireTime = Time.time + 1f / fireRate;
-            }
         }
         if (Input.GetKey(KeyCode.Alpha1))
         {

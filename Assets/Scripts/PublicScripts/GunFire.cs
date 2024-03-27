@@ -7,7 +7,7 @@ public class GunFire : MonoBehaviour
 {
     public Bullet       bullet;
     public Transform    firePos;
-    public float        bulletSpeed   = 100f; 
+    public float        bulletSpeed   = 150f; 
   
 
 
@@ -16,7 +16,7 @@ public class GunFire : MonoBehaviour
         var _bullet =  LeanPool.Spawn(bullet);
         _bullet.transform.position = firePos.position;
         _bullet.transform.rotation = firePos.rotation;
-        _bullet.StartCoroutine(_bullet.BulletLife());
+        _bullet.BulletLifeSetting();
         Rigidbody rb = _bullet.GetComponent<Rigidbody>();
         rb.velocity = firePos.forward * bulletSpeed;
     }
