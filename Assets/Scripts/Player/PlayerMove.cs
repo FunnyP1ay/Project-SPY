@@ -28,11 +28,12 @@ public class PlayerMove : MonoBehaviour
 
     // --------------- Player Script -------------------
     [Header("Player Scripts")]
-    public SPYTargetObject      spy_Target_Object   = null;
-    public SPYAction            spyAction;
-    public WeaponControl        weaponControl;
-    public Player_Cinemachine_Control player_Cinemachine_Control;
-    public Animator             animator;
+    public SPYTargetObject              spy_Target_Object   = null;
+    public SPYAction                    spyAction;
+    public WeaponControl                weaponControl;
+    public Player_Cinemachine_Control   player_Cinemachine_Control;
+    public Animator                     animator;
+    public GetInBuilding                currentGetInBuilding;
 
     
     public Transform        weaponPos;
@@ -97,6 +98,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (isPlayerBuilding_In)
             {
+                currentGetInBuilding.CitizenGetInList(this.transform); //나가기 직전 건물내 시민들 빌딩 리스트에 넣기
                 isPlayerBuilding_In = false;
                 this.transform.position = MapData.Instance.player_OutPos.position;
             }
@@ -115,6 +117,7 @@ public class PlayerMove : MonoBehaviour
                         }
                     }
                 }
+                currentGetInBuilding.CitizenSetActive(); // 현재 빌딩에 있는 시민들 켜기
                 isPlayerBuilding_In = true;
                 this.transform.position = MapData.Instance.player_InPos.position;
             }

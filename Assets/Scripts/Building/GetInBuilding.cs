@@ -30,6 +30,7 @@ public class GetInBuilding : MonoBehaviour
             UI_Manager.Instance.ui_Key_Icon_Action.F_Key_SetActive_True();
             MapData.Instance.player_OutPos = outBuildingPos;
             MapData.Instance.chasePlayer_Pos = outBuildingPos;
+            player.currentGetInBuilding = this;
             switch (buildingDATA)
             {
                 case BuildingDATA.PlayerHouse:
@@ -71,23 +72,38 @@ public class GetInBuilding : MonoBehaviour
         {
             if (inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
             {
-                randNum = Random.Range(0, inCitizen_List.Count);
+                    randNum = Random.Range(0, inCitizen_List.Count);
                 inCitizen_List[randNum].gameObject.GetComponent<Citizen_INOUT_Control>().GetOutBuilding();
                 inCitizen_List.RemoveAt(randNum);
             }
-            else if(inCitizen_List.Count >0 && outBuildingPos == MapData.Instance.player_OutPos)
-            {
-                foreach(var citizen in inCitizen_List)
-                {
-                  var _citizen  =citizen.gameObject.GetComponent<Citizen>();
-
-                    _citizen.gameObject.SetActive(true);
-                    _citizen.InBuildingSetting();// 시민 다시 키는 거 설정
-
-
-                }
-            }
+            
             yield return new WaitForSecondsRealtime(10f);
+        }
+    }
+
+    // 플레이어가 나갈 때 순간적으로 안에 있는 주변 모든 시민을 리스트에 넣기
+    public void CitizenGetInList(Transform _player)
+    {
+        int citizen = LayerMask.GetMask("Citizen");
+        Collider[] colliders = Physics.OverlapSphere(_player.position, 20f, citizen);
+        foreach(var _citizen in colliders)
+        {
+            inCitizen_List.Add(_citizen.gameObject);
+        }
+    }
+    public void CitizenSetActive()
+    {
+        if (inCitizen_List.Count > 0 )
+        {
+            foreach (var citizen in inCitizen_List)
+            {
+                var _citizen = citizen.gameObject.GetComponent<Citizen>();
+
+                _citizen.gameObject.SetActive(true);
+                _citizen.InBuildingSetting();// 시민 다시 키는 거 설정
+
+
+            }
         }
     }
     // 코루틴 돌면서 10초에 한번씩 그러나, if(플레이어가 해당하는 빌딩 안에 있으면) 내부에 켜진 시민들을 중 나갈 시민을 입구로 이동시키고 나가기

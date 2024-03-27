@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building_NavTargetPoint: {fileID: 0}
-  building_In_Citizen: []
 --- !u!64 &-784346991543444293
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9604a556b7ef2fc48a6425c7b2627937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inCitizen_List: []
   buildingDATA: 1
   outBuildingPos: {fileID: 0}
 --- !u!65 &7660025084562161891
@@ -176,7 +176,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 2, z: 5}
+  m_Size: {x: 7.43, y: 2, z: 7.25}
   m_Center: {x: -0.47326565, y: 0, z: 7.6}
 --- !u!1 &335127968528877184
 GameObject:
