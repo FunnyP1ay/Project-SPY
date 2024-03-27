@@ -13,9 +13,9 @@ public class Citizen_INOUT_Control : MonoBehaviour
         if (colliders.Length > 0)
         {
             var _building = colliders[0].GetComponent<Building>();
-            _building.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
+            this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
             _building.inCitizen_List.Add(this.gameObject);
-            _building.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             print("건물 안으로 들어왔습니다 !");
         }
     }

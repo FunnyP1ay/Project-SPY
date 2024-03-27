@@ -104,6 +104,11 @@ public class Police : MonoBehaviour
     }
     private void CheckRoadTargetPos()
     {
+        if (navTarget == null)
+        {
+            moveState = MoveState.needNextMove;
+            return;
+        }
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 2f)
         {
