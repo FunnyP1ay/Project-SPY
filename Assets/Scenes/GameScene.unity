@@ -20469,7 +20469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490159458}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.013531161, y: -0.9849951, z: 0.048621193, w: -0.16503817}
+  m_LocalRotation: {x: -0.013531159, y: -0.9849951, z: 0.04862119, w: -0.16503817}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30333,7 +30333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778904807}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018252471, y: -0.9831984, z: 0.07681253, w: -0.16458295}
+  m_LocalRotation: {x: -0.018252473, y: -0.9831985, z: 0.076812536, w: -0.16458291}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33551,7 +33551,7 @@ MonoBehaviour:
   curretPoliceCount: 0
   maxPoliceCount: 50
   policeCenterPos: {fileID: 0}
-  chasePlayer_Pos: {fileID: 0}
+  chasePlayer_Pos: {fileID: 7779301152697690320}
   trafficSignals_List:
   - {fileID: 0}
   - {fileID: 0}
@@ -38054,7 +38054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39862663, y: -0.000000042883002, z: 0.000000018639254, w: 0.9171133}
+  m_LocalRotation: {x: 0.39862666, y: 0.000000016842414, z: -0.0000000073206174, w: 0.9171133}
   m_LocalPosition: {x: -77.55646, y: 20.999996, z: -97.37799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -83112,7 +83112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142405084}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.19295244, y: -0.79368615, z: 0.37188992, w: -0.44105494}
+  m_LocalRotation: {x: -0.19295248, y: -0.7936862, z: 0.37188995, w: -0.44105494}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

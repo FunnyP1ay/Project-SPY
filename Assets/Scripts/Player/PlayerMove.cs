@@ -67,7 +67,6 @@ public class PlayerMove : MonoBehaviour
         // 인풋매니저로 수정 해야 할듯 함.
         if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip&& Time.time >= nextFireTime)
         {
-
                 animator.SetTrigger("isFire");
                 nextFireTime = Time.time + 1f / fireRate;
         }
