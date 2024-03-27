@@ -34,6 +34,7 @@ public class PlayerMove : MonoBehaviour
     public Player_Cinemachine_Control player_Cinemachine_Control;
     public Animator             animator;
 
+    
     public Transform        weaponPos;
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -122,6 +123,7 @@ public class PlayerMove : MonoBehaviour
         {
             spyAction.ChangeCoat(false); // is Coat UI Coat Change Icon :false
             UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(-3);
+            
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
@@ -147,6 +149,12 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
             }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("isDive");
+
         }
     }
 

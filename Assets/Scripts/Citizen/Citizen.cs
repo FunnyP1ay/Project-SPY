@@ -104,7 +104,7 @@ public class Citizen : MonoBehaviour
     private void CheckRoadTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 4f)
+        if (checkDistance < 3f)
         {
             nav.speed = 0.1f;
             nav.updatePosition = false;
@@ -115,7 +115,7 @@ public class Citizen : MonoBehaviour
     private void CheckBuildingTargetPos() // Money Cal
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 4f)
+        if (checkDistance < 3f)
         {
             switch (moveResult)
             {

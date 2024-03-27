@@ -602,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2114297616682553470
 Transform:
   m_ObjectHideFlags: 0
@@ -4451,6 +4451,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needChange: 0
+  coat_List:
+  - {fileID: 5909328718135572159}
+  - {fileID: 3776900989879095361}
+  - {fileID: 3477565752084343440}
+  - {fileID: 1455713982163999771}
+  - {fileID: 8611426071593778001}
+  - {fileID: 8893827606638370946}
+  - {fileID: 9086254878190343793}
+  - {fileID: 4468501310163394147}
+  - {fileID: 1252088614049288284}
+  - {fileID: 7624228633378786475}
+  - {fileID: 1267783813049043255}
+  - {fileID: 5031375449026450747}
+  - {fileID: 4848247965415163807}
+  - {fileID: 3896496815999651783}
+  - {fileID: 8766826265064105791}
+  - {fileID: 1281254695492058892}
+  - {fileID: 4081505443268502685}
+  - {fileID: 1719530674345176946}
+  currentPlayerCoat: {fileID: 8766826265064105791}
 --- !u!114 &145813322644707964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4907,7 +4927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8831743739436320863
 Transform:
   m_ObjectHideFlags: 0

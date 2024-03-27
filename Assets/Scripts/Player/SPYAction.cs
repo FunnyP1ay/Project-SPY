@@ -6,8 +6,12 @@ using UnityEngine;
 public class SPYAction : MonoBehaviour
 {
     public bool needChange = false;
+    private int randNum;
+    public List<GameObject> coat_List;
+    public GameObject currentPlayerCoat;
     private void Start()
     {
+        CoatSetting();
         StartCoroutine(NeedChageCoat());
     }
     public void BrokenObjectAttack(SPYTargetObject _target)
@@ -62,7 +66,15 @@ public class SPYAction : MonoBehaviour
             needChange = false;
             UI_Manager.Instance.ui_Player_Coat_Icon.gameObject.SetActive(false);
             UI_Manager.Instance.ui_Player_Coat_Icon.enabled = false;
+            CoatSetting();
         }
+    }
+    public void CoatSetting()
+    {
+        randNum = Random.Range(0, coat_List.Count);
+        currentPlayerCoat.SetActive(false);
+        currentPlayerCoat = coat_List[randNum];
+        currentPlayerCoat.SetActive(true);
     }
     public IEnumerator NeedChageCoat()
     {
