@@ -135,12 +135,12 @@ public class PlayerMove : MonoBehaviour
             {
                 print("패널을 열었습니다");
                 isOpen = true;
-                UI_Manager.Instance.currentCityBuildingTax.text         = ("BuildingTax :")     + CityControlData.Instance.building_Tax.ToString();
-                UI_Manager.Instance.currentCityCitizenTax.text          = ("CitizenTax :")      + CityControlData.Instance.citizen_Tax.ToString();
-                UI_Manager.Instance.currentCityBuildingCount.text       = ("CityBuilding : ")   + MapData.Instance.built_Building_Block_List.Count.ToString();
-                UI_Manager.Instance.currentMayor_Approval_Rating.text   = ("APProval Rating")   + CityControlData.Instance.approval_Rating.ToString();
-                UI_Manager.Instance.currentCitizenCount.text            = ("CitizenCount : ")   + MapData.Instance.currentCitizenCount.ToString();
-                UI_Manager.Instance.currentSafety_Rating.text           = ("Safety Rating : ")  + CityControlData.Instance.safety_Rating.ToString();
+                UI_Manager.Instance.currentCityBuildingTax.text         = CityControlData.Instance.building_Tax.ToString();
+                UI_Manager.Instance.currentCityCitizenTax.text          = CityControlData.Instance.citizen_Tax.ToString();
+                UI_Manager.Instance.currentCityBuildingCount.text       = MapData.Instance.built_Building_Block_List.Count.ToString();
+                UI_Manager.Instance.currentMayor_Approval_Rating.text   = CityControlData.Instance.approval_Rating.ToString();
+                UI_Manager.Instance.currentCitizenCount.text            = MapData.Instance.currentCitizenCount.ToString();
+                UI_Manager.Instance.currentSafety_Rating.text           = CityControlData.Instance.safety_Rating.ToString();
                 UI_Manager.Instance.cityINFOPanel.SetActive(true);
                 UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(true);
                 UI_Manager.Instance.ui_LawListPanel.LawList_Setting();

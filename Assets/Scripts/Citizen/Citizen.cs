@@ -125,18 +125,20 @@ public class Citizen : MonoBehaviour
     private void CheckBuildingTargetPos() // Money Cal
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 3f)
+        if (checkDistance < 4f)
         {
             switch (moveResult)
             {
                 case MoveResult.GetMoney:
                     citizenINFO.GetMoney(1);
+                    citizen_INOUT_Control.GetInBuilding();
                     break;
                 case MoveResult.TakeMoney: 
                     citizenINFO.TakeMoney(1);
                     citizen_INOUT_Control.GetInBuilding();
                     break;
-                case MoveResult.NoneMoney: 
+                case MoveResult.NoneMoney:
+                    citizen_INOUT_Control.GetInBuilding();
                     break;
             }
             
