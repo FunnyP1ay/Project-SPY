@@ -92,6 +92,7 @@ public class PlayerMove : MonoBehaviour
             spyAction.BrokenObjectAttack(spy_Target_Object);
             if (player_Cinemachine_Control.iszoomSPYAction == false)
                 StartCoroutine(player_Cinemachine_Control.zoomSPYAction());
+            animator.SetTrigger("isPunch");
 
         }
         if (Input.GetKeyDown(KeyCode.F) && isGetIn)
