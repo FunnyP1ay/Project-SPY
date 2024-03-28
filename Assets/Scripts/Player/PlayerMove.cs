@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
@@ -88,29 +89,13 @@ public class PlayerMove : MonoBehaviour
             weaponControl.weaponState = WeaponControl.WeaponState.skill;
             weaponControl.WeaponChange(2);
         }
-        if (Input.GetKey(KeyCode.F) && isBrokenAttack)
+        if (Input.GetKey(KeyCode.F) && isBrokenAttack&& player_Cinemachine_Control.iszoomSPYAction == false)
         {
+            this.gameObject.transform.LookAt(spy_Target_Object.transform);
             spyAction.BrokenObjectAttack(spy_Target_Object);
-            if (player_Cinemachine_Control.iszoomSPYAction == false)
                 StartCoroutine(player_Cinemachine_Control.zoomSPYAction());
-            randNum = UnityEngine.Random.Range(0, 4);
-            switch (randNum)
-            {
-                case 0:
-                    animator.SetTrigger("isPunch");
-                    break;
-                    case 1:
-                    animator.SetTrigger("isFlyingKick");
-                    break;
-                    case 2:
-                    animator.SetTrigger("isRazerPose");
-                    break;
-                    case 3:
-                    animator.SetTrigger("isJazzKick");
-                    break;
-            }
             animator.SetTrigger("isPunch");
-
+            animator.applyRootMotion = false;
         }
         if (Input.GetKeyDown(KeyCode.F) && isGetIn)
         {
@@ -144,7 +129,6 @@ public class PlayerMove : MonoBehaviour
         {
             spyAction.ChangeCoat(false); // is Coat UI Coat Change Icon :false
             UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(-3);
-            
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
@@ -170,12 +154,10 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
             }
-
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("isDive");
-
         }
     }
 
@@ -196,6 +178,11 @@ public class PlayerMove : MonoBehaviour
             else
                 animator.SetBool("isMove", false);
         }
+    }
+
+    public void PlayerMotionSetting()
+    {
+        animator.applyRootMotion = true;
     }
     public void GetDamage(float _damage)
     {

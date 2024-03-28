@@ -5,8 +5,10 @@ using static GetInBuilding;
 
 public class Citizen_INOUT_Control : MonoBehaviour
 {
+    private int randNum;
     private Citizen     citizen;
-    public Transform    outPos; // GetInBuilding Ω∫≈©∏≥∆Æø°º≠ ∆Æ∏Æ∞≈ø° µÈæÓø√ ∂ß∏∂¥Ÿ ¡§«ÿ¡‹ 
+    public Transform    outPos;
+    
     private void Awake()
     {
         citizen =  GetComponent<Citizen>();
@@ -14,48 +16,55 @@ public class Citizen_INOUT_Control : MonoBehaviour
     public void  GetInBuilding()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 4f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f, BuildingLayerMask);
         if (colliders.Length > 0)
         {
-            foreach (Collider collider in colliders)
-            {
-                if(collider.TryGetComponent(out GetInBuilding _building))
-                {
-                    _building = colliders[0].GetComponent<GetInBuilding>();
+            randNum = Random.Range(0, colliders.Length);
 
-                    switch (_building.buildingDATA) // ∞¢¿⁄ ∞«π∞ø° ∏¬¥¬ ¿ßƒ°∑Œ ¿ÃµøΩ√≈∞±‚ 
+            if (colliders[randNum].gameObject.TryGetComponent(out GetInBuilding _building))
+                {
+                    _building = colliders[randNum].gameObject.GetComponent<GetInBuilding>();
+
+                    switch (_building.buildingDATA) 
                     {
                         case BuildingDATA.SuperMarket:
                             this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
-                            break;
+                        _building.inCitizen_List.Add(this.gameObject);
+                        this.gameObject.SetActive(false);
+                        break;
                         case BuildingDATA.CoatStore:
                             this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
-                            break;
+                        _building.inCitizen_List.Add(this.gameObject);
+                        this.gameObject.SetActive(false);
+                        break;
                         case BuildingDATA.PizzaStore:
                             this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
-                            break;
+                        _building.inCitizen_List.Add(this.gameObject);
+                        this.gameObject.SetActive(false);
+                        break;
                         case BuildingDATA.FruitsStore:
                             this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
-                            break;
+                        _building.inCitizen_List.Add(this.gameObject);
+                        this.gameObject.SetActive(false);
+                        break;
                         case BuildingDATA.PlayerHouse:
                             break;
                         default:
                             break;
                     }
-                    _building.inCitizen_List.Add(this.gameObject);
-                    this.gameObject.SetActive(false);
-                    print("∞«π∞ æ»¿∏∑Œ µÈæÓø‘Ω¿¥œ¥Ÿ !");
+                   
+                    print(" Í±¥Î¨ºÎ°ú Îì§Ïñ¥Í∞îÏäµÎãàÎã§!");
                 }
-            }
+            
 
         }
     }
     public void GetOutBuilding()
     {
+        this.gameObject.transform.position = outPos.position; 
         this.gameObject.SetActive(true);
-        this.gameObject.transform.position = outPos.position;
         citizen.OutBuildingSetting();
-        print("∞«π∞ π€¿∏∑Œ ≥™ø‘Ω¿¥œ¥Ÿ.");
+        print("Í±¥Î¨ºÏóêÏÑú ÎÇòÏôîÏäµÎãàÎã§ ! ");
     }
 
 }

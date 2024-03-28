@@ -28,7 +28,7 @@ public class Player_Cinemachine_Control : MonoBehaviour
         iszoomSPYAction = true;
         playercamera.isZoom = true;
         zoomVirtualCamera.Priority = 20;
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(2f);
         iszoomSPYAction = false;
         playercamera.isZoom = false;
         zoomVirtualCamera.Priority = 5;

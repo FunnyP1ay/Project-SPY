@@ -33,6 +33,7 @@ public class Citizen : MonoBehaviour
 
     private void OnEnable()
     {
+        nav = GetComponent<NavMeshAgent>();
         currentPrefab.SetActive(false);
         randNum = Random.Range(0, prefab_List.Count);
         currentPrefab = prefab_List[randNum];
@@ -60,7 +61,7 @@ public class Citizen : MonoBehaviour
 
     public void CitizenCoroutineSetting() // 시민스포너랑 건물안에서 켜질 때, 밖으로 나올 때 사용 해야함
     {
-        StartCoroutine(MoveCoroutine()); // 계속 오류남
+        StartCoroutine(MoveCoroutine()); 
     }
     public IEnumerator MoveCoroutine()
     {
@@ -105,6 +106,7 @@ public class Citizen : MonoBehaviour
                 CheckRoadTargetPos();
                 break;
         }
+        state = State.needNextMove;
         animator.SetFloat("isMove", nav.speed);
     }
 
@@ -118,8 +120,6 @@ public class Citizen : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 3f)
         {
-            nav.speed = 0.1f;
-            nav.updatePosition = false;
             state = State.needNextMove;
         }
 
@@ -127,7 +127,7 @@ public class Citizen : MonoBehaviour
     private void CheckBuildingTargetPos() // Money Cal
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 4f)
+        if (checkDistance < 1.2f)
         {
             switch (moveResult)
             {
@@ -142,14 +142,11 @@ public class Citizen : MonoBehaviour
                 case MoveResult.NoneMoney:
                     citizen_INOUT_Control.GetInBuilding();
                     break;
+                    default:
+                    break;
             }
-            
-            // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
-            nav.speed = 0.1f;
-            nav.updatePosition = false;
-            state = State.needNextMove;
         }
-
+      
     }
 
     private void Check_Get_In_Building_Move_Pos()
@@ -199,6 +196,7 @@ public class Citizen : MonoBehaviour
             {
                     navTarget = _building.building_NavTargetPoint;
                     nav.SetDestination(navTarget.position);
+                state = State.Move;
             }
         }
     }
@@ -214,6 +212,7 @@ public class Citizen : MonoBehaviour
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
                 nav.SetDestination(navTarget.position);
+                state = State.Move;
             }
         }
 
@@ -248,8 +247,8 @@ public class Citizen : MonoBehaviour
     {
         state = State.Move;
         moveResult = MoveResult.InBuilding;
-        InBuildingTargetSetting();
         nav.speed = 3f;
+        InBuildingTargetSetting();
         animator.SetFloat("isMove", nav.speed);
         CitizenCoroutineSetting();
     }
@@ -260,7 +259,7 @@ public class Citizen : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, InmovePos);
         randNum = Random.Range(0, colliders.Length);
         navTarget = colliders[randNum].transform;
-        nav.SetDestination(navTarget.position);
+        nav.destination = navTarget.position;
         nav.updatePosition = true;
     }
     public void OutBuildingSetting()
@@ -307,6 +306,7 @@ public class Citizen : MonoBehaviour
         currentHP -= _damage;
         if (currentHP < 0)
         {
+            // 죽을 때 애니매이션 으로 실행시키기
             Die();
         }
     }
@@ -318,5 +318,12 @@ public class Citizen : MonoBehaviour
         MapData.Instance.currentCitizenCount--;
         LeanPool.Despawn(this);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.TryGetComponent(out DrivingCar _car))
+        {
+            animator.SetTrigger("isKnockback");
+            print("시민이 넘어졌습니다 ! ");
+        }
+    }
 }

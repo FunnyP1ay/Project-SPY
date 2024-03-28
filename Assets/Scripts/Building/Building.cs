@@ -6,7 +6,6 @@ public class Building : MonoBehaviour
 {
 
     public Transform            building_NavTargetPoint;
-
     public void Setting()
     {
         foreach (Transform child in transform)

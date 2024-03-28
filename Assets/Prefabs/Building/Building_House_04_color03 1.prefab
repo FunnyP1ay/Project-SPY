@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building_NavTargetPoint: {fileID: 0}
-  building_In_Citizen: []
 --- !u!64 &-590173255209893326
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -135,7 +134,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 6.825, y: 3.9350002, z: 5.9}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 4.68, y: 3.7150002, z: -1.81}
   m_TimeToStationary: 0.5

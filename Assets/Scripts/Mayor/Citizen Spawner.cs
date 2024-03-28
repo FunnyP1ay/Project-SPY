@@ -26,7 +26,7 @@ public class CitizenSpawner : MonoBehaviour
 
     public void FirstSpawn()
     {
-        for (int i = 0; i < MapData.Instance.built_Building_Block_List.Count; i++)
+        for (int i = 0; i < MapData.Instance.built_Building_Block_List.Count*2; i++)
         {
             CitizenSpawn();
         }

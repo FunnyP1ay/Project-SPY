@@ -24,7 +24,7 @@ public class GetInBuilding : MonoBehaviour
     }
     private void OnEnable()
     {
-        
+        outBuildingPos = transform.Find("GetInPos");
         StartCoroutine(CheckCitizen()); // 계속 오류가 남
     }
     private void OnTriggerEnter(Collider other)
