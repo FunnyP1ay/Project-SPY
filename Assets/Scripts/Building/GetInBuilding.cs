@@ -20,8 +20,8 @@ public class GetInBuilding : MonoBehaviour
     public Transform outBuildingPos;
     private void OnEnable()
     {
-        StartCoroutine(CheckCitizen());
         outBuildingPos = transform.Find("GetInPos");
+        StartCoroutine(CheckCitizen());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -77,7 +77,7 @@ public class GetInBuilding : MonoBehaviour
                 inCitizen_List.RemoveAt(randNum);
             }
             
-            yield return new WaitForSecondsRealtime(10f);
+            yield return new WaitForSecondsRealtime(20f);
         }
     }
 

@@ -96,7 +96,7 @@ public class Citizen : MonoBehaviour
                 CheckBuildingTargetPos();
                 break;
             case MoveResult.InBuilding:
-                CheckInBuildingMovePos();
+                Check_Get_In_Building_Move_Pos();
                 break;
             case MoveResult.None:
                 CheckRoadTargetPos();
@@ -147,7 +147,7 @@ public class Citizen : MonoBehaviour
 
     }
 
-    private void CheckInBuildingMovePos()
+    private void Check_Get_In_Building_Move_Pos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 2.5f)
