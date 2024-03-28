@@ -505,6 +505,7 @@ MonoBehaviour:
   - {fileID: 1104482785013094153}
   currentPrefab: {fileID: 1103527574597606583}
   animator: {fileID: 0}
+  isQuestion_MarkOn: 0
   state: 1
   moveResult: 3
 --- !u!114 &5036007170449279667
@@ -4594,11 +4595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347086948285304, guid: 6a2a312f674137e49aace8daefb30042, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4347086948285304, guid: 6a2a312f674137e49aace8daefb30042, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.853
+      value: 2.332
       objectReference: {fileID: 0}
     - target: {fileID: 4347086948285304, guid: 6a2a312f674137e49aace8daefb30042, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4681,11 +4682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4582574569397002, guid: 19b35b7ce42ec4a47bcc5f556c65956e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.152
       objectReference: {fileID: 0}
     - target: {fileID: 4582574569397002, guid: 19b35b7ce42ec4a47bcc5f556c65956e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8870001
+      value: 2.325
       objectReference: {fileID: 0}
     - target: {fileID: 4582574569397002, guid: 19b35b7ce42ec4a47bcc5f556c65956e, type: 3}
       propertyPath: m_LocalPosition.z

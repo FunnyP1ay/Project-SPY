@@ -166,15 +166,18 @@ public class PlayerMove : MonoBehaviour
         inputVector = value.ReadValue<Vector2>();
 
         // 입력 벡터를 이동 벡터로 변환
-        moveVector = new Vector3(inputVector.x, moveVector.y , inputVector.y);
-        if (moveVector.magnitude > 0.1f)
+        if(player_Cinemachine_Control.iszoomSPYAction == false) // 줌인 액션 중 일 땐 움직이지 않도록 !
         {
-            animator.SetBool("isMove", true);
-            animator.SetFloat("inputVectorX", inputVector.x);
-            animator.SetFloat("inputVectorY", inputVector.y);
+            moveVector = new Vector3(inputVector.x, moveVector.y, inputVector.y);
+            if (moveVector.magnitude > 0.1f)
+            {
+                animator.SetBool("isMove", true);
+                animator.SetFloat("inputVectorX", inputVector.x);
+                animator.SetFloat("inputVectorY", inputVector.y);
+            }
+            else
+                animator.SetBool("isMove", false);
         }
-        else
-            animator.SetBool("isMove", false);
     }
     public void GetDamage(float _damage)
     {

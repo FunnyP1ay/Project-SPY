@@ -18,7 +18,7 @@ public class Playercamera : MonoBehaviour
         //  LookAround();
         transform.position = player.transform.position;
 
-        // 테스트 코드
+    
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 

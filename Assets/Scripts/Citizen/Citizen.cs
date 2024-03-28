@@ -22,6 +22,7 @@ public class Citizen : MonoBehaviour
     public List<GameObject>     prefab_List;
     public GameObject           currentPrefab;
     public Animator             animator;
+    public bool                 isQuestion_MarkOn = false;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -256,6 +257,7 @@ public class Citizen : MonoBehaviour
         }
       
     }
+    
     public void InBuildingSetting()
     {
         state = State.Move;
@@ -279,6 +281,21 @@ public class Citizen : MonoBehaviour
         state = State.needNextMove;
 
         CitizenCoroutineSetting();
+    }
+    public void Question_MarkSet()
+    {
+        if (isQuestion_MarkOn == false)
+        {
+            StartCoroutine(Question_MarkTimer());
+        }
+    }
+    private IEnumerator Question_MarkTimer()
+    {
+        isQuestion_MarkOn = true;
+        question_Mark.SetActive(true);
+        yield return new WaitForSecondsRealtime(3f);
+        isQuestion_MarkOn = false;
+        question_Mark.SetActive(false);
     }
     private void TrafficTarget()
     {
