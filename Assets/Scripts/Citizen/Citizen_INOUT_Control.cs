@@ -17,7 +17,24 @@ public class Citizen_INOUT_Control : MonoBehaviour
                 if(collider.TryGetComponent(out GetInBuilding _building))
                 {
                     _building = colliders[0].GetComponent<GetInBuilding>();
-                    this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
+
+                    switch (_building.buildingDATA) // 각자 건물에 맞는 위치로 이동시키기 
+                    {
+                        case BuildingDATA.SuperMarket:
+                            this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
+                            break;
+                        case BuildingDATA.CoatStore:
+                            this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
+                            break;
+                        case BuildingDATA.PizzaStore:
+                            this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
+                            break;
+                        case BuildingDATA.FruitsStore:
+                            this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
+                            break;
+                        default:
+                            break;
+                    }
                     _building.inCitizen_List.Add(this.gameObject);
                     this.gameObject.SetActive(false);
                     print("건물 안으로 들어왔습니다 !");
