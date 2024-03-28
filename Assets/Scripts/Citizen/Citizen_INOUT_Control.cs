@@ -5,7 +5,12 @@ using static GetInBuilding;
 
 public class Citizen_INOUT_Control : MonoBehaviour
 {
-    public Transform outPos; // GetInBuilding 스크립트에서 트리거에 들어올 때마다 정해줌 
+    private Citizen     citizen;
+    public Transform    outPos; // GetInBuilding 스크립트에서 트리거에 들어올 때마다 정해줌 
+    private void Awake()
+    {
+        citizen =  GetComponent<Citizen>();
+    }
     public void  GetInBuilding()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
@@ -32,6 +37,8 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         case BuildingDATA.FruitsStore:
                             this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
                             break;
+                        case BuildingDATA.PlayerHouse:
+                            break;
                         default:
                             break;
                     }
@@ -40,13 +47,14 @@ public class Citizen_INOUT_Control : MonoBehaviour
                     print("건물 안으로 들어왔습니다 !");
                 }
             }
-          
+
         }
     }
     public void GetOutBuilding()
     {
         this.gameObject.SetActive(true);
         this.gameObject.transform.position = outPos.position;
+        citizen.CitizenCoroutineSetting();
         print("건물 밖으로 나왔습니다.");
     }
 
