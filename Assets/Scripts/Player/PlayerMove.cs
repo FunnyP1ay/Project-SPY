@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     public float            currentHP           = 500;
     private float           fireRate            = 1f;
     private float           nextFireTime        = 0f;
+    private int             randNum;
 
     // --------------- Player State Check --------------
     [Header("Player State Check")]
@@ -92,6 +93,22 @@ public class PlayerMove : MonoBehaviour
             spyAction.BrokenObjectAttack(spy_Target_Object);
             if (player_Cinemachine_Control.iszoomSPYAction == false)
                 StartCoroutine(player_Cinemachine_Control.zoomSPYAction());
+            randNum = UnityEngine.Random.Range(0, 4);
+            switch (randNum)
+            {
+                case 0:
+                    animator.SetTrigger("isPunch");
+                    break;
+                    case 1:
+                    animator.SetTrigger("isFlyingKick");
+                    break;
+                    case 2:
+                    animator.SetTrigger("isRazerPose");
+                    break;
+                    case 3:
+                    animator.SetTrigger("isJazzKick");
+                    break;
+            }
             animator.SetTrigger("isPunch");
 
         }
