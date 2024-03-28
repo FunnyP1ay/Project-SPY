@@ -30,6 +30,7 @@ public class Citizen : MonoBehaviour
         animator = GetComponent<Animator>();
         citizen_INOUT_Control = GetComponent<Citizen_INOUT_Control>();
     }
+
     private void OnEnable()
     {
         currentPrefab.SetActive(false);
@@ -55,21 +56,18 @@ public class Citizen : MonoBehaviour
         InBuilding,
         None
     }
-    public MoveResult moveResult; 
+    public MoveResult moveResult = MoveResult.None; 
 
-    public void CitizenCoroutineSetting() // 시민스포너랑 건물안에서 나올 때, 밖으로 나올 때 사용 해야함
+    public void CitizenCoroutineSetting() // 시민스포너랑 건물안에서 켜질 때, 밖으로 나올 때 사용 해야함
     {
-        StartCoroutine(MoveCoroutine());
+        StartCoroutine(MoveCoroutine()); // 계속 오류남
     }
     public IEnumerator MoveCoroutine()
     {
         while (state != State.die)
         {
             animator.SetFloat("isMove", nav.speed);
-            if (state == State.needNextMove) // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
-            {
-                SetNextMoveTarget();  
-            }
+   
             if (state == State.Move) // 한번 돌때마다 MoveResult 에 따른 타겟확인을 함
             {
                 CheckTargetPos();
@@ -77,6 +75,10 @@ public class Citizen : MonoBehaviour
             if (state == State.Run)
             {
                 RunAway();
+            }
+            if (state == State.needNextMove) // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
+            {
+                SetNextMoveTarget();
             }
             yield return new WaitForSecondsRealtime(3f);
         }
@@ -163,8 +165,6 @@ public class Citizen : MonoBehaviour
     private void SetNextMoveTarget()
     {
 
-        // next move target value setting
-        nav.speed = 2.5f;
         randNum = Random.Range(0, 10);
         switch (randNum)
         {
@@ -190,21 +190,15 @@ public class Citizen : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
-        
-        if(colliders.Length == 0)
-        {
-            SetNavTarget_Road();
-        }
-        else
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask); //, BuildingLayerMask
+        if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
+
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
-                navTarget = _building.building_NavTargetPoint;
-                nav.SetDestination(navTarget.position);
-                nav.updatePosition = true;
-                state = State.Move;
+                    navTarget = _building.building_NavTargetPoint;
+                    nav.SetDestination(navTarget.position);
             }
         }
     }
@@ -212,24 +206,14 @@ public class Citizen : MonoBehaviour
     {
         int roadLayerMask = LayerMask.GetMask("Road");
         Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
-        randNum = Random.Range(0, colliders.Length);
-        if (colliders.Length == 0)
+        if(colliders.Length > 0)
         {
-            nav.SetDestination(MapData.Instance.NavMesh_Target_Bug_Fix_Pos.position);
-            nav.updatePosition = true;
-            state = State.Move;
-            moveResult = MoveResult.None;
-        }
-        else
-        {
-            if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
+            randNum = Random.Range(0, colliders.Length);
+            if (colliders[randNum].gameObject.TryGetComponent(out Road _road)) 
             {
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
                 nav.SetDestination(navTarget.position);
-                nav.updatePosition = true;
-                state = State.Move;
-                moveResult = MoveResult.None;
             }
         }
 
@@ -277,6 +261,7 @@ public class Citizen : MonoBehaviour
         randNum = Random.Range(0, colliders.Length);
         navTarget = colliders[randNum].transform;
         nav.SetDestination(navTarget.position);
+        nav.updatePosition = true;
     }
     public void OutBuildingSetting()
     {

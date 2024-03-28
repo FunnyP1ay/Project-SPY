@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_In_PlayerHouse : MonoBehaviour
 {
     public Transform doorPos;
-    void Start()
+    private void Start()
     {
         MapData.Instance.playerHouse_InPos = doorPos.transform;
     }

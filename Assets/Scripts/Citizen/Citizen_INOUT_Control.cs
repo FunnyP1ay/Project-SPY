@@ -54,7 +54,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.gameObject.transform.position = outPos.position;
-        citizen.CitizenCoroutineSetting();
+        citizen.OutBuildingSetting();
         print("건물 밖으로 나왔습니다.");
     }
 

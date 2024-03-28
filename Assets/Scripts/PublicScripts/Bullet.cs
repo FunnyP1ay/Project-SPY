@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Collider currentCollider = null;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Police police))

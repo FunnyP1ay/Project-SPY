@@ -227,46 +227,30 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask);
-
-        if (colliders.Length == 0)
-        {
-            SetNavTarget_Road();
-        }
-        else
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask); //, BuildingLayerMask
+        if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
+
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
                 navTarget = _building.building_NavTargetPoint;
                 nav.SetDestination(navTarget.position);
-                nav.updatePosition = true;
-                moveState = MoveState.Move;
             }
         }
     }
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 40f, roadLayerMask);
-        if (colliders.Length == 0)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
+        if (colliders.Length > 0)
         {
-            nav.SetDestination(MapData.Instance.NavMesh_Target_Bug_Fix_Pos.position);
-            nav.updatePosition = true;
-            moveState = MoveState.Move;
-            moveTarget = MoveTarget.road;
-        }
-        else 
-        { 
             randNum = Random.Range(0, colliders.Length);
             if (colliders[randNum].gameObject.TryGetComponent(out Road _road))
             {
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
                 nav.SetDestination(navTarget.position);
-                nav.updatePosition = true;
-                moveState = MoveState.Move;
-                moveTarget = MoveTarget.road;
             }
         }
     }

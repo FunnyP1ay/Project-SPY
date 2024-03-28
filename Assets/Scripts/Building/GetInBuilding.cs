@@ -18,10 +18,14 @@ public class GetInBuilding : MonoBehaviour
     }
     public BuildingDATA buildingDATA;
     public Transform outBuildingPos;
-    private void OnEnable()
+    private void Awake()
     {
         outBuildingPos = transform.Find("GetInPos");
-        StartCoroutine(CheckCitizen());
+    }
+    private void OnEnable()
+    {
+        
+        StartCoroutine(CheckCitizen()); // 계속 오류가 남
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -72,11 +76,10 @@ public class GetInBuilding : MonoBehaviour
         {
             if (inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
             {
-                    randNum = Random.Range(0, inCitizen_List.Count);
+                randNum = Random.Range(0, inCitizen_List.Count);
                 inCitizen_List[randNum].gameObject.GetComponent<Citizen_INOUT_Control>().GetOutBuilding();
                 inCitizen_List.RemoveAt(randNum);
             }
-            
             yield return new WaitForSecondsRealtime(20f);
         }
     }
