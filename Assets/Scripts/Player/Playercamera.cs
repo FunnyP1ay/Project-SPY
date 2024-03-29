@@ -27,7 +27,7 @@ public class Playercamera : MonoBehaviour
             {
                 // 레이가 충돌한 지점을 바라보도록 플레이어 회전
                 Vector3 targetPosition = hitInfo.point;
-                targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
+                targetPosition.y = player.transform.position.y + 1f ; // 플레이어의 높이를 고려하여 y값 설정
                 player.transform.LookAt(targetPosition);
                 player.weaponPos.LookAt(targetPosition);
             }

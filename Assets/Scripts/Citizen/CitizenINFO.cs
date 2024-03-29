@@ -12,8 +12,7 @@ public class CitizenINFO : MonoBehaviour
     public  TextMeshProUGUI     moneyText;
     public  GameObject          infoPanel;
     public  int                 money;
-    
-
+   
     private void Start()
     {
         cam = Camera.main.transform;

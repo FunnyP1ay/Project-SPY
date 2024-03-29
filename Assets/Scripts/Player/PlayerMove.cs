@@ -180,7 +180,7 @@ public class PlayerMove : MonoBehaviour
         // 입력 벡터를 이동 벡터로 변환
         if(player_Cinemachine_Control.iszoomSPYAction == false) // 줌인 액션 중 일 땐 움직이지 않도록 !
         {
-            moveVector = new Vector3(inputVector.x, moveVector.y, inputVector.y);
+            moveVector = new Vector3(inputVector.x, 0f, inputVector.y);
             if (moveVector.magnitude > 0.1f)
             {
                 animator.SetBool("isMove", true);
