@@ -28,21 +28,25 @@ public class Citizen_INOUT_Control : MonoBehaviour
                     switch (_building.buildingDATA) 
                     {
                         case BuildingDATA.SuperMarket:
+                        citizen.nav.Warp(MapData.Instance.playerSuperMarket_InPos.position);
                             this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.CoatStore:
+                        citizen.nav.Warp(MapData.Instance.playerCoatStore_InPos.position);
                             this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.PizzaStore:
+                        citizen.nav.Warp(MapData.Instance.playerPizzaStore_InPos.position);
                             this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.FruitsStore:
+                        citizen.nav.Warp(MapData.Instance.playerFruitsStore_InPos.position);
                             this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
@@ -61,6 +65,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
     }
     public void GetOutBuilding()
     {
+        citizen.nav.Warp(outPos.position);
         this.gameObject.transform.position = outPos.position; 
         this.gameObject.SetActive(true);
         citizen.OutBuildingSetting();

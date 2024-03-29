@@ -114,7 +114,7 @@ public class UI_News : MonoBehaviour
             newsText.newsText.text = news;
             newsText.newsText.fontSize = 40f;
 
-            yield return new WaitForSeconds(4f); // 각 뉴스 표시 후 잠시 대기
+            yield return new WaitForSeconds(10f); // 각 뉴스 표시 후 잠시 대기
         }
     }
     private IEnumerator NextNewsSet()
@@ -124,7 +124,7 @@ public class UI_News : MonoBehaviour
             print("일반뉴스를 생성했습니다");
             rand = Random.Range(0, baseNews_List.Count);
             AddNews(baseNews_List[rand]);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(8f);
         }
     }
 
