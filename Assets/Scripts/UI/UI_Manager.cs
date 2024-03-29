@@ -44,7 +44,9 @@ public class UI_Manager : MonoBehaviour
     public UI_EventCarmera      eventCarmera;
     [Header("Law List Panel")]
     public UI_LawListPanel      ui_LawListPanel;
-    public List<Sprite> currentLawIcon_List;
+    public List<Sprite>         currentLawIcon_List;
+    [Header("News Panel")]
+    public UI_News              ui_News;
 
     
     public void PopUp(GameObject _panel, bool _value)
