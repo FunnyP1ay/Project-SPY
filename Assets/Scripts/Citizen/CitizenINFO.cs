@@ -17,7 +17,7 @@ public class CitizenINFO : MonoBehaviour
     private void Start()
     {
         cam = Camera.main.transform;
-        
+        money = Random.Range(0, 10);
     }
 
          //infoPanel.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
@@ -43,7 +43,7 @@ public class CitizenINFO : MonoBehaviour
         moneyText.fontSize = 0.5f;
         moneyText.text = money.ToString();
         infoPanel.SetActive(true);
-        infoPanel.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
+        // infoPanel.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         if (isPanelOn == false)
             StartCoroutine(HidePanelTimer());
     }
