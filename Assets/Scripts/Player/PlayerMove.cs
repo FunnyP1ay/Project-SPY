@@ -67,6 +67,7 @@ public class PlayerMove : MonoBehaviour
         //transform.Rotate(new Vector3( 0f, 0f + rotateAmount, 0f) ) ;
         //---------------------------------------------------------
         // 이동 처리
+        if(player_Cinemachine_Control.iszoomSPYAction == false)
         transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
         // 인풋매니저로 수정 해야 할듯 함.
         if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip&& Time.time >= nextFireTime)
@@ -93,7 +94,7 @@ public class PlayerMove : MonoBehaviour
         {
             this.gameObject.transform.LookAt(spy_Target_Object.transform);
             spyAction.BrokenObjectAttack(spy_Target_Object);
-                StartCoroutine(player_Cinemachine_Control.zoomSPYAction());
+            player_Cinemachine_Control.ZoomSPYActionStart(); // 애니매이션 시작
             animator.SetTrigger("isPunch");
             animator.applyRootMotion = false;
         }
@@ -183,6 +184,7 @@ public class PlayerMove : MonoBehaviour
     public void PlayerMotionSetting()
     {
         animator.applyRootMotion = true;
+        player_Cinemachine_Control.ZoomSPYActionFinsh();
     }
     public void GetDamage(float _damage)
     {

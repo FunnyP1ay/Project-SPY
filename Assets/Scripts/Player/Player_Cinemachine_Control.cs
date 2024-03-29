@@ -22,13 +22,16 @@ public class Player_Cinemachine_Control : MonoBehaviour
             impulseSource.GenerateImpulse();
         }
     }
-
-    public IEnumerator zoomSPYAction()
+    public void ZoomSPYActionStart()
     {
         iszoomSPYAction = true;
         playercamera.isZoom = true;
         zoomVirtualCamera.Priority = 20;
-        yield return new WaitForSecondsRealtime(2f);
+    }
+
+
+    public void ZoomSPYActionFinsh() 
+    { 
         iszoomSPYAction = false;
         playercamera.isZoom = false;
         zoomVirtualCamera.Priority = 5;

@@ -18,7 +18,7 @@ public class Citizen : MonoBehaviour
     private int                 randNum3;
     private float               checkDistance;
     public string               citizenName;
-    public float                currentHP = 100f;
+    public float                currentHP = 10f;
     public List<GameObject>     prefab_List;
     public GameObject           currentPrefab;
     public Animator             animator;
@@ -283,10 +283,6 @@ public class Citizen : MonoBehaviour
         isQuestion_MarkOn = false;
         question_Mark.SetActive(false);
     }
-    private void TrafficTarget()
-    {
-
-    }
     public void SetName()
     {
         randNum = Random.Range(0, GameDB.Instance.nameChar.Count);
@@ -304,16 +300,16 @@ public class Citizen : MonoBehaviour
         print("데미지를 입었습니다 ! ");
         RunAway();
         currentHP -= _damage;
-        if (currentHP < 0)
+        if (currentHP <= 0)
         {
             // 죽을 때 애니매이션 으로 실행시키기
-            Die();
+            animator.SetTrigger("isDie");
         }
     }
 
     public void Die()
     {
-        // 죽을 때 애니매이션 
+        print("시민이 사망했습니다 ! ");
         currentPrefab.SetActive(false);
         MapData.Instance.currentCitizenCount--;
         LeanPool.Despawn(this);
