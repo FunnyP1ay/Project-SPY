@@ -26,7 +26,9 @@ public class PlayerMove : MonoBehaviour
     public bool             isGetIn             = false;
     public bool             isPlayerBuilding_In = false;
     public bool             isCoatChange        = false;
+    public bool             isScanerOn          = false;
     private bool            isOpen              = false;
+    
 
     // --------------- Player Script -------------------
     [Header("Player Scripts")]
@@ -34,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     public SPYAction                    spyAction;
     public WeaponControl                weaponControl;
     public Player_Cinemachine_Control   player_Cinemachine_Control;
+    public Player_Scaner                player_Scaner;
     public Animator                     animator;
     public GetInBuilding                currentGetInBuilding;
 
@@ -48,6 +51,7 @@ public class PlayerMove : MonoBehaviour
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();
         player_Cinemachine_Control = GetComponent<Player_Cinemachine_Control>();
+        player_Scaner = GetComponent<Player_Scaner>();
         animator = GetComponent<Animator>();
     }
     public void PlayerFire()
@@ -145,7 +149,7 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.currentCitizenCount.text            = MapData.Instance.currentCitizenCount.ToString();
                 UI_Manager.Instance.currentSafety_Rating.text           = CityControlData.Instance.safety_Rating.ToString();
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.cityINFOPanel,false);
-                UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(true);
+                UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_LawListPanel.gameObject, false);
                 UI_Manager.Instance.ui_LawListPanel.LawList_Setting();
             }
             else if (isOpen == true)
@@ -153,13 +157,19 @@ public class PlayerMove : MonoBehaviour
                 print("패널을 닫았습니다.");
                 isOpen = false;
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.cityINFOPanel, true);
-                UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
+                UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_LawListPanel.gameObject, true);
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);
+                UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("isDive");
+        }
+        if (Input.GetKeyUp(KeyCode.V)&& isScanerOn == false)
+        {
+            isScanerOn =true;
+            player_Scaner.ShowPopup();
         }
     }
 

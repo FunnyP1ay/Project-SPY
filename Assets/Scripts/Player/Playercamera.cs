@@ -22,7 +22,7 @@ public class Playercamera : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
-            if (Physics.Raycast(ray, out hitInfo, 99999f, LayerMask.NameToLayer("Building")))
+            if (Physics.Raycast(ray, out hitInfo, 999f)) // , LayerMask.NameToLayer("Building")
             {
                 // 레이가 충돌한 지점을 바라보도록 플레이어 회전
                 Vector3 targetPosition = hitInfo.point;
