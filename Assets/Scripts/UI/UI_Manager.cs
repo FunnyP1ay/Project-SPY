@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +22,7 @@ public class UI_Manager : MonoBehaviour
         {
             Destroy(this);
         }
+        DOTween.Init(); // DOTween √ ±‚»≠
         DontDestroyOnLoad(gameObject);
     }
     // ---------------- City Information ----------------
@@ -41,5 +44,24 @@ public class UI_Manager : MonoBehaviour
     public UI_EventCarmera      eventCarmera;
     [Header("Law List Panel")]
     public UI_LawListPanel      ui_LawListPanel;
-    public List<Sprite>         currentLawIcon_List;
+    public List<Sprite> currentLawIcon_List;
+
+    
+    public void PopUp(GameObject _panel, bool _value)
+    {
+        if (_value == false)
+            ShowPopUp(_panel);
+        else
+            HidePopUp(_panel);
+    }
+    private void ShowPopUp(GameObject _panel)
+    {
+        _panel.transform.localScale = Vector3.zero;
+        _panel.gameObject.SetActive(true);
+        _panel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+    } 
+    private void HidePopUp(GameObject _panel)
+    {
+        _panel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+    }
 }
