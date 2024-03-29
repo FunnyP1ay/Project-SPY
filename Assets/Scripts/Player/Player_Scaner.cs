@@ -23,8 +23,16 @@ public class Player_Scaner : MonoBehaviour
     }
     IEnumerator ScanerWaitTime()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(1f);
         scaner.transform.localScale = Vector3.zero;
         player.isScanerOn = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out CitizenINFO _citizen))
+        {
+            _citizen.Show_INFO_Panel();
+        }
     }
 }
