@@ -32,11 +32,17 @@ public class Playercamera : MonoBehaviour
                 targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
                 player.transform.LookAt(targetPosition);
                 player.weaponPos.LookAt(targetPosition);
-                if (player.weaponControl.weaponState == WeaponControl.WeaponState.skill)
+
+                // 드론 세팅
+              
+                if (player.weaponControl.weaponState == WeaponControl.WeaponState.skill&&hitInfo.point!=null)
                 {
                     target_Prefab.SetActive(true);
                     
                     target_Prefab.transform.position = targetPosition;
+                    player.spyAction.player_SkillAtrack.skill_targetPos = target_Prefab.transform;
+                    
+
                 }
                 else
                     target_Prefab.SetActive(false);

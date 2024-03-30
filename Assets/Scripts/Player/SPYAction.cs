@@ -9,10 +9,10 @@ public class SPYAction : MonoBehaviour
     private int                 randNum;
     public List<GameObject>     coat_List;
     public GameObject           currentPlayerCoat;
-    public Player_SkillAtack    player_SkillAtack;
+    public Player_SkillAttack    player_SkillAtrack;
     private void Start()
     {
-        player_SkillAtack = GetComponent<Player_SkillAtack>();
+        player_SkillAtrack = GetComponent<Player_SkillAttack>();
         CoatSetting();
         StartCoroutine(NeedChageCoat());
     }

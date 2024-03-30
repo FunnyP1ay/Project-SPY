@@ -79,6 +79,11 @@ public class PlayerMove : MonoBehaviour
                 animator.SetTrigger("isFire");
                 nextFireTime = Time.time + 1f / fireRate;
         }
+        else if(Input.GetMouseButton(0) && weaponControl.weaponState == WeaponControl.WeaponState.skill)
+        {
+            spyAction.player_SkillAtrack.startPos = this.transform;
+            spyAction.player_SkillAtrack.DroneSpawn();
+        }
         if (Input.GetKey(KeyCode.Alpha1))
         {
             weaponControl.WeaponChange(0);
