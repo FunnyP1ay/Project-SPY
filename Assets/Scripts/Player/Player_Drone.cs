@@ -36,7 +36,7 @@ public class Player_Drone : MonoBehaviour
             other.gameObject.TryGetComponent(out Building _2) ||
              other.gameObject.TryGetComponent(out BuildingBlock _3))
         {
-            GetComponent<ParticleSystem>().Play();
+            boom.Play();
         }
 
     }
