@@ -74,7 +74,7 @@ public class GetInBuilding : MonoBehaviour
     {
         while (true)
         {
-            if (inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
+            if (inCitizen_List != null && inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
             {
                 randNum = Random.Range(0, inCitizen_List.Count);
                 inCitizen_List[randNum].gameObject.GetComponent<Citizen_INOUT_Control>().GetOutBuilding();
@@ -92,6 +92,7 @@ public class GetInBuilding : MonoBehaviour
         foreach(var _citizen in colliders)
         {
             inCitizen_List.Add(_citizen.gameObject);
+            _citizen.gameObject.SetActive(false);
         }
     }
     public void CitizenSetActive()

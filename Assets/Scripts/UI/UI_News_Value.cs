@@ -8,11 +8,11 @@ public class UI_News_Value : MonoBehaviour
 {
     public RectTransform        rectTransform;
     public TextMeshProUGUI      newsText;
-    public float                moveSpeed = 30f; // UI 패널의 이동 속도
+    public float                moveSpeed; // UI 패널의 이동 속도
 
     private void OnEnable()
     {
-        rectTransform = GetComponent<RectTransform>();
+
         newsText = GetComponent<TextMeshProUGUI>();
         StartCoroutine(Timer());
     }
@@ -26,7 +26,7 @@ public class UI_News_Value : MonoBehaviour
     }
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(14f);
         Destroy(gameObject);
     }
 }

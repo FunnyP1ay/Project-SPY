@@ -200,13 +200,13 @@ GameObject:
   - component: {fileID: 662327677138023103}
   - component: {fileID: 9219823828380783208}
   - component: {fileID: 6277386996878257952}
-  - component: {fileID: 1631817757479498740}
+  - component: {fileID: 2668301338434166344}
   m_Layer: 0
   m_Name: In_Store (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &662327677138023103
 Transform:
@@ -273,8 +273,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1631817757479498740
-BoxCollider:
+--- !u!154 &2668301338434166344
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -288,12 +288,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &718080686054768720
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,13 +569,13 @@ GameObject:
   - component: {fileID: 3355235549431209989}
   - component: {fileID: 5213473255589157559}
   - component: {fileID: 7664147449047682105}
-  - component: {fileID: 1853238054134486546}
+  - component: {fileID: 2126891842642172223}
   m_Layer: 0
   m_Name: In_Store (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3355235549431209989
 Transform:
@@ -643,8 +642,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1853238054134486546
-BoxCollider:
+--- !u!154 &2126891842642172223
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -658,12 +657,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &1293665090698546924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,13 +1076,13 @@ GameObject:
   - component: {fileID: 4487534256559083455}
   - component: {fileID: 4058716935975081187}
   - component: {fileID: 1513983752248168731}
-  - component: {fileID: 2858636827340373014}
+  - component: {fileID: 7622806059498372673}
   m_Layer: 0
   m_Name: In_Store (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4487534256559083455
 Transform:
@@ -1151,8 +1149,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2858636827340373014
-BoxCollider:
+--- !u!154 &7622806059498372673
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1166,12 +1164,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &2134907566094676717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,13 +1605,13 @@ GameObject:
   - component: {fileID: 2330630048971058230}
   - component: {fileID: 6553548764625082611}
   - component: {fileID: 8496252452697061056}
-  - component: {fileID: 8700009351079772557}
+  - component: {fileID: 8829016078579930462}
   m_Layer: 0
   m_Name: In_Store (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2330630048971058230
 Transform:
@@ -1681,8 +1678,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8700009351079772557
-BoxCollider:
+--- !u!154 &8829016078579930462
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1696,12 +1693,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &3306522009623910249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2062,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2167,13 +2163,13 @@ GameObject:
   - component: {fileID: 9194134620369859950}
   - component: {fileID: 3471733101015552657}
   - component: {fileID: 4493527959647455807}
-  - component: {fileID: 6911552027235154245}
+  - component: {fileID: 2725265654432381837}
   m_Layer: 0
   m_Name: In_Store (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &9194134620369859950
 Transform:
@@ -2240,8 +2236,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6911552027235154245
-BoxCollider:
+--- !u!154 &2725265654432381837
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2255,12 +2251,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &3680835234801019000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,7 +2303,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2339,7 +2334,7 @@ Transform:
   m_GameObject: {fileID: 3831911321301141700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.97, y: 0.1, z: 0.88}
+  m_LocalPosition: {x: -3.97, y: 0, z: 0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2356,13 +2351,13 @@ GameObject:
   - component: {fileID: 448217219663460302}
   - component: {fileID: 1316599166042094870}
   - component: {fileID: 497523869450434247}
-  - component: {fileID: 8673250964559948508}
+  - component: {fileID: 3194472830505059785}
   m_Layer: 0
   m_Name: In_Store (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &448217219663460302
 Transform:
@@ -2429,8 +2424,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8673250964559948508
-BoxCollider:
+--- !u!154 &3194472830505059785
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2444,12 +2439,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &4025889574162373792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,13 +2981,13 @@ GameObject:
   - component: {fileID: 5560085853577515233}
   - component: {fileID: 3101757926286375735}
   - component: {fileID: 7568121064369845595}
-  - component: {fileID: 6689165929416654038}
+  - component: {fileID: 9170152947951823607}
   m_Layer: 0
   m_Name: In_Store (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5560085853577515233
 Transform:
@@ -3060,8 +3054,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6689165929416654038
-BoxCollider:
+--- !u!154 &9170152947951823607
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3075,12 +3069,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &5044367977303180732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,13 +3401,13 @@ GameObject:
   - component: {fileID: 8608258800933012861}
   - component: {fileID: 4692135129347843808}
   - component: {fileID: 302431106375588715}
-  - component: {fileID: 520592298869242385}
+  - component: {fileID: 8326071422523163341}
   m_Layer: 0
   m_Name: In_Store
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8608258800933012861
 Transform:
@@ -3481,8 +3474,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &520592298869242385
-BoxCollider:
+--- !u!154 &8326071422523163341
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3496,12 +3489,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &5601506129443788145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,7 +3646,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3881,13 +3873,13 @@ GameObject:
   - component: {fileID: 6395462105339070231}
   - component: {fileID: 8211783796479841273}
   - component: {fileID: 3502242772353336197}
-  - component: {fileID: 3068371894349363147}
+  - component: {fileID: 760325846719181661}
   m_Layer: 0
   m_Name: In_Store (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6395462105339070231
 Transform:
@@ -3954,8 +3946,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3068371894349363147
-BoxCollider:
+--- !u!154 &760325846719181661
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3969,12 +3961,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &6232689497700236609
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4013,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4074,8 +4065,6 @@ Transform:
   - {fileID: 415859563547701982}
   - {fileID: 1185753948031627544}
   - {fileID: 1501679930102326370}
-  - {fileID: 8608258800933012861}
-  - {fileID: 3355235549431209989}
   - {fileID: 1526186029305741866}
   - {fileID: 720146523558520764}
   - {fileID: 3459234644283481888}
@@ -4087,6 +4076,8 @@ Transform:
   - {fileID: 9067707700468889128}
   - {fileID: 8719850278492654217}
   - {fileID: 2557286831829759053}
+  - {fileID: 8608258800933012861}
+  - {fileID: 3355235549431209989}
   - {fileID: 6395462105339070231}
   - {fileID: 5560085853577515233}
   - {fileID: 662327677138023103}
@@ -5432,13 +5423,13 @@ GameObject:
   - component: {fileID: 1670629256887711671}
   - component: {fileID: 411574389238486551}
   - component: {fileID: 1753211048961647514}
-  - component: {fileID: 5260718296643908018}
+  - component: {fileID: 9176004983097038373}
   m_Layer: 0
   m_Name: In_Store (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1670629256887711671
 Transform:
@@ -5505,8 +5496,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5260718296643908018
-BoxCollider:
+--- !u!154 &9176004983097038373
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5520,12 +5511,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &8680873078172651983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5537,13 +5527,13 @@ GameObject:
   - component: {fileID: 4373243586080416275}
   - component: {fileID: 4400335879629760943}
   - component: {fileID: 2177854215359854512}
-  - component: {fileID: 803921130604424025}
+  - component: {fileID: 5524129742955034794}
   m_Layer: 0
   m_Name: In_Store (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4373243586080416275
 Transform:
@@ -5610,8 +5600,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &803921130604424025
-BoxCollider:
+--- !u!154 &5524129742955034794
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5625,12 +5615,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &8810818691002167023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,13 +5631,13 @@ GameObject:
   - component: {fileID: 8679244030396965228}
   - component: {fileID: 5635234938183714414}
   - component: {fileID: 2495118435323548422}
-  - component: {fileID: 2604985488866171548}
+  - component: {fileID: 4535897240690433767}
   m_Layer: 0
   m_Name: In_Store (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8679244030396965228
 Transform:
@@ -5715,8 +5704,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2604985488866171548
-BoxCollider:
+--- !u!154 &4535897240690433767
+TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5730,12 +5719,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: -1.25, y: 0, z: 1.2500012}
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &9131455280470749524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5971,7 +5959,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

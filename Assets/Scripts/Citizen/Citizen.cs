@@ -245,8 +245,8 @@ public class Citizen : MonoBehaviour
     
     public void InBuildingSetting()
     {
+        nav.enabled = true;
         state = State.Move;
-        moveResult = MoveResult.InBuilding;
         nav.speed = 3f;
         InBuildingTargetSetting();
         animator.SetFloat("isMove", nav.speed);
@@ -255,11 +255,14 @@ public class Citizen : MonoBehaviour
 
     public void InBuildingTargetSetting()
     {
+
         int InmovePos = LayerMask.GetMask("InBuildingMovePos");
         Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, InmovePos);
         randNum = Random.Range(0, colliders.Length);
         navTarget = colliders[randNum].transform;
-        nav.destination = navTarget.position;
+        moveResult = MoveResult.InBuilding;
+        nav.SetDestination(navTarget.position);
+        nav.enabled = true;
         nav.updatePosition = true;
     }
     public void OutBuildingSetting()

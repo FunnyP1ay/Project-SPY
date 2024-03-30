@@ -171,6 +171,18 @@ public class PlayerMove : MonoBehaviour
             isScanerOn =true;
             player_Scaner.ShowPopup();
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetBool("isRun",true);
+        }
+        else if(!Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetBool("isRun", false);
+        }
+        //else if(Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftShift))
+       // {
+         //   animator.SetBool("isRun", false);
+       // }
     }
 
     public void OnMove(InputAction.CallbackContext value)

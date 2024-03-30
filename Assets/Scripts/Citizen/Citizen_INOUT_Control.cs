@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using static GetInBuilding;
 
 public class Citizen_INOUT_Control : MonoBehaviour
@@ -28,26 +29,30 @@ public class Citizen_INOUT_Control : MonoBehaviour
                     switch (_building.buildingDATA) 
                     {
                         case BuildingDATA.SuperMarket:
-                        citizen.nav.Warp(MapData.Instance.playerSuperMarket_InPos.position);
-                            this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
+                        citizen.nav.enabled = false; // 네비메쉬 에이전트 비활성화
+                        this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
+                        citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.CoatStore:
-                        citizen.nav.Warp(MapData.Instance.playerCoatStore_InPos.position);
-                            this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
+                        citizen.nav.enabled = false; // 네비메쉬 에이전트 비활성화
+                        this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
+                        citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.PizzaStore:
-                        citizen.nav.Warp(MapData.Instance.playerPizzaStore_InPos.position);
-                            this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
+                        citizen.nav.enabled = false; // 네비메쉬 에이전트 비활성화
+                        this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
+                        citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.FruitsStore:
-                        citizen.nav.Warp(MapData.Instance.playerFruitsStore_InPos.position);
-                            this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
+                        citizen.nav.enabled = false; // 네비메쉬 에이전트 비활성화
+                        this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
+                        citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
                         this.gameObject.SetActive(false);
                         break;
@@ -65,9 +70,11 @@ public class Citizen_INOUT_Control : MonoBehaviour
     }
     public void GetOutBuilding()
     {
-        citizen.nav.Warp(outPos.position);
-        this.gameObject.transform.position = outPos.position; 
+       
+        this.gameObject.transform.position = outPos.position;
+        citizen.nav.Warp(this.gameObject.transform.position); // 네비메쉬 에이전트의 위치를 업데이트
         this.gameObject.SetActive(true);
+        citizen.nav.enabled = true;
         citizen.OutBuildingSetting();
         print("건물에서 나왔습니다 ! ");
     }
