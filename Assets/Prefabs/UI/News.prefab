@@ -151,4 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 8783585643232622544}
   newsText: {fileID: 7210754127773463177}
-  moveSpeed: 300
+  moveSpeed: 250

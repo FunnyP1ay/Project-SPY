@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
         if(player_Cinemachine_Control.iszoomSPYAction == false)
         transform.Translate( moveVector.normalized * Time.deltaTime * moveSpeed);
         // 인풋매니저로 수정 해야 할듯 함.
-        if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.equip&& Time.time >= nextFireTime)
+        if(Input.GetMouseButton(0)&& weaponControl.weaponState == WeaponControl.WeaponState.pistol&& Time.time >= nextFireTime)
         {
                 animator.SetTrigger("isFire");
                 nextFireTime = Time.time + 1f / fireRate;
@@ -82,12 +82,12 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1))
         {
             weaponControl.WeaponChange(0);
-            weaponControl.weaponState = WeaponControl.WeaponState.none;
+            weaponControl.weaponState = WeaponControl.WeaponState.phone;
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             weaponControl.WeaponChange(1);
-            weaponControl.weaponState = WeaponControl.WeaponState.equip;
+            weaponControl.weaponState = WeaponControl.WeaponState.pistol;
         }
         if(Input.GetKey(KeyCode.Alpha3))
         {
@@ -166,7 +166,7 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetTrigger("isDive");
         }
-        if (Input.GetKeyUp(KeyCode.V)&& isScanerOn == false)
+        if (Input.GetKeyUp(KeyCode.V)&& isScanerOn == false && weaponControl.weaponState == WeaponControl.WeaponState.phone)
         {
             isScanerOn =true;
             player_Scaner.ShowPopup();

@@ -144,7 +144,7 @@ public class Police : MonoBehaviour
             nav.speed = 4f;
             if(navTarget.gameObject.TryGetComponent(out PlayerMove _player)/*SPY AI 추가하기*/)
             {
-                if (_player.weaponControl.weaponState == WeaponControl.WeaponState.equip)
+                if (_player.weaponControl.weaponState == WeaponControl.WeaponState.pistol)
                 {
                     weaponControl.WeaponChange(1); // weapon equip
                     isFire = true;
@@ -257,7 +257,7 @@ public class Police : MonoBehaviour
 
     public void ChaseSpy(Transform _target)
     {
-        weaponControl.weaponState = WeaponControl.WeaponState.equip;
+        weaponControl.weaponState = WeaponControl.WeaponState.pistol;
         weaponControl.WeaponChange(1); // equip weapon
         
         moveTarget  = MoveTarget.spy;
@@ -270,7 +270,7 @@ public class Police : MonoBehaviour
     //TODO 경찰이 플레이어 일정 수준 이상으로 왔을 때, 총을 쏘거나 체포.
     public void ChaseFailed()
     {
-        weaponControl.weaponState = WeaponControl.WeaponState.none;
+        weaponControl.weaponState = WeaponControl.WeaponState.phone;
         weaponControl.WeaponChange(0); // none weapon
         moveTarget  = MoveTarget.road;
         moveState       = MoveState.needNextMove;

@@ -52,17 +52,17 @@ public class UI_News : MonoBehaviour
      
         baseNews_List = new List<string> {
             "오늘 날씨는 매우 맑음 일것으로 예상됩니다. ",
-            "최근 비만 인구가 늘고있는 추세입니다.",
-            "올해의 게임. SPY THE MAN ! 축하합니다!",
+            "최근 비만 인구가 늘고있다는 소식입니다.",
+            "올해의 게임 ! SPY THE MAN ! 축하합니다!",
             "오늘 밤 9시 핫 엉덩이쇼 ! 놓치지 마세요 !",
-            "(광고)핫요가 And 핫초코 동호회 회원 모집 중",
-            "오늘 예비군훈련장에서 예비군이 탈영했습니다.",
+            "(광고) 핫요가 And 핫초코 동호회 회원 모집 중",
+            "오늘 예비군 훈련장에서 예비군이 탈영했습니다.",
             "정부가 교통을 위해 운전자 우선주의를 발표했습니다.",
             "모여라 먼지먼지 ! 청소기 할인행사중 입니다",
             "햄버거 최대 몇개까지?의 연구가 시작됐습니다",
-            "최근 흡연률이 급격하게 증가하고 있습니다.",
+            "최근 흡연율이 급격하게 증가하고 있습니다.",
             "쉰내제과의 사료맛 과자가 인기를 끌고있습니다.",
-            "가수 응가응씨가 신곡(방구뿡)을 발표했습니다",
+            "가수 유교걸씨가 신곡(방구뿡)을 발표했습니다",
             "도시에 스파이가 있다는 소문이 돌고있습니다.",
             "요즘 청년사이에 엉덩이붐 패션이 유행 하고있습니다.",
             "오늘 미세먼지 농도는 어제보다 낮습니다",
@@ -70,7 +70,7 @@ public class UI_News : MonoBehaviour
             "작년 출산율은 재작년보다 감소한 2.0 이였습니다.",
             "올해 예상 우리도시 성장률은 2.1% 입니다.",
             "정부가 자동차세 인하를 검토중 이라고 밝혔습니다",
-            "청년을 위한 방구주택 200가구가 공급 예정입니다.",
+            "청년을 위한 '노답'주택 200가구가 공급 예정입니다.",
             "AI에 의한 일자리 문제가 심각해지고 있습니다",
             "직장인 평균 커피 소비가 증가하고 있습니다.",
             "대머리 소프트의 주식이 8% 올랐습니다.",
@@ -79,6 +79,9 @@ public class UI_News : MonoBehaviour
             "오늘 이웃간 친목 캠페인'빡빡이가 간다' 예정입니다.",
             "자신이 산타라고 주장하는 시민이 나타나 화제입니다.",
             "귓속에 도청 장치가 들어있읍니다 여러분! 귓속에 도청..",
+            "올해 베스트 셀러'책 쓰기 싫다'가 200만권 팔렸습니다.",
+            "해외에서 공격용 드론의 구매자가 많아졌습니다.",
+            
             
         };  //안에 내용 넣음
         playerNews_List = new List<string> { "도시내 총격전이 발생했다는 소식입니다.","괴한이 도심에서 사격을 했습니다.","현재 경찰이 괴한을 지명수배 중 입니다."
@@ -122,7 +125,7 @@ public class UI_News : MonoBehaviour
             newsText.newsText.text = news;
             newsText.newsText.fontSize = 40f;
 
-            yield return new WaitForSeconds(3f); // 각 뉴스 표시 후 잠시 대기
+            yield return new WaitForSeconds(4f); // 각 뉴스 표시 후 잠시 대기
         }
     }
     private IEnumerator NextNewsSet()
@@ -132,7 +135,7 @@ public class UI_News : MonoBehaviour
             print("일반뉴스를 생성했습니다");
             rand = Random.Range(0, baseNews_List.Count);
             AddNews(baseNews_List[rand]);
-            yield return new WaitForSeconds(2.9f);
+            yield return new WaitForSeconds(3.9f);
         }
     }
 

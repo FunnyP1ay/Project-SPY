@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Playercamera : MonoBehaviour
 {
-    public Camera mainCamera; // 메인 카메라
-    public Transform cameraArm;
-    public PlayerMove player;
-    public LayerMask hitLayers;
+    public Camera       mainCamera; // 메인 카메라
+    public Transform    cameraArm;
+    public PlayerMove   player;
+    public LayerMask    hitLayers;
+    public GameObject   target_Prefab;
+    
 
     public bool isZoom = false;
     // Update is called once per frame
@@ -30,6 +32,14 @@ public class Playercamera : MonoBehaviour
                 targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
                 player.transform.LookAt(targetPosition);
                 player.weaponPos.LookAt(targetPosition);
+                if (player.weaponControl.weaponState == WeaponControl.WeaponState.skill)
+                {
+                    target_Prefab.SetActive(true);
+                    
+                    target_Prefab.transform.position = targetPosition;
+                }
+                else
+                    target_Prefab.SetActive(false);
             }
         }
  

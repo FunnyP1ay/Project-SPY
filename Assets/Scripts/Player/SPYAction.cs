@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class SPYAction : MonoBehaviour
 {
-    public bool needChange = false;
-    private int randNum;
-    public List<GameObject> coat_List;
-    public GameObject currentPlayerCoat;
+    public bool                 needChange = false;
+    private int                 randNum;
+    public List<GameObject>     coat_List;
+    public GameObject           currentPlayerCoat;
+    public Player_SkillAtack    player_SkillAtack;
     private void Start()
     {
+        player_SkillAtack = GetComponent<Player_SkillAtack>();
         CoatSetting();
         StartCoroutine(NeedChageCoat());
     }

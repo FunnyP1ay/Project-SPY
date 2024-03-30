@@ -10,16 +10,16 @@ public class WeaponControl : MonoBehaviour
     public GameObject currentWeapon;
     public enum WeaponState
     {
-        none    = 0,
-        equip   = 1,
-        skill   = 2
+        phone    = 0,
+        pistol   = 1,
+        skill    = 2
     }
     public WeaponState weaponState;
     private void Start()
     {
-        weaponState = WeaponState.none;
+        weaponState = WeaponState.phone;
     }
-    public void WeaponChange(int _value)    // 0 = None, 1 = Weapon, 2 = skill
+    public void WeaponChange(int _value)    // 0 = phone, 1 = pistol, 2 = skill
     {
         ResetWeapon();
         weaponList[_value].gameObject.SetActive(true);
