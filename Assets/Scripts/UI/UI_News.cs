@@ -103,7 +103,7 @@ public class UI_News : MonoBehaviour
     public void PlayerNew()
     {
         rand = Random.Range(0, playerNews_List.Count);
-
+      
         playerQueue.Enqueue(playerNews_List[rand]);
     }
     private IEnumerator ShowNewsRoutine()

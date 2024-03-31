@@ -239,6 +239,7 @@ public class Citizen : MonoBehaviour
             nav.speed = 7.5f;
             animator.SetFloat("isMove", nav.speed);
             surprised_Mark.SetActive(true);
+            CityControlData.Instance.safety_Rating -= 0.01f;
         }
       
     }
@@ -314,6 +315,7 @@ public class Citizen : MonoBehaviour
     {
         print("Ω√πŒ¿Ã ªÁ∏¡«ﬂΩ¿¥œ¥Ÿ ! ");
         currentPrefab.SetActive(false);
+        CityControlData.Instance.safety_Rating -= 0.1f;
         MapData.Instance.currentCitizenCount--;
         LeanPool.Despawn(this);
     }

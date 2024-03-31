@@ -155,13 +155,32 @@ public class Mayor : MonoBehaviour
     {
         while(state == State.cityControl)
         {
-            randNum = UnityEngine.Random.Range(0, 3);
-            if (randNum == 0 && MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
-            {
-                mayorsSpawnControl.OperationsPoliceSpawn();
-            }
+
+            OperationCheck();
+            safetyCheck();
             yield return new WaitForSecondsRealtime(20f);
         }
         yield break;
+    }
+
+    private void OperationCheck()
+    {
+        randNum = UnityEngine.Random.Range(0, 3);
+        if (randNum == 0 && MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
+        {
+            mayorsSpawnControl.OperationsPoliceSpawn();
+        }
+
+    }
+    private void safetyCheck()
+    {
+        if(CityControlData.Instance.safety_Rating < 40f)
+        {
+            CityControlData.Instance.approval_Rating -= 1f;
+        }
+        else if(CityControlData.Instance.safety_Rating < 60f)
+        {
+            CityControlData.Instance.approval_Rating -= 0.5f;
+        }
     }
 }

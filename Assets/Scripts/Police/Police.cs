@@ -121,16 +121,19 @@ public class Police : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 3f)
         {
-            switch (moveTarget)
+            switch (moveTarget) // 행동 구현하기
             {
                 case MoveTarget.building:
+                    CityControlData.Instance.safety_Rating += 0.1f;
                     break;
                 case MoveTarget.store:
+                    CityControlData.Instance.safety_Rating += 0.04f;
                     break;
                 case MoveTarget.house:
+                    CityControlData.Instance.safety_Rating += 0.02f;
                     break;
             }
-            // TODO 시민을 빌딩 안으로 이동 시키는 거 구현하기 
+
             nav.updatePosition = false;
             moveState = MoveState.needNextMove;
         }

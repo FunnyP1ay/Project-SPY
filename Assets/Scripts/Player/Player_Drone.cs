@@ -14,6 +14,7 @@ public class Player_Drone : MonoBehaviour
     public float            moveSpeed = 5f;
 
 
+
     private void OnEnable()
     {
         droneCam.Priority = 20;
@@ -23,7 +24,7 @@ public class Player_Drone : MonoBehaviour
 
         MoveToTargetPosition();
     }
-
+    
     private void MoveToTargetPosition()
     {
 
@@ -32,8 +33,6 @@ public class Player_Drone : MonoBehaviour
 
 
             Vector3 direction = (target.position - transform.position).normalized;
-
-
                 transform.Translate(direction * moveSpeed * Time.deltaTime,Space.World);
 
             gameObject.transform.LookAt(target.position);
@@ -59,7 +58,7 @@ public class Player_Drone : MonoBehaviour
     {
         var _boom = LeanPool.Spawn(boom,transform);
         _boom.Play();
-    
+        CityControlData.Instance.safety_Rating -= 0.1f;
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
         player.isDroneAttack = false;
