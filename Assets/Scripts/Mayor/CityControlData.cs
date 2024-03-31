@@ -5,7 +5,7 @@ using UnityEngine;
 public class CityControlData : MonoBehaviour
 {
     private static CityControlData instance;
-    public static CityControlData Instance { get { if (instance == null) return null; return instance; } }
+    public static CityControlData Instance { get { return instance; } }
     private void Awake()
     {
         if (instance == null)
@@ -93,5 +93,28 @@ public class CityControlData : MonoBehaviour
     public void SetApprovalRating(float _value)
     {
         approval_Rating += _value;
+    }
+    public void ResetDATA()
+    {
+        approval_Rating = 90.0f;
+        safety_Rating = 90.0f;
+        citizen_Tax = 0;
+        building_Tax = 0;
+
+        martial_Law = false;
+        travel_Law = false;
+        romance_Law = false;
+        game_Law = false;
+        prohibition_Law = false;
+        cigarette_Law = false;
+        pets_Law = false;
+        tax_Law = false;
+
+        sportEvent_Law = false;
+        freeHair_Law = false;
+        gym_Law = false;
+        parade_Law = false;
+        mayorsMovie_Law = false;
+        hospital_Law = false;
     }
 }

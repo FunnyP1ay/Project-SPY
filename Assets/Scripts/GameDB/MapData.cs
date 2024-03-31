@@ -59,5 +59,15 @@ public class MapData : MonoBehaviour
     public Transform playerPizzaStore_InPos;
     public Transform playerFruitsStore_InPos;
     
+    public void ResetDATA()
+    {
+        foreach(BuildingBlock _block in built_Building_Block_List)
+        {
+            empty_Building_Block_List.Add(_block);
+            built_Building_Block_List.Remove(_block);
+            currentCitizenCount = 0;
+            player_OutPos = null;
+        }
+    }
     
 }

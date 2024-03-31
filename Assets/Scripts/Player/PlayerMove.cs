@@ -189,6 +189,19 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetBool("isRun", false);
         }
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (isOpen == false)
+            {
+                isOpen = true;
+                UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_ClosePanel, false);
+            }
+            else
+            {
+                isOpen = false;
+                UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_ClosePanel, true);
+            }
+        }
         //else if(Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftShift))
        // {
          //   animator.SetBool("isRun", false);
@@ -230,7 +243,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Die()
     {
-        // 죽을 때 애니매이션 이나 게임 종료 !
+        GameManager.Instance.GameOver();
 
     }
 }

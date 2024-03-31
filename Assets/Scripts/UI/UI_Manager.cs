@@ -42,6 +42,8 @@ public class UI_Manager : MonoBehaviour
     public UI_PoliceIcon        ui_PoliceIcon;
     [Header("Event Camera Panel")]
     public UI_EventCarmera      eventCarmera;
+    [Header("Close Panel")]
+    public GameObject           ui_ClosePanel;
     [Header("Law List Panel")]
     public UI_LawListPanel      ui_LawListPanel;
     public List<Sprite>         currentLawIcon_List;
@@ -66,4 +68,6 @@ public class UI_Manager : MonoBehaviour
     {
         _panel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
     }
+
+    
 }

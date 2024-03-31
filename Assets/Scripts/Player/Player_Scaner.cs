@@ -23,7 +23,7 @@ public class Player_Scaner : MonoBehaviour
     }
     IEnumerator ScanerWaitTime()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(1.1f);
         scaner.transform.localScale = Vector3.zero;
         player.isScanerOn = false;
     }

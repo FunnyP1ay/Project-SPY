@@ -23,4 +23,10 @@ public class GameDB : MonoBehaviour
     public List<char> nameChar      = new List<char>();
     public List<char> nameChar_2    = new List<char>();
 
+
+    public void GameColse()
+    {
+        Application.Quit();
+    }
+
 }
