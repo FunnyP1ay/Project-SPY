@@ -322,7 +322,7 @@ public class Citizen : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out DrivingCar _car))
         {
             animator.SetTrigger("isKnockback");
-            print("시민이 넘어졌습니다 ! ");
+       
         }
     }
 }

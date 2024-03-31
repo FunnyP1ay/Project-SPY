@@ -2,13 +2,22 @@ using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using static UnityEngine.ParticleSystem;
 
 public class Player_Drone : MonoBehaviour
 {
     public ParticleSystem   boom;
+    public CinemachineVirtualCamera droneCam;
     public Transform        target;
-    public float            moveSpeed = 5f;
+    public PlayerMove       player;
+    public float            moveSpeed = 20f;
 
+
+    private void OnEnable()
+    {
+        droneCam.Priority = 20;
+    }
     private void Update()
     {
 
@@ -23,6 +32,7 @@ public class Player_Drone : MonoBehaviour
 
             Vector3 direction = (target.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
+            droneCam.gameObject.transform.LookAt(target.position);
         }
         else
         {
@@ -36,12 +46,21 @@ public class Player_Drone : MonoBehaviour
             other.gameObject.TryGetComponent(out Building _2) ||
              other.gameObject.TryGetComponent(out BuildingBlock _3))
         {
-            boom.Play();
+            StartCoroutine(Boom());
         }
+    }
 
-    }
-    public void OnParticleSystemStopped()
+    IEnumerator Boom()
     {
+        var _boom = LeanPool.Spawn(boom,transform);
+        _boom.Play();
+    
+        yield return new WaitForSecondsRealtime(0.2f);
+        droneCam.Priority = 0;
+        player.isDroneAttack = false;
+        //player.player_Cinemachine_Control.playercamera.isZoom = false;
         LeanPool.Despawn(this);
+        print("드론이 목표와 접촉했습니다 !");
     }
+
 }

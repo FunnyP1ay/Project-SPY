@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     // --------------- Player State Check --------------
     [Header("Player State Check")]
     public bool             isBrokenAttack      = false;
+    public bool             isDroneAttack       = false;
     public bool             isGetIn             = false;
     public bool             isPlayerBuilding_In = false;
     public bool             isCoatChange        = false;
@@ -79,8 +80,12 @@ public class PlayerMove : MonoBehaviour
                 animator.SetTrigger("isFire");
                 nextFireTime = Time.time + 1f / fireRate;
         }
-        else if(Input.GetMouseButton(0) && weaponControl.weaponState == WeaponControl.WeaponState.skill)
+        else if(Input.GetMouseButtonUp(0) && weaponControl.weaponState == WeaponControl.WeaponState.skill&& isDroneAttack ==false)
         {
+            isDroneAttack = true;
+
+
+           // player_Cinemachine_Control.playercamera.isZoom = true;
             spyAction.player_SkillAtrack.startPos = this.transform;
             spyAction.player_SkillAtrack.DroneSpawn();
         }

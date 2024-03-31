@@ -9,6 +9,7 @@ public class Player_Cinemachine_Control : MonoBehaviour
     public Playercamera                 playercamera;
     private CinemachineImpulseSource    impulseSource;
     public bool                         iszoomSPYAction = false;
+    public bool                         isDroneSPYAction = false;
 
     private void Start()
     {
@@ -35,6 +36,17 @@ public class Player_Cinemachine_Control : MonoBehaviour
         iszoomSPYAction = false;
         playercamera.isZoom = false;
         zoomVirtualCamera.Priority = 5;
+    }
+
+    public void BroneSPYActionStart()
+    {
+        isDroneSPYAction = true;
+        playercamera.isZoom = true;
+    }
+    public void BroneSPYActionFinsh()
+    {
+        isDroneSPYAction = false;
+        playercamera.isZoom = false;
     }
     //public IEnumerator 
 }
