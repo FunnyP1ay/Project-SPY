@@ -18,10 +18,11 @@ public class Player_SkillAttack : MonoBehaviour
     public void DroneSpawn()
     {
         
-        randNum = Random.Range(0, 50);
+        randNum = Random.Range(20, 50);
         var drone = LeanPool.Spawn(skill_Prefab);
-        drone.gameObject.transform.position = new Vector3(startPos.position.x + randNum, startPos.position.y + 20f, startPos.position.z + randNum);
+        drone.gameObject.transform.position = new Vector3(startPos.position.x + randNum, startPos.position.y + 30f, startPos.position.z + randNum);
         drone.target = skill_targetPos;
+        drone.transform.LookAt(skill_targetPos);
         drone.player = this.player;
     }
    

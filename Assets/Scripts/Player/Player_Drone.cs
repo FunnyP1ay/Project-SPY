@@ -11,7 +11,7 @@ public class Player_Drone : MonoBehaviour
     public CinemachineVirtualCamera droneCam;
     public Transform        target;
     public PlayerMove       player;
-    public float            moveSpeed = 20f;
+    public float            moveSpeed = 5f;
 
 
     private void OnEnable()
@@ -30,9 +30,13 @@ public class Player_Drone : MonoBehaviour
         if (target != null)
         {
 
+
             Vector3 direction = (target.position - transform.position).normalized;
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
-            droneCam.gameObject.transform.LookAt(target.position);
+
+
+                transform.Translate(direction * moveSpeed * Time.deltaTime,Space.World);
+
+            gameObject.transform.LookAt(target.position);
         }
         else
         {
@@ -48,6 +52,7 @@ public class Player_Drone : MonoBehaviour
         {
             StartCoroutine(Boom());
         }
+        StartCoroutine(Boom());
     }
 
     IEnumerator Boom()
