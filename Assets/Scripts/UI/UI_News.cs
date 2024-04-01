@@ -89,9 +89,8 @@ public class UI_News : MonoBehaviour
     }
     void Start()
     {
-
-        StartCoroutine(ShowNewsRoutine());
         StartCoroutine(NextNewsSet());
+        StartCoroutine(ShowNewsRoutine());
     }
 
   
