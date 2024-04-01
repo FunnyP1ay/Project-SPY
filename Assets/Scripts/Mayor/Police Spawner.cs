@@ -53,6 +53,7 @@ public class PoliceSpawner : MonoBehaviour
     public void OperationsPoliceSpawn()
     {
         var spawnPolice = LeanPool.Spawn(policePrefab).GetComponent<Police>();
+        spawnPolice.nav.Warp(MapData.Instance.policeCenterPos.transform.position); // 버그 수정 중 추가한 임시 코드 
         spawnPolice.transform.position = MapData.Instance.policeCenterPos.transform.position;
         spawnPolice.moveState = Police.MoveState.Move;
         spawnPolice.moveTarget = Police.MoveTarget.OperationsTarget;
