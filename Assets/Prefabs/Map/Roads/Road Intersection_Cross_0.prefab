@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &234644598431641014
 Transform:
@@ -45,7 +45,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &6306628654638875373
 Transform:
@@ -74,13 +74,13 @@ GameObject:
   - component: {fileID: 1008744299552806400}
   - component: {fileID: 553463670050752719}
   - component: {fileID: 8470288583021740160}
-  - component: {fileID: 3671832493416696631}
+  - component: {fileID: 5491173113962329735}
   m_Layer: 6
   m_Name: Road Intersection_Cross_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &3785263539709213165
 Transform:
@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7500627268723090834}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 283.98413, y: -1, z: 363.83035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 258539219079410879}
   - {fileID: 8502297811130507822}
   - {fileID: 1618715789495337676}
---- !u!65 &3671832493416696631
+--- !u!65 &5491173113962329735
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,12 +183,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 20, y: 0.20000087, z: 20}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: 0.09999994, z: 0}
 --- !u!1 &8502297811130507822
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &3034894569462957736
 Transform:
@@ -234,7 +234,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &6852186011426951682
 Transform:

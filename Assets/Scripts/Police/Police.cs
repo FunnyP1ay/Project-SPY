@@ -13,6 +13,7 @@ public class Police : MonoBehaviour
    
     CitizenINFO             citizenINFO;
     WeaponControl           weaponControl;
+    Animator                animator;
     public GameObject       question_Mark;
     public GameObject       surprised_Mark;
     public  NavMeshAgent    nav;
@@ -27,6 +28,7 @@ public class Police : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponentInParent<Animator>();
         weaponControl = GetComponent<WeaponControl>();
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
@@ -62,6 +64,8 @@ public class Police : MonoBehaviour
     {
         while (moveState != MoveState.die)
         {
+            animator.SetFloat("isMove", nav.speed); // 애니매이션 세팅
+
             if (moveState == MoveState.needNextMove)
             {
                 SetNextMoveTarget();
@@ -100,7 +104,10 @@ public class Police : MonoBehaviour
                 break;
             default:
                 break;
+               
         }
+        animator.SetFloat("isMove", nav.speed);
+
     }
     private void CheckRoadTargetPos()
     {
@@ -141,7 +148,9 @@ public class Police : MonoBehaviour
     private void CheckSpyTargetPos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < chaseRange) // TODO 밸런스 조절 제일 필요한 부분 
+
+        // 요약 : if (checkDistance < chaseRange) 에 있으면 사격 , 아니면 추적만,   else if (checkDistance > 35f) 이면 추격 종료 
+        if (checkDistance < chaseRange) // TODO 밸런스 조절 제일 필요한 부분  
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
             nav.speed = 4f;
@@ -190,21 +199,29 @@ public class Police : MonoBehaviour
     }
     public IEnumerator Fire()
     {
-        if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
-        {
+       
             while (isFire)
             {
-                print("경찰이 사격합니다");
-                transform.LookAt(navTarget.position);
-                _gun.Fire();
+                animator.SetTrigger("isFire");
                 yield return new WaitForSecondsRealtime(0.5f);
             }
             isFire = false;
             yield break;
+    }
+
+    public void FirePose()
+    {
+        if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
+        {
+            transform.LookAt(navTarget.position);
+            _gun.gameObject.transform.LookAt(navTarget.position);
+            _gun.Fire();
         }
         else
-            isFire = false;
-        yield break;
+        {
+            weaponControl.weaponState = WeaponControl.WeaponState.pistol;
+            weaponControl.WeaponChange(1); // equip weapon
+        }
     }
     //------------------Move Target Setting -----------------
     private void SetNextMoveTarget()
@@ -226,6 +243,7 @@ public class Police : MonoBehaviour
                 SetNavTarget_Road();      // Road
                 break;
         }
+        animator.SetFloat("isMove", nav.speed);
     }
     private void SetNavTarget_Building()
     {
@@ -265,6 +283,7 @@ public class Police : MonoBehaviour
         
         moveTarget  = MoveTarget.spy;
         moveState       = MoveState.Move;
+        nav.speed = 6f;
         nav.updatePosition = true;
         navTarget = _target;
         nav.SetDestination(navTarget.position);
@@ -302,6 +321,15 @@ public class Police : MonoBehaviour
         citizenINFO.nameText.fontSize = 0.5f;
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out DrivingCar _car))
+        {
+            animator.SetTrigger("isKnockback");
+        }
+    }
+
     public void GetDamage(float _damage)
     {
         surprised_Mark.SetActive(true);
@@ -310,13 +338,12 @@ public class Police : MonoBehaviour
         currentHP -= _damage;
         if(currentHP < 0)
         {
-            Die();
+            animator.SetTrigger("isDie");
         }
     }
 
     public void Die()
     {
-        // 죽을 때 애니매이션 
         UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(3);
         MapData.Instance.curretPoliceCount--;
         LeanPool.Despawn(this);
