@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MayorsSpawnControl : MonoBehaviour
 {
-    // TODO Police Spawner
+
     public BuildingSpawner      buildingSpawner;
     public CitizenSpawner       citizenSpawner;
     public PoliceSpawner        policeSpawner;

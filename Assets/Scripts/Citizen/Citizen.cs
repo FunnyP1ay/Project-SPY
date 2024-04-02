@@ -154,7 +154,7 @@ public class Citizen : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 2.5f)
         {
-            //TODO 건물 밖으로 나가게 하는거
+         
             InBuildingTargetSetting(); 
         }
     }

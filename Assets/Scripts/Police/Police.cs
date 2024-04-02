@@ -203,6 +203,7 @@ public class Police : MonoBehaviour
             while (isFire)
             {
                 animator.SetTrigger("isFire");
+                FirePose();
                 yield return new WaitForSecondsRealtime(0.5f);
             }
             isFire = false;
@@ -213,7 +214,7 @@ public class Police : MonoBehaviour
     {
         if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
         {
-            transform.LookAt(navTarget.position);
+            //transform.LookAt(navTarget.position);
             _gun.gameObject.transform.LookAt(navTarget.position);
             _gun.Fire();
         }

@@ -51,7 +51,7 @@ public class SPYAction : MonoBehaviour
     }
     public void ChangeCoat(bool _value)
     {
-        //TODO Player Coat Change 실제로 구현
+        
         print("Change Coat ! ");
         ChangeCoatUI(_value);
     }

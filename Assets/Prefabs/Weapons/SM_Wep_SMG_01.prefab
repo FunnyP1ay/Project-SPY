@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc9193b4baea5040829b1a6f031f08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5325170503614210897, guid: 783f45fb87612a644b586e86a3ef7b0d, type: 3}
+  bullet: {fileID: 1887299858438877395, guid: 783f45fb87612a644b586e86a3ef7b0d, type: 3}
   firePos: {fileID: 6933033034239428952}
   bulletSpeed: 10
 --- !u!1 &6928091187029382162
