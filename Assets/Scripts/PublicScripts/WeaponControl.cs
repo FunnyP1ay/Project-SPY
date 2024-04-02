@@ -15,6 +15,7 @@ public class WeaponControl : MonoBehaviour
         skill    = 2
     }
     public WeaponState weaponState;
+   
     private void Start()
     {
         weaponState = WeaponState.phone;

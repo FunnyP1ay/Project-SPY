@@ -187,7 +187,7 @@ public class Citizen : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask); //, BuildingLayerMask
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 25f, BuildingLayerMask); //, BuildingLayerMask
         if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
@@ -199,11 +199,15 @@ public class Citizen : MonoBehaviour
                 state = State.Move;
             }
         }
+        else
+        {
+            SetNavTarget_Road();
+        }
     }
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, roadLayerMask);
         if(colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
@@ -215,6 +219,12 @@ public class Citizen : MonoBehaviour
                 state = State.Move;
             }
         }
+        else
+        {
+            navTarget = MapData.Instance.NavMesh_Target_Bug_Fix_Pos;
+            nav.SetDestination(navTarget.position);
+        }
+
 
     }
 
@@ -231,10 +241,9 @@ public class Citizen : MonoBehaviour
         else
         {
             checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-            if (checkDistance < 2f)
-            {
-                SetNavTarget_Road();
-            }
+
+            SetNavTarget_Road();
+
             state = State.Run;
             nav.speed = 7.5f;
             animator.SetFloat("isMove", nav.speed);

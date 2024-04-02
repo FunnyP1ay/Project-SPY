@@ -37,12 +37,16 @@ public class Mayor : MonoBehaviour
 
     void Start()
     {
+
+       
+
         state                   = State.cityControl;
         mayorsSpawnControl      = GetComponent<MayorsSpawnControl>();
         mayorsLawControl        = GetComponent<MayorsLawControl>();
         StartCoroutine(CityControl());
         StartCoroutine(TaxCollectionBuilding_AND_LawControl());
         StartCoroutine(SafetyOperations());
+        
     }
     private IEnumerator CityControl()
     {

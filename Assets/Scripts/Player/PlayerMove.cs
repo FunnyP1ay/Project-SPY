@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     public float            moveSpeed           = 5f;
     public float            jumpForce           = 50f;
     public float            rotationSpeed       = 100f;
-    public float            currentHP           = 500;
+    public float            currentHP           = 50;
     private float           fireRate            = 1f;
     private float           nextFireTime        = 0f;
     private int             randNum;
@@ -243,7 +243,14 @@ public class PlayerMove : MonoBehaviour
 
     public void Die()
     {
-        GameManager.Instance.GameOver();
+        currentHP = 50000;
+        StartCoroutine(DiePanel());
 
+    }
+    IEnumerator DiePanel()
+    {
+        UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_DiePenal, false);
+        yield return new WaitForSecondsRealtime(2f);
+        GameManager.Instance.GameOver();
     }
 }

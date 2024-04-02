@@ -8,10 +8,10 @@ public class Player_Mission : MonoBehaviour
     // 데이터를 어떻게 전달해서 미션을 카운팅 하고 갱신할지 고민하기
     List<Player_MissionScritableObject>     playerMisstions;
     int                                     rand;
-    public string                          missionName;
-    public SPYTargetObject                 targetObject;
-    public float                           clearValue;
-    public float                           clearReward;
+    public string                           missionName;
+    public SPYTargetObject                  targetObject;
+    public float                            clearValue;
+    public float                            clearReward;
 
     PlayerMove player;
 

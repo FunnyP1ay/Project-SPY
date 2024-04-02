@@ -49,8 +49,14 @@ public class UI_Manager : MonoBehaviour
     public List<Sprite>         currentLawIcon_List;
     [Header("News Panel")]
     public UI_News              ui_News;
+    [Header("Die Penal")]
+    public GameObject           ui_DiePenal;
 
     
+    public void ResetDATA()
+    {
+        currentLawIcon_List.Clear();
+    }
     public void PopUp(GameObject _panel, bool _value)
     {
         if (_value == false)

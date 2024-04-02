@@ -61,13 +61,15 @@ public class MapData : MonoBehaviour
     
     public void ResetDATA()
     {
-        foreach(BuildingBlock _block in built_Building_Block_List)
-        {
-            empty_Building_Block_List.Add(_block);
-            built_Building_Block_List.Remove(_block);
-            currentCitizenCount = 0;
-            player_OutPos = null;
-        }
+
+
+        empty_Building_Block_List.Clear();
+        built_Building_Block_List.Clear();
+
+        currentCitizenCount = 0;
+        curretPoliceCount = 0;
+        player_OutPos = null;
+        player_InPos = null;
     }
     
 }

@@ -41,6 +41,7 @@ public class PoliceSpawner : MonoBehaviour
 
 
             var spawnPolice = LeanPool.Spawn(policePrefab).GetComponent<Police>();
+            spawnPolice.nav.Warp(MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position);
             spawnPolice.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
             spawnPolice.nav.speed = 3.0f;
             spawnPolice.moveState = Police.MoveState.needNextMove;

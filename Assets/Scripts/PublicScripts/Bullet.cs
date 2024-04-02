@@ -22,6 +22,11 @@ public class Bullet : MonoBehaviour
         {
             LeanPool.Despawn(this.gameObject);
         }
+        if(other.TryGetComponent(out PlayerMove player))
+        {
+            player.GetDamage(20f);
+            LeanPool.Despawn(this.gameObject);
+        }
     }
 
     public void BulletLifeSetting()

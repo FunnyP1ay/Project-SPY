@@ -62,9 +62,7 @@ public class Player_Drone : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
         player.isDroneAttack = false;
-        //player.player_Cinemachine_Control.playercamera.isZoom = false;
         LeanPool.Despawn(this);
-        print("드론이 목표와 접촉했습니다 !");
     }
 
 }

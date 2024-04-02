@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MissionDATA", menuName = "Scripts Objectable/MisstionDATA", order = int.MaxValue)]
-public class Player_MissionScritableObject : MonoBehaviour
+public class Player_MissionScritableObject : ScriptableObject
 {
     [SerializeField]
     private string              missionName;

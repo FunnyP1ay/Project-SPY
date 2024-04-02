@@ -249,7 +249,7 @@ public class Police : MonoBehaviour
     private void SetNavTarget_Building()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, BuildingLayerMask); //, BuildingLayerMask
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 25f, BuildingLayerMask); //, BuildingLayerMask
         if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
@@ -260,11 +260,15 @@ public class Police : MonoBehaviour
                 nav.SetDestination(navTarget.position);
             }
         }
+        else
+        {
+            SetNavTarget_Road();
+        }
     }
     private void SetNavTarget_Road()
     {
         int roadLayerMask = LayerMask.GetMask("Road");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, roadLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 30f, roadLayerMask);
         if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
@@ -272,8 +276,12 @@ public class Police : MonoBehaviour
             {
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
-                nav.SetDestination(navTarget.position);
             }
+        }
+        else
+        {
+            navTarget = MapData.Instance.NavMesh_Target_Bug_Fix_Pos;
+            nav.SetDestination(navTarget.position);
         }
     }
 

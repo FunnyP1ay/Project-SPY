@@ -15,7 +15,7 @@ public class BuildingBlock : MonoBehaviour
     private void Awake()
     {
         currentPrefab = GetComponent<Building>();
-        setVector = 99999f;
+        setVector = 9999f;
         colliders = Physics.OverlapSphere(transform.position,20f, layerMask);
 
             foreach (Collider collider in colliders)
@@ -30,6 +30,8 @@ public class BuildingBlock : MonoBehaviour
                     }
                 }
             }
+
+        MapData.Instance.empty_Building_Block_List.Add(this);
     }
     public void BuildingSpawn(Transform _blockPos, int _value)
     {

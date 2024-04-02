@@ -27,14 +27,15 @@ public class GameManager : MonoBehaviour
     {
         isFirst = false;
         SceneLoader.Instance.SwitchToMainMenu();
+        SceneLoader.Instance.MainMenuButtonSetting();
     }
     public void ResetDATA()
     {
         if (isFirst == false)
         {
-           CityControlData.Instance.ResetDATA();
-           MapData.Instance.ResetDATA();
-
+            CityControlData.Instance.ResetDATA();
+            MapData.Instance.ResetDATA();
+            UI_Manager.Instance.ResetDATA();
         }
     }
     public void MainMenuRaod()
