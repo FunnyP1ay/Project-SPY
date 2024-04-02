@@ -219,12 +219,6 @@ public class Citizen : MonoBehaviour
                 state = State.Move;
             }
         }
-        else
-        {
-            navTarget = MapData.Instance.NavMesh_Target_Bug_Fix_Pos;
-            nav.SetDestination(navTarget.position);
-        }
-
 
     }
 

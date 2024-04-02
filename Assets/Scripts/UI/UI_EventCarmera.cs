@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UI_EventCarmera : MonoBehaviour
 {
+    private void Awake()
+    {
+        UI_Manager.Instance.eventCarmera = this;
+    }
     private void OnEnable()
     {
         StartCoroutine(OnCorutine());

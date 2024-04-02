@@ -13,7 +13,10 @@ public class UI_Coat_Icon : MonoBehaviour
     private bool isRed = false;
     private float elapsedTime = 0f;
 
-    
+    private void Awake()
+    {
+        UI_Manager.Instance.ui_Player_Coat_Icon = this;
+    }
     private void OnEnable()
     { 
         originalColor = Color.clear;

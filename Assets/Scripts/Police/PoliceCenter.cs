@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PoliceCenter : MonoBehaviour
 {
-    public Transform policeSpawnPos;
+    private Transform policeSpawnPos;
     void Start()
     {
+        policeSpawnPos = transform.Find("Police Spawn Pos").transform;
         MapData.Instance.policeCenterPos = policeSpawnPos;
     }
 }

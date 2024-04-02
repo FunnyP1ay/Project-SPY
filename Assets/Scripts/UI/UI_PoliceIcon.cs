@@ -8,6 +8,10 @@ public class UI_PoliceIcon : MonoBehaviour
     public Sprite           policeIcon;
     public int              policeIconCount=0;
     public List<Image>      currentPoliceIcon_List;
+    private void Start()
+    {
+        UI_Manager.Instance.ui_PoliceIcon = this;
+    }
     public void PoliceIconSetting(int _value)
     {
         foreach(Image _image in currentPoliceIcon_List)

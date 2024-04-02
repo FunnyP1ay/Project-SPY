@@ -35,6 +35,11 @@ public class UI_LawListPanel : MonoBehaviour
     public Sprite handstand_Law;
     public Sprite brushingTeeth_Law;
 
+
+    private void Awake()
+    {
+        UI_Manager.Instance.ui_LawListPanel = this;
+    }
     public void LawList_Setting()
     {
        ResetSlotList();

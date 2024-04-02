@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class UI_Key_Icon_Action : MonoBehaviour
 {
     public  GameObject  F_Key_Icon;
+    private void Awake()
+    {
+        UI_Manager.Instance.ui_Key_Icon_Action = this;
+    }
     public void F_Key_SetActive_True()
     {
         F_Key_Icon.SetActive(true);

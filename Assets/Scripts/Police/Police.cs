@@ -278,11 +278,6 @@ public class Police : MonoBehaviour
                 navTarget = _road.navTargetPos_List[randNum].transform;
             }
         }
-        else
-        {
-            navTarget = MapData.Instance.NavMesh_Target_Bug_Fix_Pos;
-            nav.SetDestination(navTarget.position);
-        }
     }
 
     public void ChaseSpy(Transform _target)

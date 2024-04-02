@@ -49,7 +49,7 @@ public class UI_News : MonoBehaviour
 
     private void Awake()
     {
-     
+        UI_Manager.Instance.ui_News = this;
         baseNews_List = new List<string> {
             "오늘 날씨는 매우 맑음 일것으로 예상됩니다. ",
             "최근 비만 인구가 늘고있다는 소식입니다.",
