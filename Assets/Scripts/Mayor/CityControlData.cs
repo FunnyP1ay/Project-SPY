@@ -14,7 +14,7 @@ public class CityControlData : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }

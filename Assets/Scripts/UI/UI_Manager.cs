@@ -20,7 +20,7 @@ public class UI_Manager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DOTween.Init(); // DOTween √ ±‚»≠
         DontDestroyOnLoad(gameObject);
@@ -46,7 +46,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject           ui_ClosePanel;
     [Header("Law List Panel")]
     public UI_LawListPanel      ui_LawListPanel;
-    public List<Sprite>         currentLawIcon_List;
+    public List<Sprite>         currentLawIcon_List = new List<Sprite>();
     [Header("News Panel")]
     public UI_News              ui_News;
     [Header("Die Penal")]

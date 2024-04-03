@@ -18,7 +18,7 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }

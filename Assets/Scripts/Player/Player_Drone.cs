@@ -34,12 +34,12 @@ public class Player_Drone : MonoBehaviour
 
             Vector3 direction = (target.position - transform.position).normalized;
                 transform.Translate(direction * moveSpeed * Time.deltaTime,Space.World);
-
+            
             gameObject.transform.LookAt(target.position);
         }
         else
         {
-            LeanPool.Despawn(this);
+            LeanPool.Despawn(this.gameObject);
         }
     }
 
@@ -62,7 +62,7 @@ public class Player_Drone : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
         player.isDroneAttack = false;
-        LeanPool.Despawn(this);
+        LeanPool.Despawn(this.gameObject);
     }
 
 }

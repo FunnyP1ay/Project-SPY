@@ -183,6 +183,7 @@ public class MayorsLawControl : MonoBehaviour
 
         switch (randNum)
         {
+
             case 0:
                 CityControlData.Instance.sportEvent_Law = CityControlData.Instance.LawStateChange(CityControlData.Instance.sportEvent_Law);
                 if (CityControlData.Instance.sportEvent_Law)
@@ -283,11 +284,13 @@ public class MayorsLawControl : MonoBehaviour
                     print("정부가 병원비 지원을 중단 했습니다.");
                 }
                 break;
+
             default : 
                 break;
 
 
         }
+
     }
 
     public void ComicLawSetting()

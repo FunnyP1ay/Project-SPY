@@ -12566,6 +12566,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221764516}
   m_Mesh: {fileID: 4300006, guid: 005aab8158014df47a1847978384b018, type: 3}
+--- !u!1 &1228517962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1228517964}
+  - component: {fileID: 1228517963}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1228517963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228517962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2354e551bf0e24686bc21bbe780a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityINFOPanel: {fileID: 0}
+  currentCityBuildingTax: {fileID: 0}
+  currentCityCitizenTax: {fileID: 0}
+  currentCityBuildingCount: {fileID: 0}
+  currentMayor_Approval_Rating: {fileID: 0}
+  currentCitizenCount: {fileID: 0}
+  currentSafety_Rating: {fileID: 0}
+  ui_Player_Coat_Icon: {fileID: 0}
+  ui_Key_Icon_Action: {fileID: 0}
+  ui_PoliceIcon: {fileID: 0}
+  eventCarmera: {fileID: 0}
+  ui_ClosePanel: {fileID: 0}
+  ui_LawListPanel: {fileID: 0}
+  currentLawIcon_List: []
+  ui_News: {fileID: 0}
+  ui_DiePenal: {fileID: 0}
+--- !u!4 &1228517964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228517962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1620, y: 300, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315418931
 GameObject:
   m_ObjectHideFlags: 0
@@ -13886,6 +13946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8e77557c8d3b04090496332a978abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
+  closeButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  returnGameButton: {fileID: 0}
 --- !u!1 &2009530999
 GameObject:
   m_ObjectHideFlags: 0
@@ -24271,3 +24335,4 @@ SceneRoots:
   - {fileID: 21073714}
   - {fileID: 1461642894}
   - {fileID: 1997855820}
+  - {fileID: 1228517964}

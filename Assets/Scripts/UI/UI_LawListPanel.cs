@@ -39,6 +39,7 @@ public class UI_LawListPanel : MonoBehaviour
     private void Awake()
     {
         UI_Manager.Instance.ui_LawListPanel = this;
+        this.gameObject.SetActive(false);
     }
     public void LawList_Setting()
     {

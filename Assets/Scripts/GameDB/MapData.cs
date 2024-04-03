@@ -17,7 +17,7 @@ public class MapData : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }

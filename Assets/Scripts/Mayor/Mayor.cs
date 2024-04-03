@@ -168,7 +168,7 @@ public class Mayor : MonoBehaviour
     }
 
     private void OperationCheck()
-    {
+        {
         randNum = UnityEngine.Random.Range(0, 3);
         if (randNum == 0 && MapData.Instance.maxPoliceCount > MapData.Instance.curretPoliceCount && UI_Manager.Instance.ui_PoliceIcon.policeIconCount == 3)
         {

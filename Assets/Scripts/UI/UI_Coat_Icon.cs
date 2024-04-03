@@ -16,6 +16,7 @@ public class UI_Coat_Icon : MonoBehaviour
     private void Awake()
     {
         UI_Manager.Instance.ui_Player_Coat_Icon = this;
+        gameObject.SetActive(false);
     }
     private void OnEnable()
     { 

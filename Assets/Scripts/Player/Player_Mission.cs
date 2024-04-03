@@ -8,11 +8,11 @@ public class Player_Mission : MonoBehaviour
     // 데이터를 어떻게 전달해서 미션을 카운팅 하고 갱신할지 고민하기
     List<Player_MissionScritableObject>     playerMisstions;
     int                                     rand;
-    public string                           missionName;
-    public SPYTargetObject                  targetObject;
-    public float                            clearValue;
-    public float                            clearReward;
-
+    public string                           now_MissionName;
+    public SPYTargetObject                  now_TargetObject;
+    public float                            now_ClearValue;
+    public float                            now_ClearReward;
+    public float                            current_ClearValue;
     PlayerMove player;
 
     private void Awake()
@@ -28,19 +28,24 @@ public class Player_Mission : MonoBehaviour
     {
         rand = Random.Range(0, playerMisstions.Count);
         CurrentMisstionSetting(playerMisstions[rand]);
+        current_ClearValue = 0;
     }
 
     public void CurrentMisstionSetting(Player_MissionScritableObject _value)
     {
-        this.missionName = _value.MissionName;
-        this.targetObject = _value.TargetObject;
-        this.clearValue = _value.ClearValue;
-        this.clearReward = _value.ClearReward;
+        this.now_MissionName = _value.MissionName;
+        this.now_TargetObject = _value.TargetObject;
+        this.now_ClearValue = _value.ClearValue;
+        this.now_ClearReward = _value.ClearReward;
     }
 
-    public void MisstionCounting()
+    public void MisstionCounting(float _value)
     {
-        // 아마 싱글톤으로 받아 와야 할 것 같음
+         current_ClearValue += _value;
+        if(this.current_ClearValue >this.now_ClearValue)
+        {
+            // now_ClearReward 를 플레이어한테 어떻게 줄건지 보상이 무엇으로 줄껀지 기획 하기
+        }
     }
     
 }

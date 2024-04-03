@@ -15,7 +15,7 @@ public class GameDB : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }
