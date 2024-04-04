@@ -9,8 +9,8 @@ public class Player_MissionScritableObject : ScriptableObject
     private string              missionName;
     public string               MissionName { get { return missionName; } set { missionName = value; } }
     [SerializeField]
-    private SPYTargetObject     targetObject;
-    public SPYTargetObject      TargetObject { get { return targetObject; } set { targetObject = value; } }
+    private GameObject          targetObject;
+    public GameObject           TargetObject { get { return targetObject; } set { targetObject = value; } }
     [SerializeField]
     private float               clearValue;
     public float                ClearValue { get { return clearValue; } set { clearValue = value; } }

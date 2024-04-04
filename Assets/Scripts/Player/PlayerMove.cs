@@ -48,6 +48,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        MapData.Instance.chasePlayer_Pos = this.gameObject.transform;
         weaponControl = GetComponent<WeaponControl>();
         spyAction = GetComponent<SPYAction>();
         spy_Target_Object = GetComponent<SPYTargetObject>();

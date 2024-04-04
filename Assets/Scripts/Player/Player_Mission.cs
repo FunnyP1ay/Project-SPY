@@ -9,11 +9,11 @@ public class Player_Mission : MonoBehaviour
     List<Player_MissionScritableObject>     playerMisstions;
     int                                     rand;
     public string                           now_MissionName;
-    public SPYTargetObject                  now_TargetObject;
+    public GameObject                       now_TargetObject;
     public float                            now_ClearValue;
     public float                            now_ClearReward;
     public float                            current_ClearValue;
-    PlayerMove player;
+    private PlayerMove                      player;
 
     private void Awake()
     {
