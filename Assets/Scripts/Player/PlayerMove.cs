@@ -173,6 +173,20 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.ui_LawListPanel.gameObject.SetActive(false);
             }
         }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            if (isOpen == false)
+            {
+                isOpen = true;
+                QuestManager.Instance.player_Mission.Mission_UI_Setting();
+                UI_Manager.Instance.PopUp(QuestManager.Instance.player_Mission.ui_Mission_Panel, false);
+            }
+            else
+            {
+                isOpen = false;
+                UI_Manager.Instance.PopUp(QuestManager.Instance.player_Mission.ui_Mission_Panel, true);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("isDive");

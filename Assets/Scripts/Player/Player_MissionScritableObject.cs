@@ -9,6 +9,9 @@ public class Player_MissionScritableObject : ScriptableObject
     private string              missionName;
     public string               MissionName { get { return missionName; } set { missionName = value; } }
     [SerializeField]
+    private string              missionStory;
+    public string               MissionStory { get { return missionStory; } set { missionStory = value; } }
+    [SerializeField]
     private GameObject          targetObject;
     public GameObject           TargetObject { get { return targetObject; } set { targetObject = value; } }
     [SerializeField]

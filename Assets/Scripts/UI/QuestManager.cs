@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static QuestManager instance;
+    public static QuestManager Instance { get { return instance; } }
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Player_Mission player_Mission;
+
+
 }

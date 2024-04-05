@@ -38,7 +38,8 @@ public class Mayor : MonoBehaviour
     void Start()
     {
 
-       
+        CityControlData.Instance.approval_Rating = 90f;
+        CityControlData.Instance.safety_Rating = 90f;
 
         state                   = State.cityControl;
         mayorsSpawnControl      = GetComponent<MayorsSpawnControl>();

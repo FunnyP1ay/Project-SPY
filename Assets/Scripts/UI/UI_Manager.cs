@@ -52,6 +52,7 @@ public class UI_Manager : MonoBehaviour
     [Header("Die Penal")]
     public GameObject           ui_DiePenal;
 
+
     
     public void ResetDATA()
     {
