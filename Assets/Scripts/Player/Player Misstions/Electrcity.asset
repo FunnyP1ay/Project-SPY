@@ -15,6 +15,6 @@ MonoBehaviour:
   missionName: "\uC804\uB825 \uBB34\uB825\uD654"
   missionStory: "\uB3C4\uC2DC\uC758 \uC804\uB825\uB9DD\uC5D0 \uD0C0\uACA9\uC744 \uC8FC\uC2DC\uAC8C
     !"
-  targetObject: {fileID: 8515669222292056867, guid: 3c5ef1f223c968f418607e2e7f189726, type: 3}
+  mission_Target: 2
   clearValue: 2
   clearReward: 2

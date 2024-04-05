@@ -50,6 +50,7 @@ MonoBehaviour:
   exposedRange: 10
   AttackEffect: {fileID: 8192535095008871688}
   isBroken: 0
+  targetData: 1
 --- !u!65 &-7881435844637669146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,15 +195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 350.163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.132
+      value: 0.419
       objectReference: {fileID: 0}
     - target: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 412.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769263223097545167, guid: c547c296d468f924aa84bfaa6763a31d, type: 3}
       propertyPath: m_LocalRotation.w

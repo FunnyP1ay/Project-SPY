@@ -21,5 +21,4 @@ public class QuestManager : MonoBehaviour
 
     public Player_Mission player_Mission;
 
-
 }

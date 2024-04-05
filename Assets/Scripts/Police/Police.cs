@@ -350,6 +350,7 @@ public class Police : MonoBehaviour
     {
         UI_Manager.Instance.ui_PoliceIcon.PoliceIconSetting(3);
         MapData.Instance.curretPoliceCount--;
+        QuestManager.Instance.player_Mission.mission_Police++;
         LeanPool.Despawn(this);
     }
 

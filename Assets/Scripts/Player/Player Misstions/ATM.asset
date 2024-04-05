@@ -15,6 +15,6 @@ MonoBehaviour:
   missionName: ATM
   missionStory: "\uC8FC\uBCC0\uC5D0 \uBCF4\uC774\uB294 ATM\uAE30\uAE30\uB97C \uD63C\uB0B4\uC8FC\uC2DC\uAC8C
     !"
-  targetObject: {fileID: 1272271882287062, guid: 971885f35036d834d9e87999c41920fe, type: 3}
+  mission_Target: 3
   clearValue: 2
   clearReward: 3

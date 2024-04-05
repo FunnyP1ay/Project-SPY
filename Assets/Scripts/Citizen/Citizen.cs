@@ -320,6 +320,8 @@ public class Citizen : MonoBehaviour
         currentPrefab.SetActive(false);
         CityControlData.Instance.safety_Rating -= 0.1f;
         MapData.Instance.currentCitizenCount--;
+        QuestManager.Instance.player_Mission.mission_Citizen++;
+        QuestManager.Instance.player_Mission.MissionCounting();
         LeanPool.Despawn(this);
     }
     private void OnCollisionEnter(Collision collision)

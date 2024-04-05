@@ -9,63 +9,94 @@ public class Player_Mission : MonoBehaviour
     // 데이터를 어떻게 전달해서 미션을 카운팅 하고 갱신할지 고민하기
 
     [Header("Mission DATA")]
-    public List<Player_MissionScritableObject>      playerMissions;
-    int                                             rand;
-    public string                                   now_MissionName;
-    public string                                   now_MissionStory;
-    public GameObject                               now_TargetObject;
-    public float                                    now_ClearValue;
-    public float                                    now_ClearReward;
-    public float                                    current_ClearValue;
+    public List<Player_MissionScritableObject>  playerMissions;
+    public Player_MissionScritableObject        current_Mission;
+    int rand;
+    public string                               missionName;
+    public string                               missionStory;
+    public float                                clearValue;
+    public float                                clearReward;
+    public float                                now_ClearValue;
     [Header("Mission UI")]
-    public GameObject                               ui_Mission_Panel;
-    public TextMeshProUGUI                          ui_Mission_Name;
-    public TextMeshProUGUI                          ui_Mission_Story;
-    public TextMeshProUGUI                          ui_Mission_CurrentValue;
-    public TextMeshProUGUI                          ui_Mission_ClearValue;
-    public TextMeshProUGUI                          ui_Mission_Reward;
+    public GameObject                           ui_Mission_Panel;
+    public TextMeshProUGUI                      ui_Mission_Name;
+    public TextMeshProUGUI                      ui_Mission_Story;
+    public TextMeshProUGUI                      ui_Mission_CurrentValue;
+    public TextMeshProUGUI                      ui_Mission_ClearValue;
+    public TextMeshProUGUI                      ui_Mission_Reward;
+
+    //-------------------------- Count Value -----------------------------
+    
+    public int                                  mission_Police;
+    public int                                  mission_Citizen;
+    public int                                  mission_Electricity;
+    public int                                  mission_ATM;
+
     private void Awake()
     {
         QuestManager.Instance.player_Mission = this;
+        NextMission();
         gameObject.SetActive(false);
-    }
-    void Start()
-    {
-       NextMission();
     }
 
     public void NextMission()
     {
         rand = Random.Range(0, playerMissions.Count);
         CurrentMissionSetting(playerMissions[rand]);
-        current_ClearValue = 0;
+        current_Mission = playerMissions[rand];
+        now_ClearValue = 0;
     }
 
     public void CurrentMissionSetting(Player_MissionScritableObject _value)
     {
-        this.now_MissionName    = _value.MissionName;
-        this.now_MissionStory   = _value.MissionStory;
-        this.now_TargetObject   = _value.TargetObject;
-        this.now_ClearValue     = _value.ClearValue;
-        this.now_ClearReward    = _value.ClearReward;
+        this.missionName = _value.MissionName;
+        this.missionStory = _value.MissionStory;
+        this.clearValue = _value.ClearValue;
+        this.clearReward = _value.ClearReward;
     }
 
     public void Mission_UI_Setting()
     {
-        ui_Mission_Name.text            = this.now_MissionName;
-        ui_Mission_Story.text           = this.now_MissionStory;
-        ui_Mission_CurrentValue.text    = this.current_ClearValue.ToString();
-        ui_Mission_ClearValue.text      = this.now_ClearValue.ToString();
-        ui_Mission_Reward.text          = this.now_ClearReward.ToString();
+        ui_Mission_Name.text = this.missionName;
+        ui_Mission_Story.text = this.missionStory;
+        ui_Mission_CurrentValue.text = this.now_ClearValue.ToString();
+        ui_Mission_ClearValue.text = this.clearValue.ToString();
+        ui_Mission_Reward.text = this.clearReward.ToString();
     }
 
-    public void MisstionCounting(float _value)
+    public void MissionCounting()
     {
-         current_ClearValue += _value;
-        if(this.current_ClearValue >this.now_ClearValue) // 미션 체크 후 달성 하면 미션 자동 교체
+        switch (current_Mission.mission_Target)
         {
-            NextMission(); 
+            case Player_MissionScritableObject.Mission_Target.Police:
+                now_ClearValue = mission_Police;
+                break;
+            case Player_MissionScritableObject.Mission_Target.Citizen:
+                now_ClearValue = mission_Citizen;
+                break;
+            case Player_MissionScritableObject.Mission_Target.Electricity:
+                now_ClearValue = mission_Electricity;
+                break;
+            case Player_MissionScritableObject.Mission_Target.ATM:
+                now_ClearValue = mission_ATM;
+                break;
+        }
+        CountCheck();
+    }
+    public void CountCheck()
+    {
+        if (this.now_ClearValue >= this.clearValue) // 미션 체크 후 달성 하면 미션 자동 교체
+        {
+            NextMission();
+            QuestReset();
         }
     }
-    
+    public void QuestReset()
+    {
+        mission_Police = 0;
+        mission_Citizen = 0;
+        mission_Electricity = 0;
+        mission_ATM = 0;
+    }
+
 }
