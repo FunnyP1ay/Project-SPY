@@ -11,7 +11,7 @@ public class Player_Mission : MonoBehaviour
     [Header("Mission DATA")]
     public List<Player_MissionScritableObject>  playerMissions;
     public Player_MissionScritableObject        current_Mission;
-    int rand;
+    int                                         rand;
     public string                               missionName;
     public string                               missionStory;
     public float                                clearValue;
@@ -88,6 +88,7 @@ public class Player_Mission : MonoBehaviour
         if (this.now_ClearValue >= this.clearValue) // 미션 체크 후 달성 하면 미션 자동 교체
         {
             NextMission();
+            GetQuestReward();
             QuestReset();
         }
     }
@@ -97,6 +98,31 @@ public class Player_Mission : MonoBehaviour
         mission_Citizen = 0;
         mission_Electricity = 0;
         mission_ATM = 0;
+    }
+    public void GetQuestReward()
+    {
+        rand = Random.Range(0, 3);
+        switch (rand)
+        {
+            case 0:
+                CityControlData.Instance.approval_Rating    -= 0.1f * clearReward;
+                print("미션성공으로 지지율을 떨어트렸습니다 ! ");
+                break;
+            case 1:
+                CityControlData.Instance.safety_Rating      -= 0.1f * clearReward;
+                print("미션성공으로 치안율을 떨어트렸습니다 ! ");
+                break;
+            case 2:
+                CityControlData.Instance.building_Tax       -= 100*(int)clearReward;
+                print("미션성공으로 도시세금을 훔쳤습니다 ! ");
+                break;
+            case 3:
+                CityControlData.Instance.citizen_Tax        -= 100*(int)clearReward;
+                print("미션성공으로 시민세금을 훔쳤습니다 ! ");
+                break;
+            default:
+                break;
+        }
     }
 
 }
