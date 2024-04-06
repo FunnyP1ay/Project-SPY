@@ -17,13 +17,13 @@ public class Citizen_INOUT_Control : MonoBehaviour
     public void  GetInBuilding()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f, BuildingLayerMask);
         if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
 
             if (colliders[randNum].gameObject.TryGetComponent(out GetInBuilding _building))
-                {
+            {
                     _building = colliders[randNum].gameObject.GetComponent<GetInBuilding>();
 
                     switch (_building.buildingDATA) 
@@ -57,23 +57,28 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.PlayerHouse:
+                        citizen.state = Citizen.State.needNextMove;
                             break;
                         default:
-                            break;
+                        citizen.state = Citizen.State.needNextMove;
+                        break;
                     }
                    
                     print(" 건물로 들어갔습니다!");
-                }
+            }
+            else
+            {
+                citizen.state = Citizen.State.needNextMove;
+            }
             
 
         }
     }
     public void GetOutBuilding()
     {
-       
-        this.gameObject.transform.position = outPos.position;
-        citizen.nav.Warp(this.gameObject.transform.position); // 네비메쉬 에이전트의 위치를 업데이트
         this.gameObject.SetActive(true);
+        citizen.nav.Warp(outPos.position); // 네비메쉬 에이전트의 위치를 업데이트
+        this.gameObject.transform.position = outPos.position;
         citizen.nav.enabled = true;
         citizen.OutBuildingSetting();
         print("건물에서 나왔습니다 ! ");

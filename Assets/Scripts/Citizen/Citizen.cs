@@ -106,21 +106,20 @@ public class Citizen : MonoBehaviour
                 CheckRoadTargetPos();
                 break;
         }
-        state = State.needNextMove;
         animator.SetFloat("isMove", nav.speed);
     }
 
     private void CheckRoadTargetPos()
     { 
-        if (navTarget == null)
-        {
-            state = State.needNextMove;
-            return;
-        }
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 3f)
         {
             state = State.needNextMove;
+        }
+        if (navTarget == null)
+        {
+            state = State.needNextMove;
+            return;
         }
 
     }

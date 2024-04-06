@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eea3fac0842e7a47b392cf9c2bec85e, type: 3}
+  m_Name: ATM_2
+  m_EditorClassIdentifier: 
+  missionName: "\uC778\uD130\uB137 \uBC45\uD0B9\uC774\uB098 \uC4F0\uB77C\uAD6C"
+  missionStory: "\uC774 \uB3C4\uC2DC\uC758 \uD604\uAE08\uAC70\uB798 \uD750\uB984\uC744
+    \uBC29\uD574\uD574\uC57C \uD560 \uAC83 \uAC19\uB124. \uC790\uB124\uAC00 ATM \uAE30\uAE30\uC880
+    \uC190 \uBD10\uC8FC\uC2DC\uAC8C."
+  mission_Target: 3
+  clearValue: 3
+  clearReward: 4

@@ -15,8 +15,8 @@ public class PlayerMove : MonoBehaviour
     public float            moveSpeed           = 5f;
     public float            jumpForce           = 50f;
     public float            rotationSpeed       = 100f;
-    public float            currentHP           = 50;
-    private float           fireRate            = 1f;
+    public float            currentHP           = 500f;
+    private float           fireRate            = 2f;
     private float           nextFireTime        = 0f;
     private int             randNum;
 

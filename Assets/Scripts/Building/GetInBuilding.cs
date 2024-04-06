@@ -74,11 +74,15 @@ public class GetInBuilding : MonoBehaviour
     {
         while (true)
         {
-            if (inCitizen_List != null && inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
+            if (inCitizen_List.Count>0&& outBuildingPos != MapData.Instance.player_OutPos)
             {
                 randNum = Random.Range(0, inCitizen_List.Count);
-                inCitizen_List[randNum].gameObject.GetComponent<Citizen_INOUT_Control>().GetOutBuilding();
+                if (inCitizen_List[randNum].gameObject.TryGetComponent(out Citizen_INOUT_Control _inout))
+                {
+                    _inout.GetOutBuilding();
+                }
                 inCitizen_List.RemoveAt(randNum);
+
             }
             yield return new WaitForSecondsRealtime(20f);
         }
