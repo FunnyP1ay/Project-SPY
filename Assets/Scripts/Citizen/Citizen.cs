@@ -90,20 +90,15 @@ public class Citizen : MonoBehaviour
     {
         switch (moveResult)
         {
-            case MoveResult.GetMoney:
-                CheckBuildingTargetPos();
-                break;
-            case MoveResult.TakeMoney:
-                CheckBuildingTargetPos();
-                break;
-            case MoveResult.NoneMoney:
-                CheckBuildingTargetPos();
-                break;
+            
             case MoveResult.InBuilding:
                 Check_Get_In_Building_Move_Pos();
                 break;
             case MoveResult.None:
                 CheckRoadTargetPos();
+                break;
+            default :
+                CheckBuildingTargetPos(); 
                 break;
         }
         animator.SetFloat("isMove", nav.speed);
@@ -141,7 +136,8 @@ public class Citizen : MonoBehaviour
                 case MoveResult.NoneMoney:
                     citizen_INOUT_Control.GetInBuilding();
                     break;
-                    default:
+                default:
+                    state = State.needNextMove;
                     break;
             }
         }
@@ -195,7 +191,7 @@ public class Citizen : MonoBehaviour
             {
                     navTarget = _building.building_NavTargetPoint;
                     nav.SetDestination(navTarget.position);
-                state = State.Move;
+                    state = State.Move;
             }
         }
         else

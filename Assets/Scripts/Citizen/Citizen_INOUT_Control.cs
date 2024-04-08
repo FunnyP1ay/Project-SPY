@@ -73,13 +73,19 @@ public class Citizen_INOUT_Control : MonoBehaviour
             
 
         }
+        else
+        {
+            citizen.state = Citizen.State.needNextMove;
+        }
     }
     public void GetOutBuilding()
     {
-        this.gameObject.SetActive(true);
-        citizen.nav.Warp(outPos.position); // 네비메쉬 에이전트의 위치를 업데이트
         this.gameObject.transform.position = outPos.position;
+        this.gameObject.SetActive(true);
+        if(citizen.nav.enabled ==false)
         citizen.nav.enabled = true;
+
+        citizen.nav.Warp(outPos.position); // 네비메쉬 에이전트의 위치를 업데이트
         citizen.OutBuildingSetting();
         print("건물에서 나왔습니다 ! ");
     }

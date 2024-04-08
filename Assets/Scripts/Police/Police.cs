@@ -103,6 +103,8 @@ public class Police : MonoBehaviour
                 CheckOperations();
                 break;
             default:
+                moveState = MoveState.needNextMove;
+                moveTarget = MoveTarget.None;
                 break;
                
         }
@@ -244,7 +246,9 @@ public class Police : MonoBehaviour
                 SetNavTarget_Road();      // Road
                 break;
         }
+        nav.SetDestination(navTarget.position);
         animator.SetFloat("isMove", nav.speed);
+        moveState = MoveState.Move;
     }
     private void SetNavTarget_Building()
     {
@@ -257,7 +261,7 @@ public class Police : MonoBehaviour
             if (colliders[randNum].gameObject.TryGetComponent(out Building _building))
             {
                 navTarget = _building.building_NavTargetPoint;
-                nav.SetDestination(navTarget.position);
+                moveTarget = MoveTarget.building;
             }
         }
         else
