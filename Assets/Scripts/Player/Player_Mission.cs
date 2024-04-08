@@ -63,7 +63,6 @@ public class Player_Mission : MonoBehaviour
         ui_Mission_ClearValue.text = this.clearValue.ToString();
         ui_Mission_Reward.text = this.clearReward.ToString();
     }
-
     public void MissionCounting()
     {
         switch (current_Mission.mission_Target)
