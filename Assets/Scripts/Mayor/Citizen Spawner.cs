@@ -40,10 +40,9 @@ public class CitizenSpawner : MonoBehaviour
             var spawnCitizen = LeanPool.Spawn(citizenPrefab).GetComponent<Citizen>();
             spawnCitizen.nav.speed = 3.0f;
             spawnCitizen.state = Citizen.State.needNextMove;
-            spawnCitizen.SetName();
+            spawnCitizen.SetINFO();
             spawnCitizen.nav.Warp(MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position);
             spawnCitizen.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
-            spawnCitizen.SetName();
             spawnCitizen.CitizenCoroutineSetting();
             MapData.Instance.currentCitizenCount++;
         }

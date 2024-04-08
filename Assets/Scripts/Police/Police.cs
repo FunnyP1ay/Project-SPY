@@ -64,8 +64,6 @@ public class Police : MonoBehaviour
     {
         while (moveState != MoveState.die)
         {
-            animator.SetFloat("isMove", nav.speed); // 애니매이션 세팅
-
             if (moveState == MoveState.needNextMove)
             {
                 SetNextMoveTarget();
@@ -121,7 +119,7 @@ public class Police : MonoBehaviour
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
         if (checkDistance < 2f)
         {
-            nav.updatePosition = false;
+           
             moveState = MoveState.needNextMove;
         }
     }
@@ -142,8 +140,6 @@ public class Police : MonoBehaviour
                     CityControlData.Instance.safety_Rating += 0.02f;
                     break;
             }
-
-            nav.updatePosition = false;
             moveState = MoveState.needNextMove;
         }
     }
@@ -280,6 +276,7 @@ public class Police : MonoBehaviour
             {
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
+                moveTarget = MoveTarget.road;
             }
         }
     }
@@ -292,7 +289,6 @@ public class Police : MonoBehaviour
         moveTarget  = MoveTarget.spy;
         moveState       = MoveState.Move;
         nav.speed = 6f;
-        nav.updatePosition = true;
         navTarget = _target;
         nav.SetDestination(navTarget.position);
         surprised_Mark.SetActive(true);
@@ -302,9 +298,9 @@ public class Police : MonoBehaviour
     {
         weaponControl.weaponState = WeaponControl.WeaponState.phone;
         weaponControl.WeaponChange(0); // none weapon
-        moveTarget  = MoveTarget.road;
+        moveTarget      = MoveTarget.road;
         moveState       = MoveState.needNextMove;
-        nav.speed = 3f;
+        nav.speed       = 3f;
         PoliceIconControl(-1);
 
         surprised_Mark.SetActive(false);
@@ -344,8 +340,9 @@ public class Police : MonoBehaviour
         ChaseSpy(MapData.Instance.chasePlayer_Pos);
         print("데미지를 입었습니다 ! ");
         currentHP -= _damage;
-        if(currentHP < 0)
+        if(currentHP < 0 && moveState != MoveState.die)
         {
+            moveState = MoveState.die;
             animator.SetTrigger("isDie");
         }
     }

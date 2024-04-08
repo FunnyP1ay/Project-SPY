@@ -8,9 +8,10 @@ public class Citizen : MonoBehaviour
 {
     [SerializeField]
     Transform                   navTarget;
-    public NavMeshAgent         nav;
+   
     CitizenINFO                 citizenINFO;
     Citizen_INOUT_Control       citizen_INOUT_Control;
+    CitizenDemo                 citizenDemo;
     public GameObject           question_Mark;
     public GameObject           surprised_Mark;
     private int                 randNum;
@@ -22,11 +23,13 @@ public class Citizen : MonoBehaviour
     public List<GameObject>     prefab_List;
     public GameObject           currentPrefab;
     public Animator             animator;
+    public NavMeshAgent         nav;
     public bool                 isQuestion_MarkOn = false;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         citizenINFO = GetComponent<CitizenINFO>();
+        citizenDemo = GetComponent<CitizenDemo>();
         animator = GetComponent<Animator>();
         citizen_INOUT_Control = GetComponent<Citizen_INOUT_Control>();
     }
@@ -270,6 +273,10 @@ public class Citizen : MonoBehaviour
 
         CitizenCoroutineSetting();
     }
+    public void EmotionCheck()
+    {
+        citizenINFO.EmotionCheck();
+    }
     public void Question_MarkSet()
     {
         if (isQuestion_MarkOn == false)
@@ -285,8 +292,9 @@ public class Citizen : MonoBehaviour
         isQuestion_MarkOn = false;
         question_Mark.SetActive(false);
     }
-    public void SetName()
+    public void SetINFO()
     {
+        // Name Setting
         randNum = Random.Range(0, GameDB.Instance.nameChar.Count);
         randNum2 = Random.Range(0, GameDB.Instance.nameChar_2.Count);
         randNum3 = Random.Range(0, GameDB.Instance.nameChar_2.Count);
@@ -296,15 +304,22 @@ public class Citizen : MonoBehaviour
 
         citizenINFO.nameText.text = citizenName;
         citizenINFO.nameText.fontSize = 0.5f;
+
+        //emotion Setting
+        randNum = Random.Range(5, 10);
+        citizenINFO.emotionPoint = randNum;
+        citizenINFO.EmotionCheck();
+
     }
     public void GetDamage(float _damage)
     {
         print("데미지를 입었습니다 ! ");
         RunAway();
         currentHP -= _damage;
-        if (currentHP <= 0)
+        if (currentHP <= 0 && state != State.die)
         {
             // 죽을 때 애니매이션 으로 실행시키기
+            state = State.die;
             animator.SetTrigger("isDie");
         }
     }
@@ -313,6 +328,7 @@ public class Citizen : MonoBehaviour
     {
         print("시민이 사망했습니다 ! ");
         currentPrefab.SetActive(false);
+
         CityControlData.Instance.safety_Rating -= 0.1f;
         MapData.Instance.currentCitizenCount--;
         QuestManager.Instance.player_Mission.mission_Citizen++;
