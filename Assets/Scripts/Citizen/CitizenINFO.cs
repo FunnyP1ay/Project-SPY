@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static CitizenINFO;
 
 public class CitizenINFO : MonoBehaviour
@@ -11,7 +12,7 @@ public class CitizenINFO : MonoBehaviour
     private bool            isPanelOn = false;
     public TextMeshProUGUI  nameText;
     public TextMeshProUGUI  moneyText;
-    public Sprite           current_Emotion;
+    public Image            current_Emotion;
     public GameObject       infoPanel;
     public int              money;
     public List<Sprite>     emotion_List;
@@ -35,31 +36,42 @@ public class CitizenINFO : MonoBehaviour
     //infoPanel.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
     public void EmotionCheck()
     {
+        if(CityControlData.Instance.safety_Rating < 60.0f )
+        {
+            emotionPoint -= 0.01f;
+        }
+        else if (CityControlData.Instance.safety_Rating > 80.0f&& emotionPoint < 10f)
+        {
+            emotionPoint += 0.01f;
+        }
+
+        
         if (emotionPoint < 3f)
         {
             emotion = Emotion.bad;
-            current_Emotion = emotion_List[2];
+            current_Emotion.sprite = emotion_List[2];
         }
         else if(emotionPoint < 6f)
         {
             emotion = Emotion.soso;
-            current_Emotion = emotion_List[1];
+            current_Emotion.sprite = emotion_List[1];
         }
         else
         {
             emotion = Emotion.good;
-            current_Emotion = emotion_List[0];
+            current_Emotion.sprite = emotion_List[0];
         }
     }
     public void GetMoney(int _Value)
     {
+        emotionPoint += 0.03f;
         money += _Value;
     }
     public void TakeMoney(int _Cost)
     {
         if (money >= _Cost)
         {
-
+            emotionPoint -= 0.04f;
             money -= _Cost;
             CityControlData.Instance.citizen_Tax += _Cost;
             print("½Ã¹ÎÀÌ ¼¼±ÝÀ» ³Â½À´Ï´Ù !");

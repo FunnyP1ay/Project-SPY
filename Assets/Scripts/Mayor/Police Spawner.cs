@@ -48,7 +48,6 @@ public class PoliceSpawner : MonoBehaviour
             spawnPolice.PoliceSetting();
             spawnPolice.SetName();
             MapData.Instance.curretPoliceCount++;
-            spawnPolice.transform.position = MapData.Instance.built_Building_Block_List[randNum].currentPrefab.building_NavTargetPoint.position;
         }
     }
     public void OperationsPoliceSpawn()
@@ -62,6 +61,7 @@ public class PoliceSpawner : MonoBehaviour
         spawnPolice.PoliceSetting();
         spawnPolice.nav.SetDestination(MapData.Instance.chasePlayer_Pos.position);
         spawnPolice.nav.speed = 8.0f;
+        spawnPolice.animator.SetFloat("isMove", spawnPolice.nav.speed);
         spawnPolice.SetName();
         MapData.Instance.curretPoliceCount++;
     }

@@ -13,7 +13,7 @@ public class Police : MonoBehaviour
    
     CitizenINFO             citizenINFO;
     WeaponControl           weaponControl;
-    Animator                animator;
+    public Animator                animator;
     public GameObject       question_Mark;
     public GameObject       surprised_Mark;
     public  NavMeshAgent    nav;
@@ -131,13 +131,13 @@ public class Police : MonoBehaviour
             switch (moveTarget) // 행동 구현하기
             {
                 case MoveTarget.building:
-                    CityControlData.Instance.safety_Rating += 0.1f;
+                    CityControlData.Instance.safety_Rating += 0.02f;
                     break;
                 case MoveTarget.store:
-                    CityControlData.Instance.safety_Rating += 0.04f;
+                    CityControlData.Instance.safety_Rating += 0.02f;
                     break;
                 case MoveTarget.house:
-                    CityControlData.Instance.safety_Rating += 0.02f;
+                    CityControlData.Instance.safety_Rating += 0.01f;
                     break;
             }
             moveState = MoveState.needNextMove;
@@ -277,6 +277,20 @@ public class Police : MonoBehaviour
                 randNum = Random.Range(0, _road.navTargetPos_List.Count);
                 navTarget = _road.navTargetPos_List[randNum].transform;
                 moveTarget = MoveTarget.road;
+            }
+        }
+        else
+        {
+            Collider[] colliders_2 = Physics.OverlapSphere(transform.position, 50f, roadLayerMask);
+            if (colliders.Length > 0)
+            {
+                randNum = Random.Range(0, colliders.Length);
+                if (colliders_2[randNum].gameObject.TryGetComponent(out Road _road))
+                {
+                    randNum = Random.Range(0, _road.navTargetPos_List.Count);
+                    navTarget = _road.navTargetPos_List[randNum].transform;
+                    moveTarget = MoveTarget.road;
+                }
             }
         }
     }

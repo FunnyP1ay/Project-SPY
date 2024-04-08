@@ -12,4 +12,9 @@ public class CitizenDemo : MonoBehaviour
         citizenINFO = GetComponent<CitizenINFO>();
     }
 
+
+    public void Demo()
+    {
+
+    }
 }

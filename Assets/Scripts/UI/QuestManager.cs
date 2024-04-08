@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public Player_Mission player_Mission;
+    public GameObject       missionClearPanel;
+    public TextMeshProUGUI  missionClearText;
+    public Player_Mission   player_Mission;
 
 }

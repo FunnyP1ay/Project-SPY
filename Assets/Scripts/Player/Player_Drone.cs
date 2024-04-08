@@ -58,7 +58,7 @@ public class Player_Drone : MonoBehaviour
     {
         var _boom = LeanPool.Spawn(boom,transform);
         _boom.Play();
-        CityControlData.Instance.safety_Rating -= 0.1f;
+        CityControlData.Instance.safety_Rating -= 0.3f;
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
         player.isDroneAttack = false;

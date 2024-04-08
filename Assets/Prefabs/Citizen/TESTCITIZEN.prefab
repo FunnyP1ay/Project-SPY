@@ -536,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 2936763951407874413}
   moneyText: {fileID: 2586319186478127539}
-  current_Emotion: {fileID: 21300000, guid: 8fb28920b37fd8347a09c4f70419f3a3, type: 3}
+  current_Emotion: {fileID: 836754525273717848}
   infoPanel: {fileID: 1173899366899339672}
   money: 10
   emotion_List:
@@ -4366,7 +4366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5287149767653988915
 RectTransform:
   m_ObjectHideFlags: 0

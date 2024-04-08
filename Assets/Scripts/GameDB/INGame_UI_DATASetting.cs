@@ -17,10 +17,13 @@ public class INGame_UI_DATASetting : MonoBehaviour
     public TextMeshProUGUI currentCitizenCount;
     public TextMeshProUGUI currentSafety_Rating;
     [Header("Close Panel")]
-    public GameObject ui_ClosePanel;
+    public GameObject       ui_ClosePanel;
     [Header("Die Penal")]
-    public GameObject ui_DiePenal;
-
+    public GameObject       ui_DiePenal;
+    [Header("MissionClear Panel")]
+    public GameObject       ui_MissionClearPanel;
+    public TextMeshProUGUI  missionClearText;
+    [Header("Buttons")]
     public Button mainMenuButton;
     public Button returnGameButton;
 
@@ -50,6 +53,9 @@ public class INGame_UI_DATASetting : MonoBehaviour
 
         UI_Manager.Instance.ui_ClosePanel = this.ui_ClosePanel;
         UI_Manager.Instance.ui_DiePenal = this.ui_DiePenal;
+        
+        QuestManager.Instance.missionClearPanel = this.ui_MissionClearPanel.gameObject;
+        QuestManager.Instance.missionClearText = this.missionClearText;
 
         SceneLoader.Instance.mainMenuButton = this.mainMenuButton;
         SceneLoader.Instance.returnGameButton = this.returnGameButton;

@@ -84,6 +84,9 @@ public class Citizen : MonoBehaviour
             {
                 SetNextMoveTarget();
             }
+
+            EmotionCheck(); // 시민의 감정 컨트롤
+
             yield return new WaitForSecondsRealtime(3f);
         }
         yield break;
@@ -150,7 +153,7 @@ public class Citizen : MonoBehaviour
     private void Check_Get_In_Building_Move_Pos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 2.5f)
+        if (checkDistance < 1.3f)
         {
          
             InBuildingTargetSetting(); 
@@ -180,6 +183,7 @@ public class Citizen : MonoBehaviour
                 SetNavTarget_Road();      // Road : None
                 break;
         }
+        nav.speed = 3f;
         animator.SetFloat("isMove", nav.speed);
     }
     private void SetNavTarget_Building()
@@ -226,9 +230,10 @@ public class Citizen : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, 35f, spyLayerMask);
         if (colliders.Length == 0)
         {
+
             state = State.needNextMove;
-            nav.speed = 0.1f;
             surprised_Mark.SetActive(false);
+
         }
         else
         {
@@ -240,7 +245,9 @@ public class Citizen : MonoBehaviour
             nav.speed = 7.5f;
             animator.SetFloat("isMove", nav.speed);
             surprised_Mark.SetActive(true);
+            citizenINFO.emotionPoint -= 0.01f;
             CityControlData.Instance.safety_Rating -= 0.01f;
+            
         }
       
     }
@@ -281,6 +288,7 @@ public class Citizen : MonoBehaviour
     {
         if (isQuestion_MarkOn == false)
         {
+            CityControlData.Instance.safety_Rating -= 0.01f;
             StartCoroutine(Question_MarkTimer());
         }
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1205734997601703776}
   - component: {fileID: 5072476654129569213}
   - component: {fileID: 3993607661655359032}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Stadium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
