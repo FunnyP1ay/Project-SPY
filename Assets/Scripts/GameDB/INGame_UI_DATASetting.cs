@@ -62,7 +62,7 @@ public class INGame_UI_DATASetting : MonoBehaviour
         SceneLoader.Instance.InGameButtonSetting();
         this.ui_ClosePanel.gameObject.SetActive(false);
         this.ui_DiePenal.gameObject.SetActive(false);
-
+        this.ui_MissionClearPanel.gameObject.SetActive(false);
         this.cityINFOPanel.gameObject.SetActive(false);
 
 
