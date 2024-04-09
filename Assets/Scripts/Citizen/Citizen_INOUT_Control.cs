@@ -80,7 +80,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
     }
     public void GetOutBuilding()
     {
-        citizen.nav.Warp(outPos.position); // 네비메쉬 에이전트의 위치를 업데이트
+        citizen.nav.Warp(outPos.position); // 네비메쉬 에이전트의 위치를 업데이트 자꾸 오류가 뜸
         this.gameObject.transform.position = outPos.position;
         this.gameObject.SetActive(true);
         if(citizen.nav.enabled ==false)

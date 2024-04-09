@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inCitizen_List: []
   buildingDATA: 0
-  outBuildingPos: {fileID: 0}
+  outBuildingPos: {fileID: 5366398637590824344}
 --- !u!65 &163350355637741194
 BoxCollider:
   m_ObjectHideFlags: 0

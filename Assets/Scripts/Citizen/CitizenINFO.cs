@@ -18,6 +18,7 @@ public class CitizenINFO : MonoBehaviour
     public List<Sprite>     emotion_List;
     public float            emotionPoint = 10f;
     public Citizen          citizen;
+    public CitizenDemo      citizenDemo;
 
     public enum Emotion
     {
@@ -28,9 +29,10 @@ public class CitizenINFO : MonoBehaviour
     }
     public Emotion emotion;
 
-    private void Start()
+    private void Awake()
     {
         citizen = GetComponent<Citizen>();
+        citizenDemo = GetComponent<CitizenDemo>();
         cam = Camera.main.transform;
         money = Random.Range(0, 10);
     }
@@ -58,6 +60,7 @@ public class CitizenINFO : MonoBehaviour
         {
             emotion = Emotion.soso;
             current_Emotion.sprite = emotion_List[1];
+            citizenDemo.demoObject.SetActive(false);
         }
         else
         {
@@ -67,14 +70,14 @@ public class CitizenINFO : MonoBehaviour
     }
     public void GetMoney(int _Value)
     {
-        emotionPoint += 0.03f;
+        emotionPoint += 0.07f;
         money += _Value;
     }
     public void TakeMoney(int _Cost)
     {
         if (money >= _Cost)
         {
-            emotionPoint -= 0.04f;
+            emotionPoint -= 0.06f;
             money -= _Cost;
             CityControlData.Instance.citizen_Tax += _Cost;
             print("시민이 세금을 냈습니다 !");
@@ -88,6 +91,7 @@ public class CitizenINFO : MonoBehaviour
         moneyText.fontSize = 0.5f;
         moneyText.text = money.ToString();
         infoPanel.SetActive(true);
+        emotionPoint -= 5f; // Test 코드임 지워야함
         // infoPanel.transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         if (isPanelOn == false)
             StartCoroutine(HidePanelTimer());

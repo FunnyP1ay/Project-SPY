@@ -115,12 +115,12 @@ public class Player_Mission : MonoBehaviour
                 break;
             case 2:
                 CityControlData.Instance.building_Tax       -= 100*(int)clearReward;
-                QuestManager.Instance.missionClearText.text = $"도시 세금을 {100 * (int)clearReward} 만큼 훔쳤습니다.";
+                QuestManager.Instance.missionClearText.text = $"도시 세금을 {10 * (int)clearReward} 만큼 훔쳤습니다.";
                 print("미션성공으로 도시세금을 훔쳤습니다 ! ");
                 break;
             case 3:
                 CityControlData.Instance.citizen_Tax        -= 100*(int)clearReward;
-                QuestManager.Instance.missionClearText.text = $"시민 세금을 {100 * (int)clearReward} 만큼 훔쳤습니다.";
+                QuestManager.Instance.missionClearText.text = $"시민 세금을 {10 * (int)clearReward} 만큼 훔쳤습니다.";
                 print("미션성공으로 시민세금을 훔쳤습니다 ! ");
                 break;
             default:

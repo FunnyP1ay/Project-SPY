@@ -51,7 +51,7 @@ public class MapData : MonoBehaviour
     // ---------------  Player House DATA -------------------------
     [Header("Player IN OUT DATA")]
     public Transform player_InPos;
-    public Transform player_OutPos =null;
+    public Transform player_OutPos;
     [Header("Player InStore DATA")]
     public Transform playerHouse_InPos;
     public Transform playerSuperMarket_InPos;
@@ -68,7 +68,6 @@ public class MapData : MonoBehaviour
 
         currentCitizenCount = 0;
         curretPoliceCount = 0;
-        player_OutPos = null;
         player_InPos = null;
     }
     

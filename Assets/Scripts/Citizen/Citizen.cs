@@ -85,6 +85,7 @@ public class Citizen : MonoBehaviour
                     SetNextMoveTarget();    // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
                     break;
                 case State.Demo:            // 시위를 할 때 발생
+                    citizenDemo.Demo();
                     break;
             }
 

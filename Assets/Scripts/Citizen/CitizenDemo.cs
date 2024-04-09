@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class CitizenDemo : MonoBehaviour
 {
-    Citizen         citizen;
-    CitizenINFO     citizenINFO;
+    Citizen                 citizen;
+    CitizenINFO             citizenINFO;
+    public GameObject       demoObject;
     void Awake()
     {
         citizen = GetComponent<Citizen>();
         citizenINFO = GetComponent<CitizenINFO>();
+        demoObject.SetActive(false);
     }
 
 
@@ -17,5 +19,6 @@ public class CitizenDemo : MonoBehaviour
     {
         citizen.animator.SetBool("isDemo", true);
         CityControlData.Instance.approval_Rating -= 0.01f;
+        demoObject.SetActive(true);
     }
 }
