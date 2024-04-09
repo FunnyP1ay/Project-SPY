@@ -15,6 +15,7 @@ public class CitizenDemo : MonoBehaviour
 
     public void Demo()
     {
-
+        citizen.animator.SetBool("isDemo", true);
+        CityControlData.Instance.approval_Rating -= 0.01f;
     }
 }

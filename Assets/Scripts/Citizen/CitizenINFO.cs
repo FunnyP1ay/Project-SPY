@@ -17,6 +17,7 @@ public class CitizenINFO : MonoBehaviour
     public int              money;
     public List<Sprite>     emotion_List;
     public float            emotionPoint = 10f;
+    public Citizen          citizen;
 
     public enum Emotion
     {
@@ -29,6 +30,7 @@ public class CitizenINFO : MonoBehaviour
 
     private void Start()
     {
+        citizen = GetComponent<Citizen>();
         cam = Camera.main.transform;
         money = Random.Range(0, 10);
     }
@@ -50,6 +52,7 @@ public class CitizenINFO : MonoBehaviour
         {
             emotion = Emotion.bad;
             current_Emotion.sprite = emotion_List[2];
+            citizen.state = Citizen.State.Demo;
         }
         else if(emotionPoint < 6f)
         {

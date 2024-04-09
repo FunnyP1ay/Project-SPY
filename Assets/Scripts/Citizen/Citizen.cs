@@ -48,7 +48,8 @@ public class Citizen : MonoBehaviour
         die,
         needNextMove,
         Move,
-        Run
+        Run,
+        Demo
     }
     public State state;
 
@@ -71,18 +72,20 @@ public class Citizen : MonoBehaviour
         while (state != State.die)
         {
             animator.SetFloat("isMove", nav.speed);
-   
-            if (state == State.Move) // 한번 돌때마다 MoveResult 에 따른 타겟확인을 함
+  
+            switch (state)
             {
-                CheckTargetPos();
-            }
-            if (state == State.Run)
-            {
-                RunAway();
-            }
-            if (state == State.needNextMove) // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
-            {
-                SetNextMoveTarget();
+                case State.Move:
+                    CheckTargetPos();       // 한번 돌때마다 MoveResult 에 따른 타겟확인을 함
+                    break;
+                case State.Run:
+                    RunAway();              // 플레이어에게서 도망 칠 때 발생
+                    break;
+                case State.needNextMove:
+                    SetNextMoveTarget();    // MoveResult과 navtarget을 설정해주고 State를 무조건 move로 바꿈
+                    break;
+                case State.Demo:            // 시위를 할 때 발생
+                    break;
             }
 
             EmotionCheck(); // 시민의 감정 컨트롤
