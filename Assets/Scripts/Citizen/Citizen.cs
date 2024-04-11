@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static Police;
 
 public class Citizen : MonoBehaviour
 {
@@ -130,28 +131,34 @@ public class Citizen : MonoBehaviour
     }
     private void CheckBuildingTargetPos() // Money Cal
     {
-        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 1.2f)
+        if (navTarget == null)
         {
-            switch (moveResult)
+            state = State.needNextMove;
+        }
+        else
+        {
+            checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+            if (checkDistance < 1.2f)
             {
-                case MoveResult.GetMoney:
-                    citizenINFO.GetMoney(1);
-                    citizen_INOUT_Control.GetInBuilding();
-                    break;
-                case MoveResult.TakeMoney: 
-                    citizenINFO.TakeMoney(1);
-                    citizen_INOUT_Control.GetInBuilding();
-                    break;
-                case MoveResult.NoneMoney:
-                    citizen_INOUT_Control.GetInBuilding();
-                    break;
-                default:
-                    state = State.needNextMove;
-                    break;
+                switch (moveResult)
+                {
+                    case MoveResult.GetMoney:
+                        citizenINFO.GetMoney(1);
+                        citizen_INOUT_Control.GetInBuilding();
+                        break;
+                    case MoveResult.TakeMoney:
+                        citizenINFO.TakeMoney(1);
+                        citizen_INOUT_Control.GetInBuilding();
+                        break;
+                    case MoveResult.NoneMoney:
+                        citizen_INOUT_Control.GetInBuilding();
+                        break;
+                    default:
+                        state = State.needNextMove;
+                        break;
+                }
             }
         }
-      
     }
 
     private void Check_Get_In_Building_Move_Pos()

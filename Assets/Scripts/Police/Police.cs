@@ -125,22 +125,29 @@ public class Police : MonoBehaviour
     }
     private void CheckBuildingTargetPos()
     {
-        checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 3f)
+        if (navTarget==null)
         {
-            switch (moveTarget) // 행동 구현하기
-            {
-                case MoveTarget.building:
-                    CityControlData.Instance.safety_Rating += 0.02f;
-                    break;
-                case MoveTarget.store:
-                    CityControlData.Instance.safety_Rating += 0.02f;
-                    break;
-                case MoveTarget.house:
-                    CityControlData.Instance.safety_Rating += 0.01f;
-                    break;
-            }
             moveState = MoveState.needNextMove;
+        }
+        else
+        {
+            checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
+            if (checkDistance < 3f)
+            {
+                switch (moveTarget) // 행동 구현하기
+                {
+                    case MoveTarget.building:
+                        CityControlData.Instance.safety_Rating += 0.02f;
+                        break;
+                    case MoveTarget.store:
+                        CityControlData.Instance.safety_Rating += 0.02f;
+                        break;
+                    case MoveTarget.house:
+                        CityControlData.Instance.safety_Rating += 0.01f;
+                        break;
+                }
+                moveState = MoveState.needNextMove;
+            }
         }
     }
     private void CheckSpyTargetPos()
