@@ -10,6 +10,7 @@ public class Player_SkillAttack : MonoBehaviour
     public Transform    skill_targetPos;
     public Transform    startPos;
     public PlayerMove   player;
+    public Camera       mainCam;
     private void Start()
     {
         player = GetComponent<PlayerMove>();
@@ -22,7 +23,7 @@ public class Player_SkillAttack : MonoBehaviour
         var drone = LeanPool.Spawn(skill_Prefab);
         drone.gameObject.transform.position = new Vector3(startPos.position.x + randNum, startPos.position.y + 30f, startPos.position.z + randNum);
         drone.target = skill_targetPos;
-        drone.transform.LookAt(skill_targetPos);
+        //drone.transform.LookAt(skill_targetPos);
         drone.player = this.player;
     }
    

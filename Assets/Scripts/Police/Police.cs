@@ -58,7 +58,7 @@ public class Police : MonoBehaviour
 
     public void PoliceSetting()
     {
-        StartCoroutine(MoveCoroutine());
+        StartCoroutine(MoveCoroutine()); //
     }
     public IEnumerator MoveCoroutine()
     {
@@ -212,7 +212,7 @@ public class Police : MonoBehaviour
     {
         if (weaponControl.currentWeapon.gameObject.TryGetComponent(out GunFire _gun))
         {
-            //transform.LookAt(navTarget.position);
+            transform.LookAt(navTarget.position);
             _gun.gameObject.transform.LookAt(navTarget.position);
             _gun.Fire();
         }
@@ -242,7 +242,7 @@ public class Police : MonoBehaviour
                 SetNavTarget_Road();      // Road
                 break;
         }
-        nav.SetDestination(navTarget.position);
+        nav.SetDestination(navTarget.position); //  ÀÚ²Ù ¿À·ù¶ä
         animator.SetFloat("isMove", nav.speed);
         moveState = MoveState.Move;
     }

@@ -1029,7 +1029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3245351737930886563}
   - component: {fileID: 3880338301549517200}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: InMovePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1045,7 @@ Transform:
   m_GameObject: {fileID: 2200044729318589367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 0.31, z: -2.954}
+  m_LocalPosition: {x: 2.69, y: 0, z: -2.954}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3055,7 +3055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7546121511159233413}
   - component: {fileID: 119381873908327823}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: InMovePos (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3071,7 +3071,7 @@ Transform:
   m_GameObject: {fileID: 6958286676411023113}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.31, z: -0.64}
+  m_LocalPosition: {x: 0, y: 0, z: -0.64}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3551,7 +3551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7549555165803069708}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: OutDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

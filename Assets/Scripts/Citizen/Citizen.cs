@@ -258,6 +258,7 @@ public class Citizen : MonoBehaviour
     
     public void InBuildingSetting()
     {
+        
         nav.enabled = true;
         state = State.Move;
         nav.speed = 3f;

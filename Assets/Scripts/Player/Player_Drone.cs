@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using static UnityEngine.ParticleSystem;
+using TMPro;
 
 public class Player_Drone : MonoBehaviour
 {
-    public ParticleSystem   boom;
-    public CinemachineVirtualCamera droneCam;
-    public Transform        target;
-    public PlayerMove       player;
-    public float            moveSpeed = 5f;
+    public ParticleSystem       boom;
+    public CinemachineFreeLook  droneCam;
+    public Transform            target;
+    public PlayerMove           player;
+    public LayerMask            layerMask;
+    public float                moveSpeed = 5f;
 
      
 
@@ -30,16 +32,19 @@ public class Player_Drone : MonoBehaviour
 
         if (target != null)
         {
+                target.localRotation = Quaternion.identity;
+
+                // 대상을 바라보는 회전을 계산합니다.
+                Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+
+                // 회전 속도를 기반으로 현재 방향에서 목표 방향까지 회전합니다.
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 60f * Time.deltaTime);
 
 
-            Vector3 direction = (target.position - transform.position).normalized;
-                transform.Translate(direction * moveSpeed * Time.deltaTime,Space.World);
+                Vector3 direction = (target.position - transform.position).normalized;
+                transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
+
             
-            gameObject.transform.LookAt(target.position);
-        }
-        else
-        {
-            LeanPool.Despawn(this.gameObject);
         }
     }
 
@@ -58,6 +63,7 @@ public class Player_Drone : MonoBehaviour
     {
         var _boom = LeanPool.Spawn(boom,transform);
         _boom.Play();
+        BoomDamage();
         CityControlData.Instance.safety_Rating -= 0.3f;
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
@@ -65,4 +71,25 @@ public class Player_Drone : MonoBehaviour
         LeanPool.Despawn(this.gameObject);
     }
 
+    private void BoomDamage()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 5f, layerMask);
+        {
+            foreach(Collider collider in colliders)
+            {
+                if (collider.TryGetComponent(out Citizen citizen))
+                {
+                    citizen.GetDamage(50f);
+                }
+                if(collider.TryGetComponent(out Police police))
+                {
+                    police.GetDamage(50f);
+                }
+                if(collider.TryGetComponent(out Building building))
+                {
+                    building.GetDamage(50f);
+                }
+            }
+        }
+    }
 }
