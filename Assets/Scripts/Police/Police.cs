@@ -158,7 +158,7 @@ public class Police : MonoBehaviour
         if (checkDistance < chaseRange) // TODO 밸런스 조절 제일 필요한 부분  
         {
             // TODO 경찰이 이정도 범위 일 때 총을 사용할지 체포만 할지 정하기
-            nav.speed = 4f;
+            nav.speed = 5f;
             if(navTarget.gameObject.TryGetComponent(out PlayerMove _player)/*SPY AI 추가하기*/)
             {
                 if (_player.weaponControl.weaponState == WeaponControl.WeaponState.pistol)
