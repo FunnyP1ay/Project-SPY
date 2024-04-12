@@ -1922,6 +1922,108 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749186996}
   m_Mesh: {fileID: 4300004, guid: 005aab8158014df47a1847978384b018, type: 3}
+--- !u!1 &759398229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759398230}
+  - component: {fileID: 759398231}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759398230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759398229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 204.43602, y: 240.64273, z: 13.416828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759398231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759398229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7610ae6899d469291022f792eb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  housePrefabs:
+  - {fileID: 8769678542050233018, guid: 6ac0d834accad2346af2283024e8f7e2, type: 3}
+  - {fileID: 6033469506372944817, guid: 0e6bfe26c4d79da4c87fda07de3abf6b, type: 3}
+  - {fileID: -4577759731983698358, guid: 624e699fe57f6e84786b7eb205dde91a, type: 3}
+  - {fileID: -6262058806596826194, guid: b62b5c8f85e1c5043afa75ba7affbdca, type: 3}
+  - {fileID: -1280089460226670278, guid: 25a869a7211c96844aee36b662593e84, type: 3}
+  - {fileID: 757790853582448809, guid: abc1912fd50295b42a91e4633672544f, type: 3}
+  - {fileID: -4332876371437710721, guid: c17a7f69a1e23d44d8438d87e848c63d, type: 3}
+  - {fileID: 2751546216743115510, guid: 0078ba1b3c079a046a57190295b170bb, type: 3}
+  - {fileID: 8270976281380967763, guid: bd067a53754c00c4caf9d143b0790d86, type: 3}
+  - {fileID: 5065028405266555895, guid: 598e55b1e767fba40a8d9d1cc47ec354, type: 3}
+  - {fileID: -5357817242715209450, guid: e46e00735f8db874aafe103ad06372ce, type: 3}
+  - {fileID: -8478456357812225770, guid: 08c465e46a663a74cacd9e6fcfb9f6a4, type: 3}
+  storePrefabs:
+  - {fileID: 6114555061667640132, guid: 0f48911f6a81f74408100161b3a83888, type: 3}
+  - {fileID: 3867381358232564347, guid: 40a03bf1542f6344fae464ddcfc0afbb, type: 3}
+  - {fileID: 3259111710768429194, guid: 5a183661f44bf6647861fb77538552c8, type: 3}
+  - {fileID: 3639350600876077483, guid: 60a0e7f33afdb8c4a97f546acf428cd2, type: 3}
+  - {fileID: 5888342692703018444, guid: b371d0a08c42d9049ba9d16b3695e368, type: 3}
+  - {fileID: 8019093387737201215, guid: 215eb491ddad4e84eb8adc51eae3e906, type: 3}
+  - {fileID: 7725115703965154788, guid: 38b8f297f5a536a43a620bd7b4da948c, type: 3}
+  - {fileID: -4840584851540771819, guid: 3239dd47649066f4cb586bafe33b29f3, type: 3}
+  - {fileID: 3107807345622811032, guid: b2b1ff94918b82649a5f9ef3193598b8, type: 3}
+  - {fileID: 1005740792842566819, guid: f6e4e37fc6d41a549b91142148d7ad28, type: 3}
+  - {fileID: -8050435000470577549, guid: 8036adc5a4a8ae84488f308da494dd7b, type: 3}
+  - {fileID: -4207850048391468916, guid: 5cea3db63b9c11f4f8f5db41378c0390, type: 3}
+  - {fileID: -7605598652748251127, guid: 0d27f58e671b2b74a9b01cac3f2fa051, type: 3}
+  - {fileID: -788145423324881604, guid: 8cd189385756e51439c555d85e690507, type: 3}
+  - {fileID: -1735270383389527292, guid: 781ca5799d160794aad8d57ec0344167, type: 3}
+  buildingPrefabs:
+  - {fileID: 5114979286817625627, guid: aa1b49ad36179cc41a28cbbb7d865e19, type: 3}
+  - {fileID: -8793136163060720000, guid: ab3f94422b4532c4aadd4b9c39f96b48, type: 3}
+  - {fileID: -3155933725409312537, guid: 05e0ce8ab4c355e4b98be6b92e79b5b7, type: 3}
+  - {fileID: -6679889320427238610, guid: 35fbb3af2338fe8429b6b1ecfc7f23e2, type: 3}
+  - {fileID: -6693636179776216242, guid: 532b053057aad0244ad9e08cc7cf86db, type: 3}
+  - {fileID: -3683362726315585390, guid: 7f98886a78209a247b00dc617e27d761, type: 3}
+  - {fileID: -6434858917728751054, guid: 85188e8132e6df047b646282227766a8, type: 3}
+  - {fileID: 2712231309956970615, guid: b292dafd7235081448ea60f69ca187c5, type: 3}
+  - {fileID: 1141814199609087440, guid: 1248fa6353322204b98c28bb5cc5c92e, type: 3}
+  factoryPrefabs: []
+  empty_Building_Block_List: []
+  built_Building_Block_List: []
+  currentCitizenCount: 0
+  maxCitizenCount: 200
+  startPoliceCount: 30
+  curretPoliceCount: 0
+  maxPoliceCount: 80
+  policeCenterPos: {fileID: 0}
+  chasePlayer_Pos: {fileID: 0}
+  NavMesh_Target_Bug_Fix_Pos: {fileID: 0}
+  trafficSignals_List: []
+  player_InPos: {fileID: 0}
+  player_OutPos: {fileID: 0}
+  playerHouse_InPos: {fileID: 0}
+  playerSuperMarket_InPos: {fileID: 0}
+  playerCoatStore_InPos: {fileID: 0}
+  playerPizzaStore_InPos: {fileID: 0}
+  playerFruitsStore_InPos: {fileID: 0}
 --- !u!1 &779349149
 GameObject:
   m_ObjectHideFlags: 0
@@ -12655,6 +12757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f3b68424e991b4e91f11efd7f004b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionClearPanel: {fileID: 0}
+  missionClearText: {fileID: 0}
   player_Mission: {fileID: 0}
 --- !u!4 &1242319496
 Transform:
@@ -13647,6 +13751,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778384648}
   m_Mesh: {fileID: 4300002, guid: 005aab8158014df47a1847978384b018, type: 3}
+--- !u!1 &1795726808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795726810}
+  - component: {fileID: 1795726809}
+  m_Layer: 0
+  m_Name: CityData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1795726809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795726808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f159fe1f4c85c5478e293c4aa893ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  approval_Rating: 90
+  safety_Rating: 90
+  cost_Building: 0
+  cost_Store: 0
+  cost_House: 0
+  citizen_Tax: 0
+  building_Tax: 0
+  martial_Law: 0
+  travel_Law: 0
+  romance_Law: 0
+  game_Law: 0
+  prohibition_Law: 0
+  cigarette_Law: 0
+  pets_Law: 0
+  tax_Law: 0
+  sportEvent_Law: 0
+  freeHair_Law: 0
+  gym_Law: 0
+  parade_Law: 0
+  mayorsMovie_Law: 0
+  hospital_Law: 0
+  marshmallow_Law: 0
+  sleep_Law: 0
+  chocolate_Law: 0
+  pizza_Law: 0
+  goodMorning_Law: 0
+  rockScissorsPaper_Law: 0
+  cola_Law: 0
+  handstand_Law: 0
+  brushingTeeth_Law: 0
+--- !u!4 &1795726810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795726808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 415.99954, y: -53.896355, z: 336.28818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844072042
 GameObject:
   m_ObjectHideFlags: 0
@@ -24374,11 +24552,13 @@ SceneRoots:
   - {fileID: 2121139751}
   - {fileID: 381928547}
   - {fileID: 2009531000}
-  - {fileID: 847339299}
   - {fileID: 436759210}
   - {fileID: 367106820}
   - {fileID: 21073714}
   - {fileID: 1461642894}
+  - {fileID: 847339299}
   - {fileID: 1997855820}
   - {fileID: 1228517964}
   - {fileID: 1242319496}
+  - {fileID: 1795726810}
+  - {fileID: 759398230}

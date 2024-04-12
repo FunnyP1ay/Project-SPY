@@ -1,3 +1,4 @@
+using Cinemachine;
 using Lean.Pool;
 using System;
 using System.Collections;
@@ -40,8 +41,9 @@ public class PlayerMove : MonoBehaviour
     public Player_Scaner                player_Scaner;
     public Animator                     animator;
     public GetInBuilding                currentGetInBuilding;
+    public CinemachineVirtualCamera     allMapCam;
 
-    
+
     public Transform        weaponPos;
     private Vector2         inputVector;
     private Vector3         moveVector;
@@ -153,6 +155,7 @@ public class PlayerMove : MonoBehaviour
             {
                 print("패널을 열었습니다");
                 isOpen = true;
+                allMapCam.Priority = 11;
                 UI_Manager.Instance.currentCityBuildingTax.text         = CityControlData.Instance.building_Tax.ToString();
                 UI_Manager.Instance.currentCityCitizenTax.text          = CityControlData.Instance.citizen_Tax.ToString();
                 UI_Manager.Instance.currentCityBuildingCount.text       = MapData.Instance.built_Building_Block_List.Count.ToString();
@@ -162,11 +165,13 @@ public class PlayerMove : MonoBehaviour
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.cityINFOPanel,false);
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_LawListPanel.gameObject, false);
                 UI_Manager.Instance.ui_LawListPanel.LawList_Setting();
+                
             }
             else if (isOpen == true)
             {
                 print("패널을 닫았습니다.");
                 isOpen = false;
+                allMapCam.Priority = 0;
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.cityINFOPanel, true);
                 UI_Manager.Instance.PopUp(UI_Manager.Instance.ui_LawListPanel.gameObject, true);
                 UI_Manager.Instance.cityINFOPanel.SetActive(false);

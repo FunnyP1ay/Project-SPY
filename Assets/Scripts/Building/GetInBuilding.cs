@@ -56,10 +56,6 @@ public class GetInBuilding : MonoBehaviour
             }
             player.isGetIn = true;
         }
-        if (other.gameObject.TryGetComponent(out Citizen_INOUT_Control citizen))
-        {
-            citizen.outPos = outBuildingPos;
-        }
     }
     private void OnTriggerExit(Collider other)
     {

@@ -38,7 +38,7 @@ public class MapData : MonoBehaviour
     public int                      maxCitizenCount      = 200;
     // ---------------     Police DATA      ----------------------
     [Header("Police DATA")]
-    public int                      startPoliceCount;
+    public int                      startPoliceCount     = 30;
     public int                      curretPoliceCount;
     public int                      maxPoliceCount       = 80;
     public Transform                policeCenterPos;

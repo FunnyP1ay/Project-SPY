@@ -75,19 +75,22 @@ public class Player_Drone : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 5f, layerMask);
         {
-            foreach(Collider collider in colliders)
+            if(colliders.Length > 0)
             {
-                if (collider.TryGetComponent(out Citizen citizen))
+                foreach (Collider collider in colliders)
                 {
-                    citizen.GetDamage(50f);
-                }
-                if(collider.TryGetComponent(out Police police))
-                {
-                    police.GetDamage(50f);
-                }
-                if(collider.TryGetComponent(out Building building))
-                {
-                    building.GetDamage(50f);
+                    if (collider.TryGetComponent(out Citizen citizen))
+                    {
+                        citizen.GetDamage(50f);
+                    }
+                    if (collider.TryGetComponent(out Police police))
+                    {
+                        police.GetDamage(50f);
+                    }
+                    if (collider.TryGetComponent(out Building building))
+                    {
+                        building.GetDamage(50f);
+                    }
                 }
             }
         }

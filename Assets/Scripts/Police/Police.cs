@@ -249,9 +249,17 @@ public class Police : MonoBehaviour
                 SetNavTarget_Road();      // Road
                 break;
         }
-        nav.SetDestination(navTarget.position); //  ÀÚ²Ù ¿À·ù¶ä
-        animator.SetFloat("isMove", nav.speed);
-        moveState = MoveState.Move;
+        if(navTarget != null)
+        {
+            nav.SetDestination(navTarget.position); //  ÀÚ²Ù ¿À·ù¶ä
+            animator.SetFloat("isMove", nav.speed);
+            moveState = MoveState.Move;
+        }
+        else
+        {
+
+        }
+
     }
     private void SetNavTarget_Building()
     {

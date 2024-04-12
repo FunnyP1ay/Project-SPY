@@ -12,9 +12,12 @@ public class BuildingBlock : MonoBehaviour
     Collider[]          colliders;
     public LayerMask    layerMask;
     public Building     currentPrefab;
-    private void Start()
+    private void Awake()
     {
         MapData.Instance.empty_Building_Block_List.Add(this);
+    }
+    private void Start()
+    {
         //currentPrefab = GetComponent<Building>();
         setVector = 9999f;
         colliders = Physics.OverlapSphere(transform.position,20f, layerMask);

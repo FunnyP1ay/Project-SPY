@@ -1,3 +1,4 @@
+using Cinemachine;
 using Cinemachine.Utility;
 using System;
 using System.Collections;
@@ -7,13 +8,13 @@ using UnityEngine;
 
 public class Playercamera : MonoBehaviour
 {
-    public Camera       mainCamera; // 메인 카메라
-    public Transform    cameraArm;
-    public PlayerMove   player;
-    public LayerMask    hitLayers;
-    public GameObject   target_Prefab;
-    public GameObject   playerGun;
-    
+    public Camera                   mainCamera; // 메인 카메라
+    public Transform                cameraArm;
+    public PlayerMove               player;
+    public LayerMask                hitLayers;
+    public GameObject               target_Prefab;
+    public GameObject               playerGun;
+
 
     public bool isZoom = false;
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class Playercamera : MonoBehaviour
 
             if (Physics.Raycast(camRay, out hitInfo, 999f, hitLayers)) // , LayerMask.NameToLayer("Building")
             {
+          
                 // 레이가 충돌한 지점을 바라보도록 플레이어 회전
                 Vector3 targetPosition = hitInfo.point;
                 targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정

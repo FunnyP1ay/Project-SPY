@@ -10,7 +10,7 @@ public class UI_Manager : MonoBehaviour
 {
 
     private static UI_Manager instance;
-    public static UI_Manager Instance { get { if (instance == null) return null; return instance; } }
+    public static UI_Manager Instance { get { return instance; } }
     private void Awake()
     {
         if (instance == null)

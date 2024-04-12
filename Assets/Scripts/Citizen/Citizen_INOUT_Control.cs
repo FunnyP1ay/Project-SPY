@@ -17,7 +17,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
     public void  GetInBuilding()
     {
         int BuildingLayerMask = LayerMask.GetMask("Building");
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f, BuildingLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, BuildingLayerMask);
         if (colliders.Length > 0)
         {
             randNum = Random.Range(0, colliders.Length);
@@ -33,6 +33,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         this.gameObject.transform.position = MapData.Instance.playerSuperMarket_InPos.position;
                         citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
+                        outPos = _building.outBuildingPos;
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.CoatStore:
@@ -40,6 +41,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         this.gameObject.transform.position = MapData.Instance.playerCoatStore_InPos.position;
                         citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
+                        outPos = _building.outBuildingPos;
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.PizzaStore:
@@ -47,6 +49,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         this.gameObject.transform.position = MapData.Instance.playerPizzaStore_InPos.position;
                         citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
+                        outPos = _building.outBuildingPos;
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.FruitsStore:
@@ -54,6 +57,7 @@ public class Citizen_INOUT_Control : MonoBehaviour
                         this.gameObject.transform.position = MapData.Instance.playerFruitsStore_InPos.position;
                         citizen.nav.Warp(this.gameObject.transform.position);
                         _building.inCitizen_List.Add(this.gameObject);
+                        outPos = _building.outBuildingPos;
                         this.gameObject.SetActive(false);
                         break;
                         case BuildingDATA.PlayerHouse:

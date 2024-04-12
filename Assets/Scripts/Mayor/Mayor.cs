@@ -35,19 +35,21 @@ public class Mayor : MonoBehaviour
     public Build_Controls      build_Controls;
     public Police_Controls     police_Controls;
 
-    void Start()
+    void Awake()
     {
-
-        CityControlData.Instance.approval_Rating = 90f;
-        CityControlData.Instance.safety_Rating = 90f;
-
         state                   = State.cityControl;
         mayorsSpawnControl      = GetComponent<MayorsSpawnControl>();
         mayorsLawControl        = GetComponent<MayorsLawControl>();
+        
+    }
+    private void Start()
+    {
+        CityControlData.Instance.approval_Rating = 90f;
+        CityControlData.Instance.safety_Rating = 90f;
+
         StartCoroutine(CityControl());
         StartCoroutine(TaxCollectionBuilding_AND_LawControl());
         StartCoroutine(SafetyOperations());
-        
     }
     private IEnumerator CityControl()
     {

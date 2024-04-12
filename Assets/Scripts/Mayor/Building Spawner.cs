@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
 {
-    public  int     startBuildingCount;
-    public  int     startStoreCount;
-    public  int     startHouseCount;
+    public  int     startBuildingCount = 10 ;
+    public  int     startStoreCount = 30 ;
+    public  int     startHouseCount = 80 ;
 
     private int     randNum;
     public void FirstSpawn()
