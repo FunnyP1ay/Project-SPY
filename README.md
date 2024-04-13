@@ -1,12 +1,4 @@
 # SPY THE MAN
-### [스크린 샷]	
-![게임 대표이미지](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/a65b2a8b-0231-4fcc-9d86-71ec620df171)
-![도시 시점](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/e8be3cb1-53d3-4ce8-94b3-5add040b90db)
-![드론시점](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/0dd9b9d8-3e4c-497a-a9d8-0c00e8fbe097)
-![시민들 정보창](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/af928fba-5363-4b6d-86f6-42fe4b663d74)
-![시위하는 시민들](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/740ac847-9fbb-4ac8-804d-76be2b7c5ec1)
-![안전가옥](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/7fdfb9a6-5e84-431c-a6e7-a72b5dc0e233)
-![퀘스트창](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/1a36f02a-1a5f-447a-bad5-2d8eec8e28f3)
 ### 게임 장르 [3인칭 코믹 액션 어드벤처]
 -----------
 ### 제작 기간 [ 2024년 3월 12일 ~ 현재 지속 개발 중]
@@ -18,6 +10,19 @@
 ### 유튜브 링크
 #### https://youtu.be/46UgXZWGjrE
 -----------
+### [스크린 샷]	
+![게임 대표이미지](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/a65b2a8b-0231-4fcc-9d86-71ec620df171)
+![도시 시점](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/e8be3cb1-53d3-4ce8-94b3-5add040b90db)
+![드론시점](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/0dd9b9d8-3e4c-497a-a9d8-0c00e8fbe097)
+![시민들 정보창](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/af928fba-5363-4b6d-86f6-42fe4b663d74)
+![시위하는 시민들](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/740ac847-9fbb-4ac8-804d-76be2b7c5ec1)
+![안전가옥](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/7fdfb9a6-5e84-431c-a6e7-a72b5dc0e233)
+![퀘스트창](https://github.com/FunnyP1ay/Project-SPY/assets/152964052/1a36f02a-1a5f-447a-bad5-2d8eec8e28f3)
+----------
+### 게임 플레이
+
+#### 다양한 지령을 받고 SPY 액션을 통해 도시의 말썽 꾸러기가 되어보자 !
+----------
 ### 왜 이 프로젝트를 기획했나?
 
 #### SPY가 되어 코믹한 SPY 액션을 하는 게임을 만들고 싶었다.
