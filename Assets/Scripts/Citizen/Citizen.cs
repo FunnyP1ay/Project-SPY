@@ -138,7 +138,7 @@ public class Citizen : MonoBehaviour
         else
         {
             checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-            if (checkDistance < 1.2f)
+            if (checkDistance < 1.8f)
             {
                 switch (moveResult)
                 {
@@ -164,7 +164,7 @@ public class Citizen : MonoBehaviour
     private void Check_Get_In_Building_Move_Pos()
     {
         checkDistance = Vector3.Distance(gameObject.transform.position, navTarget.transform.position);
-        if (checkDistance < 1.3f)
+        if (checkDistance < 2f)
         {
          
             InBuildingTargetSetting(); 
