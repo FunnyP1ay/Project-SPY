@@ -126,7 +126,7 @@ public class Player_Mission : MonoBehaviour
             default:
                 break;
         }
-        if(!QuestManager.Instance.missionClearPanel.activeSelf)
+
         StartCoroutine(closePanel());
     }
     IEnumerator closePanel()
