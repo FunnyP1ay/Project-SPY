@@ -20,7 +20,10 @@ public class Playercamera : MonoBehaviour
     public GameObject               Aim;
     public Transform                midCamVec;
     Vector3                         targetPosition;
-    public Vector3                  camRecentering;
+    Vector3                         weaponPosition;
+
+    public Vector3                  recenterRotation;
+    public float                    camRecenteringCal;
 
 
     public bool isZoom = false;
@@ -35,7 +38,6 @@ public class Playercamera : MonoBehaviour
         {
         //  LookAround();
         transform.position = player.transform.position;
-            player.weaponPos.LookAt(targetPosition);
 
             Ray camRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
@@ -48,7 +50,9 @@ public class Playercamera : MonoBehaviour
                  targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
                
                 player.transform.LookAt(targetPosition);
-                player.weaponPos.LookAt(targetPosition);
+
+                weaponPosition = hitInfo.point;
+                player.weaponPos.LookAt(weaponPosition);
 
                 // 드론 세팅
 
@@ -66,14 +70,27 @@ public class Playercamera : MonoBehaviour
                 }
             }
         }
+       
+        Ray recenterRay = new Ray(player.transform.position, player.transform.forward);
+        Vector3 newRecenterPosition = recenterRay.origin + recenterRay.direction * 10f; // 레이의 방향으로 위치 설정
+        Aim.transform.position = newRecenterPosition;
+
+        // ★★★현재 카메라의 회전값을 저장★★★
+        Quaternion currentRotation = Aim.transform.rotation;
+        // 메인 카메라의 화면 정중앙 계산
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
-        Ray recenterRay = mainCamera.ScreenPointToRay(screenCenter);
 
-        Vector3 newPosition = recenterRay.origin + recenterRay.direction * 10f; // 레이의 방향으로 위치 설정
-        Aim.transform.position = newPosition;
-      
-  
+        // 레이의 시작 위치 
+        Ray mainCamRay = mainCamera.ScreenPointToRay(screenCenter);
+        // 메인카메라 정중앙으로 레이를 15f 만큼 쏨
+        Vector3 mainCamCenter = mainCamRay.origin + mainCamRay.direction * 15f;
+        // 원하는 방향을 향하도록 회전 각도 계산
+        Vector3 direction =  mainCamCenter - newRecenterPosition;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
 
+        // 부드럽게 회전시키기
+        float rotationSpeed = 30f; // 회전 속도 설정
+        Aim.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
     IEnumerator Camera_MidSetting()
     {

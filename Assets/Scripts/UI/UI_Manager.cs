@@ -67,14 +67,15 @@ public class UI_Manager : MonoBehaviour
     }
     private void ShowPopUp(GameObject _panel)
     {
-        _panel.transform.localScale = Vector3.zero;
+        
         _panel.gameObject.SetActive(true);
+        _panel.transform.localScale = Vector3.zero;
         _panel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
     } 
     private void HidePopUp(GameObject _panel)
     {
         _panel.transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
-        _panel.gameObject.SetActive(false);
+       
     }
 
     

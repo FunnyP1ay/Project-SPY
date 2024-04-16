@@ -86,8 +86,8 @@ public class Player_Mission : MonoBehaviour
     {
         if (this.now_ClearValue >= this.clearValue) // 미션 체크 후 달성 하면 미션 자동 교체
         {
-            NextMission();
             GetQuestReward();
+            NextMission();
             QuestReset();
         }
     }
@@ -127,7 +127,7 @@ public class Player_Mission : MonoBehaviour
                 break;
         }
 
-        StartCoroutine(closePanel());
+        StartCoroutine(closePanel()); // 계속 오류남
     }
     IEnumerator closePanel()
     {
