@@ -75,6 +75,7 @@ public class Playercamera : MonoBehaviour
         Vector3 newRecenterPosition = recenterRay.origin + recenterRay.direction * 10f; // 레이의 방향으로 위치 설정
         Aim.transform.position = newRecenterPosition;
 
+        /*
         // ★★★현재 카메라의 회전값을 저장★★★
         Quaternion currentRotation = Aim.transform.rotation;
         // 메인 카메라의 화면 정중앙 계산
@@ -91,6 +92,7 @@ public class Playercamera : MonoBehaviour
         // 부드럽게 회전시키기
         float rotationSpeed = 30f; // 회전 속도 설정
         Aim.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+        */
     }
     IEnumerator Camera_MidSetting()
     {

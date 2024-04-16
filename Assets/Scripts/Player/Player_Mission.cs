@@ -36,7 +36,8 @@ public class Player_Mission : MonoBehaviour
     {
         QuestManager.Instance.player_Mission = this;
         NextMission();
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        transform.localScale = Vector3.zero;
     }
 
     public void NextMission()
