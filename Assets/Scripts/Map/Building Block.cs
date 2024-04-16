@@ -15,9 +15,25 @@ public class BuildingBlock : MonoBehaviour
     private void Awake()
     {
         MapData.Instance.empty_Building_Block_List.Add(this);
+        setVector = 9999f;
+        colliders = Physics.OverlapSphere(transform.position, 20f, layerMask);
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent(out Road road))
+            {
+                float calDistance = Vector3.Distance(transform.position, road.transform.position);
+                if (setVector > calDistance)
+                {
+                    setVector = calDistance;
+                    target = road.transform;
+                }
+            }
+        }
     }
     private void Start()
     {
+        /*
         //currentPrefab = GetComponent<Building>();
         setVector = 9999f;
         colliders = Physics.OverlapSphere(transform.position,20f, layerMask);
@@ -33,7 +49,7 @@ public class BuildingBlock : MonoBehaviour
                         target = road.transform;
                     }
                 }
-            }
+            }*/
 
     }
     public void BuildingSpawn(Transform _blockPos, int _value)
