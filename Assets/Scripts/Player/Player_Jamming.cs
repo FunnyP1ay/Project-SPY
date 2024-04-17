@@ -17,12 +17,13 @@ public class Player_Jamming : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent(out CitizenINFO citizen))
+        if(other.gameObject.TryGetComponent(out Citizen citizen))
         {
-            citizen.emotionPoint -= 5f;
+            citizen.citizenINFO.emotionPoint -= 5f;
+            citizen.Question_MarkSet();
             LeanPool.Despawn(this.gameObject);
         }
-        else
+        else if(other!= null)
         {
             LeanPool.Despawn(this.gameObject);
         }

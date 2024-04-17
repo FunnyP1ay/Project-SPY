@@ -10,7 +10,7 @@ public class Citizen : MonoBehaviour
     [SerializeField]
     Transform                   navTarget;
    
-    CitizenINFO                 citizenINFO;
+    public CitizenINFO          citizenINFO;
     Citizen_INOUT_Control       citizen_INOUT_Control;
     CitizenDemo                 citizenDemo;
     public GameObject           question_Mark;
