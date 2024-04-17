@@ -23,7 +23,7 @@ public class Player_Jamming : MonoBehaviour
             citizen.Question_MarkSet();
             LeanPool.Despawn(this.gameObject);
         }
-        else if(other!= null)
+        if(other!= null)
         {
             LeanPool.Despawn(this.gameObject);
         }

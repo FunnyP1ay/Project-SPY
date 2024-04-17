@@ -92,7 +92,7 @@ public class PlayerMove : MonoBehaviour
             spyAction.player_SkillAtrack.startPos = this.transform;
             spyAction.player_SkillAtrack.DroneSpawn();
         }
-        else if( Input.GetMouseButton(0) && weaponControl.weaponState == WeaponControl.WeaponState.phone)
+        else if( Input.GetMouseButtonUp(0) && weaponControl.weaponState == WeaponControl.WeaponState.phone)
         {
             spyAction.player_SkillAtrack.JammingAttack();
         }
