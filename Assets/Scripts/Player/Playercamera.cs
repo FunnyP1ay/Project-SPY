@@ -59,14 +59,15 @@ public class Playercamera : MonoBehaviour
 
                 // 드론 세팅
 
-                if (player.weaponControl.weaponState == WeaponControl.WeaponState.skill&&hitInfo.point!=null)
+                if (( player.weaponControl.weaponState == WeaponControl.WeaponState.skill)
+                    || player.weaponControl.weaponState == WeaponControl.WeaponState.phone
+                     &&  hitInfo.point!=null)
                 {
                     target_Prefab.SetActive(true);
                     target_Prefab.transform.position = targetPosition;
                     target_Prefab.transform.rotation = Quaternion.Euler(90f, 0f, 0f); // 회전 못하게 수정
                     player.spyAction.player_SkillAtrack.skill_targetPos = target_Prefab.transform;
                 }
-
                 else
                 {
                     target_Prefab.SetActive(false);

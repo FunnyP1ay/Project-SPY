@@ -26,5 +26,10 @@ public class Player_SkillAttack : MonoBehaviour
         //drone.transform.LookAt(skill_targetPos);
         drone.player = this.player;
     }
-   
+
+    public void Jammingattack()
+    {
+       
+    }
+
 }
