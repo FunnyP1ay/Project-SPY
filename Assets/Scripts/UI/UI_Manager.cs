@@ -51,9 +51,11 @@ public class UI_Manager : MonoBehaviour
     public UI_News              ui_News;
     [Header("Die Penal")]
     public GameObject           ui_DiePenal;
+    [Header("Drone View Panel")]
+    public GameObject           droneViewPanel;
 
 
-    
+
     public void ResetDATA()
     {
         currentLawIcon_List.Clear();

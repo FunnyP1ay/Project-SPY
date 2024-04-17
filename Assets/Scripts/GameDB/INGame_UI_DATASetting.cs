@@ -25,6 +25,8 @@ public class INGame_UI_DATASetting : MonoBehaviour
     [Header("Buttons")]
     public Button mainMenuButton;
     public Button returnGameButton;
+    [Header("Drone View Panel")]
+    public GameObject       droneViewPanel;
 
     void Start()
     {
@@ -52,6 +54,7 @@ public class INGame_UI_DATASetting : MonoBehaviour
 
         UI_Manager.Instance.ui_ClosePanel = this.ui_ClosePanel;
         UI_Manager.Instance.ui_DiePenal = this.ui_DiePenal;
+        UI_Manager.Instance.droneViewPanel = this.droneViewPanel;
         
         QuestManager.Instance.missionClearPanel = this.ui_MissionClearPanel.gameObject;
         QuestManager.Instance.missionClearText = this.missionClearText;
@@ -63,6 +66,7 @@ public class INGame_UI_DATASetting : MonoBehaviour
         this.ui_DiePenal.gameObject.SetActive(false);
         this.ui_MissionClearPanel.gameObject.SetActive(false);
         this.cityINFOPanel.gameObject.SetActive(false);
+        this.droneViewPanel.gameObject.SetActive(false);
 
 
     }

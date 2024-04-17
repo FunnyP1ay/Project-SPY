@@ -20,6 +20,7 @@ public class Player_Drone : MonoBehaviour
     private void OnEnable()
     {
         droneCam.Priority = 20;
+        UI_Manager.Instance.droneViewPanel.SetActive(true);
     }
     private void Update()
     {
@@ -65,6 +66,7 @@ public class Player_Drone : MonoBehaviour
         _boom.Play();
         BoomDamage();
         CityControlData.Instance.safety_Rating -= 0.3f;
+        UI_Manager.Instance.droneViewPanel.SetActive(false);
         yield return new WaitForSecondsRealtime(0.2f);
         droneCam.Priority = 0;
         player.isDroneAttack = false;
