@@ -94,7 +94,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if( Input.GetMouseButton(0) && weaponControl.weaponState == WeaponControl.WeaponState.phone)
         {
-            spyAction.player_SkillAtrack.Jammingattack();
+            spyAction.player_SkillAtrack.JammingAttack();
         }
         if (Input.GetKey(KeyCode.Alpha1))
         {

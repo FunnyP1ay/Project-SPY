@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,9 @@ using UnityEngine;
 
 public class Player_SkillAttack : MonoBehaviour
 {
-    public Player_Drone skill_Prefab;
+    public Player_Drone     skill_Prefab;
+    public Player_Jamming   jamming_Prefab;
+
     public Transform    skill_targetPos;
     public Transform    startPos;
     public PlayerMove   player;
@@ -27,9 +30,14 @@ public class Player_SkillAttack : MonoBehaviour
         drone.player = this.player;
     }
 
-    public void Jammingattack()
+    public void JammingAttack()
     {
-       
+        randNum = Random.Range(-5, 6);
+        var jamming = LeanPool.Spawn(jamming_Prefab);
+        jamming.target = skill_targetPos;
+        jamming.transform.position = new Vector3(skill_targetPos.position.x + randNum, skill_targetPos.position.y + 20f, skill_targetPos.position.z + randNum);
+
+
     }
 
 }
