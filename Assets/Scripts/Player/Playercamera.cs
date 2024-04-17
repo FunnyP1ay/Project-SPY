@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Playercamera : MonoBehaviour
 {
@@ -47,9 +48,11 @@ public class Playercamera : MonoBehaviour
           
                 // 레이가 충돌한 지점을 바라보도록 플레이어 회전
                  targetPosition = hitInfo.point;
-                 targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
                
-                player.transform.LookAt(targetPosition);
+                 targetPosition.y = player.transform.position.y; // 플레이어의 높이를 고려하여 y값 설정
+
+                //player.transform.LookAt(targetPosition);
+                player.transform.forward =  (hitInfo.point - player.transform.position).normalized;
 
                 weaponPosition = hitInfo.point;
                 player.weaponPos.LookAt(weaponPosition);
