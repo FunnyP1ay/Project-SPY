@@ -52,6 +52,8 @@ public class Playercamera : MonoBehaviour
 
                 //player.transform.LookAt(targetPosition);
                 player.transform.forward =  (hitInfo.point - player.transform.position).normalized;
+                // X 축 회전값을 0으로 설정하여 고정합니다.
+                player.transform.rotation = Quaternion.Euler(0f, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
 
                 weaponPosition = hitInfo.point;
                 player.weaponPos.LookAt(weaponPosition);
