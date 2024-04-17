@@ -27,6 +27,7 @@ public class INGame_UI_DATASetting : MonoBehaviour
     public Button returnGameButton;
     [Header("Drone View Panel")]
     public GameObject       droneViewPanel;
+    public TextMeshProUGUI  targetDistance;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class INGame_UI_DATASetting : MonoBehaviour
         UI_Manager.Instance.ui_ClosePanel = this.ui_ClosePanel;
         UI_Manager.Instance.ui_DiePenal = this.ui_DiePenal;
         UI_Manager.Instance.droneViewPanel = this.droneViewPanel;
+        UI_Manager.Instance.targetDistance = this.targetDistance;
         
         QuestManager.Instance.missionClearPanel = this.ui_MissionClearPanel.gameObject;
         QuestManager.Instance.missionClearText = this.missionClearText;

@@ -53,6 +53,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject           ui_DiePenal;
     [Header("Drone View Panel")]
     public GameObject           droneViewPanel;
+    public TextMeshProUGUI      targetDistance;
 
 
 

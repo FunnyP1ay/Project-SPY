@@ -14,6 +14,7 @@ public class Player_Drone : MonoBehaviour
     public PlayerMove           player;
     public LayerMask            layerMask;
     public float                moveSpeed = 5f;
+    public float                targetDistance;
 
      
 
@@ -45,7 +46,10 @@ public class Player_Drone : MonoBehaviour
                 Vector3 direction = (target.position - transform.position).normalized;
                 transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
 
-            
+                // 드론과 마우스 포지션 거리 계산
+                targetDistance = Vector3.Distance(transform.position, target.position);
+                UI_Manager.Instance.targetDistance.text = targetDistance.ToString("F2");
+
         }
     }
 
